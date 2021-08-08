@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react"
+import React, { useState, useContext } from "react"
 import {AuthContext} from '../contexts/AuthContext'
 import {RoleContext} from '../contexts/RoleContext'
 import { Form, Button, Alert } from 'react-bootstrap'
@@ -11,7 +11,9 @@ export default function Login({history}){
     const [password, setPassword] = useState()
     const [showAlert, setShowAlert] = useState(false)
     const { setAuthData } = useContext(AuthContext)
-    const { role, setRoleData } = useContext(RoleContext)
+    const { setRoleData } = useContext(RoleContext)
+
+    //on Submit log in the user and redirect to annother page
     const onFormSubmit = async e => {
         e.preventDefault()
         let fetchedData
@@ -38,6 +40,7 @@ export default function Login({history}){
         history.replace('/')
     }
 
+    //after login activate the role, means that the systems knows which role is activated right now
     const activateRole = async (id) =>  {
         await fetch('http://localhost:9000/role/get-role/' + id)
             .then(response => response.json())
@@ -51,7 +54,7 @@ export default function Login({history}){
                     <div className="registrationHeader">
                         <p className="squareLeft">&#9725;</p>
                         <p className="squareRight">&#9725;</p>
-                        <img src={ProfilePicturePlaceholder} className="image"/>                 
+                        <img src={ProfilePicturePlaceholder} className="image" alt="Profile"/>                 
                     </div> 
                     <div className="loginBody">
                         <Form.Group>

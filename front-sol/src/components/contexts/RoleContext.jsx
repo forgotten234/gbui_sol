@@ -1,6 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
 
-
 //Context to check which role is activated in the moment
 export const RoleContext = createContext({});
 

@@ -3,9 +3,9 @@ import './App.css';
 import WelcomePage from './components/main/WelcomePage';
 import React from 'react'
 import { Switch, Route } from "react-router-dom"
-import PrivateRoute from './components/routes/PrivateRoute'
 import Registration from './components/registration/Registration'
 import Login from './components/login/Login'
+import Settings from './components/settings/Settings';
 
 function App() {
   return (
@@ -13,6 +13,7 @@ function App() {
       <Switch>
         <Route exact path="/sign-in" component={Login} />
         <Route exact path="/register" component={Registration} />
+        <Route exact path="/settings" component={Settings} />
         <Route path="/" component={WelcomePage} />
       </Switch>
     </div>

@@ -1,14 +1,17 @@
-import React, {useState, useEffect, useContext} from 'react'
+import React, {useContext} from 'react'
 import WelcomeAdmin from './WelcomeAdmin'
 import WelcomeGuest from './WelcomeGuest'
 import WelcomeUser from './WelcomeUser'
 import {AuthContext} from '../contexts/AuthContext'
 import {RoleContext} from '../contexts/RoleContext'
 import { Link } from "react-router-dom"
-import { Navbar, Nav, Button } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
+
+//simple welcome page to navigate between the existing pages (settings / logout / login)
+//can be used as the main page of the system
+//used to demonstrate role management right now
 export default function WelcomePage(){
-    const [activeRole, setActiveRole] = useState()
-    const { auth, setAuthData } = useContext(AuthContext)
+    const { setAuthData } = useContext(AuthContext)
     const { role, setRoleData } = useContext(RoleContext)
 
     const onLogOut = () => {
@@ -38,6 +41,11 @@ export default function WelcomePage(){
                     className="buttonRight"
                 >Log Out
                 </Button>
+                <Button 
+                    variant="outline-info"
+                    className="buttonRight"
+                ><Link to="/settings">Settings</Link>
+                </Button>
             </div>
         )
     } else if(role.data[0].role === "Admin" ){
@@ -49,6 +57,11 @@ export default function WelcomePage(){
                     onClick={onLogOut}
                     className="buttonRight"
                 >Log Out
+                </Button>
+                <Button 
+                    variant="outline-info"
+                    className="buttonRight"
+                ><Link to="/settings">Settings</Link>
                 </Button>
             </div>
         )

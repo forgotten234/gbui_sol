@@ -4,9 +4,9 @@ const User = require("../models/User.js")
 const saltRounds = 10;
 const bcrypt = require('bcrypt');
 
-router.patch("/update-user/:_id", async (req, res) => {
+router.patch("/update-user/:userId", async (req, res) => {
   try {
-    const user = await User.findOne({_id: req.params._id})
+    const user = await User.findOne({userId: req.params.userId})
     if(req.body.email){
       user.email = req.body.email
     }
@@ -17,28 +17,29 @@ router.patch("/update-user/:_id", async (req, res) => {
         })
       })
     }
-    if(req.body.adresse){
-      if(req.body.adresse.straße){
-        user.adresse.straße = req.body.adresse.straße
+    //check if adress changes are available
+    if(req.body.adress){
+      if(req.body.adress.street){
+        user.adress.street = req.body.adress.street
       }
-      if(req.body.adresse.plz){
-        user.adresse.plz = req.body.adresse.plz
+      if(req.body.adress.cp){
+        user.adress.cp = req.body.adress.cp
       }
-      if(req.body.adresse.stadt){
-        user.adresse.stadt = req.body.adresse.stadt
+      if(req.body.adress.town){
+        user.adress.town = req.body.adress.town
       }
-      if(req.body.adresse.land){
-        user.adresse.land = req.body.adresse.land
+      if(req.body.adress.country){
+        user.adress.country = req.body.adress.country
       }
     }
-    if(req.body.firma){
-      user.firma = req.body.firma
+    if(req.body.firm){
+      user.firm = req.body.firm
     }
     if(req.body.name){
       user.name = req.body.name
     }
-    if(req.body.vorname){
-      user.vorname = req.body.vorname
+    if(req.body.surname){
+      user.surname = req.body.surname
     }
 
     await user.save()
@@ -49,9 +50,10 @@ router.patch("/update-user/:_id", async (req, res) => {
   }
 })
 
-router.get("/get-users/:_id", async (req, res) => {
+router.get("/get-user/:userId", async (req, res) => {
   try{
-    const user = await User.findOne({_id: req.params._id})
+    const user = await User.findOne({userId: req.params.userId})
+    res.send(user)
   } catch {
     res.status(404)
     res.send({error: "Something went wrong!"})

@@ -4,6 +4,8 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import App from './App';
 import { BrowserRouter } from "react-router-dom"
+
+//Provider to provide user and role data across the entire system
 import {AuthProvider} from './components/contexts/AuthContext.jsx'
 import {RoleProvider} from './components/contexts/RoleContext.jsx'
 

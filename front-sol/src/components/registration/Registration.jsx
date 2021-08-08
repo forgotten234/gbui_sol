@@ -20,16 +20,19 @@ export default function Registration(){
         userId: ""
     })
     const [confirmedPassword, setConfirmedPassword] = useState('')
+
+    //States to show and hide Alters and Pop Ups (Modals)
     const [showAlert, setShowAlert] = useState(false)
     const [userInUse, setUserInUse] = useState(false)
     const [showPopUp, setShowPopUp] = useState(false)
 
-
+    //to check if the email adress is valid
     const validateEmail = (email) => {
-        let res = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        let res = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
         return res.test(email);
     }
     
+    //Submit creates new user
     const onFormSubmit = async (e) => {
         e.preventDefault()
         if(password === confirmedPassword && validateEmail(email)){
@@ -59,6 +62,7 @@ export default function Registration(){
         }
     }
 
+    //only create a new role if the user does not exists
     const checkIfAccountIsInUseAndCreateRole = async (checkData) => {
         if(checkData === false){
             await fetch('http://localhost:9000/role/create', {
@@ -80,10 +84,13 @@ export default function Registration(){
         }
     }
 
+    //Set User Id when the components mount. It is easier to generate it on client side instead of send back the user id from the server.
+    //Here it is just one method call.
     useEffect(() => {
         setUserData({...userData, userId: Math.random().toString(36).substr(2, 9)})
     }, [])
 
+    //Methods to set the State out of the form
     const setEmailFromForm = e => setEmail(e.target.value)
     const setPasswordFromForm = e => setPassword(e.target.value)
     const setConfirmedPasswordFromForm = e => setConfirmedPassword(e.target.value)
@@ -105,7 +112,7 @@ export default function Registration(){
                     <div className="registrationHeader">
                         <p className="squareLeft">&#9725;</p>
                         <p className="squareRight">&#9725;</p>
-                        <img src={ProfilePicturePlaceholder} className="image"/>                 
+                        <img src={ProfilePicturePlaceholder} className="image" alt="Profile"/>                 
                     </div>
                     <div className="registrationBody">
                         <Form.Group id="userDataForm">
