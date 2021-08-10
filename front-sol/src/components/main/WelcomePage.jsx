@@ -29,6 +29,12 @@ export default function WelcomePage(){
                     className="buttonRight"
                 ><Link to="/sign-in">Sign In</Link>
                 </Button>
+                <Button 
+                    variant="outline-info"
+                    onClick={onLogOut}
+                    className="buttonRight"
+                ><Link to="/inquiry">Inquiry</Link>
+                </Button>
             </div>
         )
     } else if(role.data[0].role === "User"){
