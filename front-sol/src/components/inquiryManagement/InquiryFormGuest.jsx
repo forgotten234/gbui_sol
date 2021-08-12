@@ -14,7 +14,26 @@ const InquiryFormGuest = () => {
 
     const onFormSubmit = async (e) => {
         e.preventDefault()
-        await fetch('http:localhost:9003')
+        await fetch('http://localhost:9003/inquiries/create-inquiry', {
+            method: "POST",
+            body: JSON.stringify({
+                name: inquiryData.name,
+                description: inquiryData.description,
+                webpage: inquiryData.webpage,
+                cost: inquiryData.cost,
+                ap_name: inquiryData.ap_name,
+                ap_surname: inquiryData.ap_surname,
+                ap_phoneNumber: inquiryData.ap_phoneNumber
+            }),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+            .then(response => response.json())
+            //or save data
+            .then(data => console.log(data))
+            //TODO: endpoint to notify admin
+            //.then(alertAdmin)
+        })
     }
 
     const setInquiryDataFromForm = field => e => {
@@ -29,7 +48,7 @@ const InquiryFormGuest = () => {
 
     return(
         <div>
-            <Form>
+            <Form onSubmit={onFormSubmit}>
                 <Form.Group>
                     <Form.Label>
                         Type In the name of the bui
