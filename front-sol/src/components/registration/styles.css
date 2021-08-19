@@ -1,0 +1,62 @@
+.registrationContainer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.registrationHeader {
+    background-color: #788b91;
+    text-align: center;
+    min-height: 40px;
+}
+
+.registrationBody {
+    background-color: #cfd8dc;
+    width: 100%;
+    max-width: 500px;
+    padding: 15px;
+    margin: auto;
+    height: 100%;
+    text-align: center;
+}
+
+.registrationSubmit {
+    width: 100%;
+}
+
+.inputFields {
+    margin: 5px;
+    height: 25px;
+    width: 97%;
+    min-width: 300px;
+}
+
+.outline-light {
+    background-color: transparent;
+    border-color: #cfd8dc;
+    width: 100%;
+}
+
+.signUpParagraph {
+    color: #9ea7aa;
+    text-align: center;
+}
+
+.image {
+    width: 40px;
+    filter: grayscale(100%);
+    position: absolute;
+    top: 15px;
+    left: 150px;
+}
+
+.squareLeft {
+    float: left;
+    font-size: 25px;
+}
+
+.squareRight {
+    float: right;
+    font-size: 25px;
+}

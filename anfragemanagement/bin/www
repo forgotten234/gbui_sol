@@ -3,17 +3,22 @@
 /**
  * Module dependencies.
  */
-
+var webSocket = require('ws')
+//var WebSocket = require('ws')
 var app = require('../app');
 var debug = require('debug')('anfragemanagement:server');
 var http = require('http');
+
+const wss = new webSocket.Server({ port: 3030 });
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || '9003');
 app.set('port', port);
+
+
 
 /**
  * Create HTTP server.
@@ -21,6 +26,7 @@ app.set('port', port);
 
 var server = http.createServer(app);
 
+//webSocket.setupWebSocket(server);
 /**
  * Listen on provided port, on all network interfaces.
  */
@@ -28,6 +34,20 @@ var server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
+
+//websocket handler
+wss.on('connection', function connection(ws) {
+  ws.on('message', function incoming(data) {
+    wss.clients.forEach(function each(client) {
+      if (client !== ws && client.readyState === webSocket.OPEN) {
+        client.send(data);
+      }
+    });
+  });
+});
+
+
+
 
 /**
  * Normalize a port into a number, string, or false.
