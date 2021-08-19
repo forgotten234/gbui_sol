@@ -1,49 +1,59 @@
-import React, { useState } from "react"
+import React, { useState, useContext, useEffect } from "react"
 import { Form, Button } from 'react-bootstrap'
 
+//for the websSocket
+const reader = new FileReader()
+var message = ""
+reader.addEventListener('loadend', (e) => {
+    var text = e.target.result;
+    message = text
+    console.log(message);
+});
+
 const InquiryFormGuest = () => {
-    const [inquiryData, setInquiryData] = useState({
+    const [inquiryDataForm, setInquiryDataForm] = useState({
         name: "",
         description: "",
         webpage: "",
         cost: 0.00,
         ap_name: "",
         ap_surname: "",
-        ap_phoneNumber: ""
+        ap_phoneNumber: "",
+        ap_email: ""
     })
+    const ws = new WebSocket('ws://localhost:3030')
 
     const onFormSubmit = async (e) => {
         e.preventDefault()
         await fetch('http://localhost:9003/inquiries/create-inquiry', {
             method: "POST",
             body: JSON.stringify({
-                name: inquiryData.name,
-                description: inquiryData.description,
-                webpage: inquiryData.webpage,
-                cost: inquiryData.cost,
-                ap_name: inquiryData.ap_name,
-                ap_surname: inquiryData.ap_surname,
-                ap_phoneNumber: inquiryData.ap_phoneNumber
+                name: inquiryDataForm.name,
+                description: inquiryDataForm.description,
+                webpage: inquiryDataForm.webpage,
+                cost: inquiryDataForm.cost,
+                ap_name: inquiryDataForm.ap_name,
+                ap_surname: inquiryDataForm.ap_surname,
+                ap_phoneNumber: inquiryDataForm.ap_phoneNumber,
+                ap_email: inquiryDataForm.ap_email
             }),
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
             }
-            .then(response => response.json())
-            //or save data
-            .then(data => console.log(data))
-            //TODO: endpoint to notify admin
-            //.then(alertAdmin)
         })
+        .then(response => response.json())
+        .then(data => ws.send("New Inquiry!")) //sends to admin
     }
 
     const setInquiryDataFromForm = field => e => {
-        if(field === "name") setInquiryData({...inquiryData, name: e.target.value})
-        else if(field === "description") setInquiryData({...inquiryData, description: e.target.value})
-        else if(field === "webpage") setInquiryData({...inquiryData, webpage: e.target.value})
-        else if(field === "cost") setInquiryData({...inquiryData, cost: e.target.value})
-        else if(field === "ap_name") setInquiryData({...inquiryData, ap_name: e.target.value})
-        else if(field === "ap_surname") setInquiryData({...inquiryData, ap_surname: e.target.value})
-        else if(field === "ap_phoneNumber") setInquiryData({...inquiryData, ap_phoneNumber: e.target.value})
+        if(field === "name") setInquiryDataForm({...inquiryDataForm, name: e.target.value})
+        else if(field === "description") setInquiryDataForm({...inquiryDataForm, description: e.target.value})
+        else if(field === "webpage") setInquiryDataForm({...inquiryDataForm, webpage: e.target.value})
+        else if(field === "cost") setInquiryDataForm({...inquiryDataForm, cost: e.target.value})
+        else if(field === "ap_name") setInquiryDataForm({...inquiryDataForm, ap_name: e.target.value})
+        else if(field === "ap_surname") setInquiryDataForm({...inquiryDataForm, ap_surname: e.target.value})
+        else if(field === "ap_phoneNumber") setInquiryDataForm({...inquiryDataForm, ap_phoneNumber: e.target.value})
+        else if(field === "ap_email") setInquiryDataForm({...inquiryDataForm, ap_email: e.target.value})
     }
 
     return(
@@ -90,6 +100,12 @@ const InquiryFormGuest = () => {
                         Type In the contact person's phone number
                     </Form.Label>
                     <Form.Control type="textarea" placeholder="Phone number..." onChange={setInquiryDataFromForm("ap_phoneNumber")}></Form.Control>
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label>
+                        Type In the contact person's E-Mail
+                    </Form.Label>
+                    <Form.Control type="textarea" placeholder="E-Mail.." onChange={setInquiryDataFromForm("ap_email")}></Form.Control>
                 </Form.Group>
                 <Form.Group>
                     <Button variant="primary" type="submit">

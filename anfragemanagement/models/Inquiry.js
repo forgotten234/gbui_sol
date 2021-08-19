@@ -10,6 +10,7 @@ const inquirySchema = mongoose.Schema({
     ap_name: String,
     ap_surname: String,
     ap_phoneNumber: String,
+    ap_email: String,
     inquiryStatus: {
         type: String,
         enum: ["NEW", "IN_PROCESS", "DENIED", "ACCEPTED"],
