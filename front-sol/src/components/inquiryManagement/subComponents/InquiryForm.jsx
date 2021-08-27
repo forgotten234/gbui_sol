@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react"
+import React, {useState} from 'react'
 import { Form, Button } from 'react-bootstrap'
 
 //for the websSocket
@@ -10,7 +10,7 @@ reader.addEventListener('loadend', (e) => {
     console.log(message);
 });
 
-const InquiryFormGuest = () => {
+const InquiryForm = () => {
     const [inquiryDataForm, setInquiryDataForm] = useState({
         name: "",
         description: "",
@@ -22,12 +22,12 @@ const InquiryFormGuest = () => {
         ap_email: ""
     })
     const ws = new WebSocket('ws://localhost:3030')
-
     const onFormSubmit = async (e) => {
         e.preventDefault()
         await fetch('http://localhost:9003/inquiries/create-inquiry', {
             method: "POST",
             body: JSON.stringify({
+                userId: "", //this is the form for guest so we can simply use "" for the userId -> a guest does not have a userId
                 name: inquiryDataForm.name,
                 description: inquiryDataForm.description,
                 webpage: inquiryDataForm.webpage,
@@ -42,7 +42,7 @@ const InquiryFormGuest = () => {
             }
         })
         .then(response => response.json())
-        .then(data => ws.send("New Inquiry!")) //sends to admin
+        .then(data => ws.send(JSON.stringify({data}))) //sends to admin
     }
 
     const setInquiryDataFromForm = field => e => {
@@ -56,9 +56,8 @@ const InquiryFormGuest = () => {
         else if(field === "ap_email") setInquiryDataForm({...inquiryDataForm, ap_email: e.target.value})
     }
 
-    return(
-        <div>
-            <Form onSubmit={onFormSubmit}>
+    return (
+        <Form onSubmit={onFormSubmit}>
                 <Form.Group>
                     <Form.Label>
                         Type In the name of the bui
@@ -113,8 +112,7 @@ const InquiryFormGuest = () => {
                      </Button>
                 </Form.Group>
             </Form>
-        </div>
     )
 }
 
-export default InquiryFormGuest
+export default InquiryForm

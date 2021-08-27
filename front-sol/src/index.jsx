@@ -8,16 +8,19 @@ import { BrowserRouter } from "react-router-dom"
 //Provider to provide user and role data across the entire system
 import {AuthProvider} from './components/contexts/AuthContext.jsx'
 import {RoleProvider} from './components/contexts/RoleContext.jsx'
+import {WebSocketProvider} from './components/contexts/WebSocketContext.jsx'
 
 ReactDOM.render(
-  <BrowserRouter>
-    <AuthProvider>
-      <RoleProvider>
-        <App />
-      </RoleProvider>
-    </AuthProvider>
-  </BrowserRouter>,
-  document.getElementById('root')
+    <BrowserRouter>
+        <AuthProvider>
+            <RoleProvider>
+                <WebSocketProvider>
+                    <App />
+                </WebSocketProvider>
+            </RoleProvider>
+        </AuthProvider>
+    </BrowserRouter>,   
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

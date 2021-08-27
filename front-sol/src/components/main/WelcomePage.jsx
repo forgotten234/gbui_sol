@@ -31,7 +31,6 @@ export default function WelcomePage(){
                 </Button>
                 <Button 
                     variant="outline-info"
-                    onClick={onLogOut}
                     className="buttonRight"
                 ><Link to="/inquiry">Inquiry</Link>
                 </Button>
@@ -52,6 +51,11 @@ export default function WelcomePage(){
                     className="buttonRight"
                 ><Link to="/settings">Settings</Link>
                 </Button>
+                <Button 
+                    variant="outline-info"
+                    className="buttonRight"
+                ><Link to="/inquiry">Inquiry</Link>
+                </Button>
             </div>
         )
     } else if(role.data[0].role === "Admin" ){
@@ -68,6 +72,11 @@ export default function WelcomePage(){
                     variant="outline-info"
                     className="buttonRight"
                 ><Link to="/settings">Settings</Link>
+                </Button>
+                <Button 
+                    variant="outline-info"
+                    className="buttonRight"
+                ><Link to="/inquiry">Inquiry</Link>
                 </Button>
             </div>
         )

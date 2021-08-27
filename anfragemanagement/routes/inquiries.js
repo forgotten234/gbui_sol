@@ -7,6 +7,7 @@ router.post("/create-inquiry", async (req, res) => {
         const generatedDateForCreationDate = new Date()
         const generatedIdForInquiryId = Math.random().toString(36).substr(2, 9)
         const inq = new Inquiry({
+            userId: req.body.userId,
             inquiryId: generatedIdForInquiryId,
             creationDate: generatedDateForCreationDate,
             name: req.body.name,
@@ -16,7 +17,7 @@ router.post("/create-inquiry", async (req, res) => {
             ap_name: req.body.ap_name,
             ap_surname: req.body.ap_surname,
             ap_phoneNumber: req.body.ap_phoneNumber,    
-            ap_email: req.body.email  
+            ap_email: req.body.ap_email  
         })
         await inq.save()
         res.send({inq, newInquiryAvailable: true})
@@ -29,6 +30,7 @@ router.post("/create-inquiry", async (req, res) => {
 router.get("/get-inquiry/:inquiryId", async (req, res) => {
     try{
         const inq = await Inquiry.findOne({inquiryId: req.params.inquiryId})
+        res.send(inq)
     } catch {
         res.status(404)
         res.send({error: "Something went wrong"})
@@ -38,6 +40,17 @@ router.get("/get-inquiry/:inquiryId", async (req, res) => {
 router.get("/get-inquiries", async (req, res) => {
     try {
         const inq = await Inquiry.find()
+        res.send(inq)
+    } catch {
+        res.status(404)
+        res.send({error: "Something went wrong"})
+    }
+})
+
+//get all inquiries from specific user
+router.get("/get-inquiries/:userId", async (req, res) => {
+    try {
+        const inq = await Inquiry.find({userId: req.params.userId})
         res.send(inq)
     } catch {
         res.status(404)
@@ -56,10 +69,10 @@ router.delete("/delete/:inquiryId", async (req, res) => {
 
 router.patch("/update-inquiry/:inquiryId", async (req, res) => {
     try {
-        const inq = await Inquiry.findOne({inquiryId: req.params.inquiryID})
+        const inq = await Inquiry.findOne({inquiryId: req.params.inquiryId})
         if(req.body.inquiryStatus){
             inq.inquiryStatus = req.body.inquiryStatus
-            await user.save()
+            await inq.save()
             res.send({inq, statusOfInquiryChanged: true})
         } else {
             if(req.body.name) inq.name = req.body.name       
@@ -70,8 +83,8 @@ router.patch("/update-inquiry/:inquiryId", async (req, res) => {
             if(req.body.ap_surname) inq.ap_surname = req.body.ap_surname
             if(req.body.ap_phoneNumber) inq.ap_phoneNumber = req.body.ap_phoneNumber
             if(req.body.ap_email) inq.ap_email = req.body.ap_email
-            await user.save()
-            res.send(user)
+            await inq.save()
+            res.send(inq)
         }      
     } catch {
         res.status(404)
