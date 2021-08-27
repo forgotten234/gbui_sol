@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react'
 import { Form, Button } from 'react-bootstrap'
-import {AuthContext} from '../contexts/AuthContext'
+import {AuthContext} from '../../contexts/AuthContext'
 //see below role comment
 //import {RoleContext} from '../contexts/RoleContext'
 

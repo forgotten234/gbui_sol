@@ -1,6 +1,7 @@
 const mongoose = require("mongoose")
 
 const inquirySchema = mongoose.Schema({
+    userId: String, //null if it's from guest
     inquiryId: String,
     creationDate: Date,
     name: String,
@@ -13,7 +14,7 @@ const inquirySchema = mongoose.Schema({
     ap_email: String,
     inquiryStatus: {
         type: String,
-        enum: ["NEW", "IN_PROCESS", "DENIED", "ACCEPTED"],
+        enum: ["NEW", "IN_PROGRESS", "DENIED", "ACCEPTED"],
         default: "NEW"
     }
     /*

@@ -5,7 +5,7 @@ import React from 'react'
 import { Switch, Route } from "react-router-dom"
 import Registration from './components/registration/Registration'
 import Login from './components/login/Login'
-import Settings from './components/settings/Settings'
+import Settings from './components/settings/mainComponents/Settings'
 import InquiryMainPage from './components/inquiryManagement/InquiryMainPage'
 function App() {
   return (

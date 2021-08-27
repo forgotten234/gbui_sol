@@ -1,15 +1,16 @@
 import React, { useContext } from "react"
 import {RoleContext} from '../contexts/RoleContext'
-import InquiryFormGuest from "./InquiryFormGuest"
-
+import InquiryAreaGuest from "./InquiryAreaGuest"
+import InquiryAreaUser from "./InquiryAreaUser"
+import InquiryAreaAdmin from "./InquiryAreaAdmin"
 const InquiryMainPage = () => {
     const {role} = useContext(RoleContext)
     if(role.data === null){
-        return <InquiryFormGuest />
+        return <InquiryAreaGuest />
     } else if (role.data[0].role === "User") {
-        return <></>
+        return <><InquiryAreaUser /></>
     } else if (role.data[0].role === "Admin") {
-        return <></>
+        return <><InquiryAreaAdmin/></>
     }
 }
 
