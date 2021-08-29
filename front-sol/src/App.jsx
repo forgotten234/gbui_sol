@@ -7,9 +7,11 @@ import Registration from './components/registration/Registration'
 import Login from './components/login/Login'
 import Settings from './components/settings/mainComponents/Settings'
 import InquiryMainPage from './components/inquiryManagement/InquiryMainPage'
+import {Container} from 'react-bootstrap'
 function App() {
   return (
     <div>
+      <Container>
       <Switch>
         <Route exact path="/sign-in" component={Login} />
         <Route exact path="/register" component={Registration} />
@@ -17,6 +19,7 @@ function App() {
         <Route exact path="/inquiry" component={InquiryMainPage} />
         <Route path="/" component={WelcomePage} />
       </Switch>
+      </Container>
     </div>
   );
 }

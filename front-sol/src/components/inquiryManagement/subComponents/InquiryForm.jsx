@@ -57,56 +57,56 @@ const InquiryForm = () => {
     }
 
     return (
-        <Form onSubmit={onFormSubmit}>
-                <Form.Group>
+        <Form onSubmit={onFormSubmit} className="mt-4">
+                <Form.Group className="my-3">
                     <Form.Label>
-                        Type In the name of the bui
+                        Titel der Anwendung
                     </Form.Label>
-                    <Form.Control type="textarea" placeholder="Bui..." onChange={setInquiryDataFromForm("name")}></Form.Control>
+                    <Form.Control type="textarea" placeholder="Titel..." onChange={setInquiryDataFromForm("name")}></Form.Control>
                 </Form.Group>
-                <Form.Group>
+                <Form.Group className="my-3">
                     <Form.Label>
-                        Type In some description
+                        Beschreibung des Buis
                     </Form.Label>
-                    <Form.Control type="textarea" placeholder="Description..." onChange={setInquiryDataFromForm("description")}></Form.Control>
+                    <Form.Control type="textarea" placeholder="Beschreibung..." onChange={setInquiryDataFromForm("description")}></Form.Control>
                 </Form.Group>
-                <Form.Group>
+                <Form.Group className="my-3">
                     <Form.Label>
-                        Type In the webpage of the bui
+                        Internetpräsenz
                     </Form.Label>
                     <Form.Control type="textarea" placeholder="Webpage..." onChange={setInquiryDataFromForm("webpage")}></Form.Control>
                 </Form.Group>
-                <Form.Group>
+                <Form.Group className="my-3">
                     <Form.Label>
-                        Type In the cost of the bui
+                        Kosten
                     </Form.Label>
-                    <Form.Control type="textarea" placeholder="Cost..." onChange={setInquiryDataFromForm("cost")}></Form.Control>
+                    <Form.Control type="textarea" placeholder="Kosten..." onChange={setInquiryDataFromForm("cost")}></Form.Control>
                 </Form.Group>
-                <Form.Group>
+                <Form.Group className="my-3">
                     <Form.Label>
-                        Type In the contact person's name
+                        AnsprechpartnerIn Name
                     </Form.Label>
-                    <Form.Control type="textarea" placeholder="Name contact person..." onChange={setInquiryDataFromForm("ap_name")}></Form.Control>
+                    <Form.Control type="textarea" placeholder="Name..." onChange={setInquiryDataFromForm("ap_name")}></Form.Control>
                 </Form.Group>
-                <Form.Group>
+                <Form.Group className="my-3">
                     <Form.Label>
-                        Type In the contact person's surname
+                        AnsprechpartnerIn Vorname
                     </Form.Label>
-                    <Form.Control type="textarea" placeholder="Surname..." onChange={setInquiryDataFromForm("ap_surname")}></Form.Control>
+                    <Form.Control type="textarea" placeholder="Vorname..." onChange={setInquiryDataFromForm("ap_surname")}></Form.Control>
                 </Form.Group>
-                <Form.Group>
+                <Form.Group className="my-3">
                     <Form.Label>
-                        Type In the contact person's phone number
+                        Telefon
                     </Form.Label>
-                    <Form.Control type="textarea" placeholder="Phone number..." onChange={setInquiryDataFromForm("ap_phoneNumber")}></Form.Control>
+                    <Form.Control type="textarea" placeholder="Telefon..." onChange={setInquiryDataFromForm("ap_phoneNumber")}></Form.Control>
                 </Form.Group>
-                <Form.Group>
+                <Form.Group className="my-3">
                     <Form.Label>
-                        Type In the contact person's E-Mail
+                        E-Mail
                     </Form.Label>
-                    <Form.Control type="textarea" placeholder="E-Mail.." onChange={setInquiryDataFromForm("ap_email")}></Form.Control>
+                    <Form.Control type="textarea" placeholder="E-Mail..." onChange={setInquiryDataFromForm("ap_email")}></Form.Control>
                 </Form.Group>
-                <Form.Group>
+                <Form.Group className="my-3">
                     <Button variant="primary" type="submit">
                         Submit Inquiry
                      </Button>

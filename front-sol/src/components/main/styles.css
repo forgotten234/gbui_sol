@@ -1,0 +1,29 @@
+.navigation{
+    padding: 10px;
+}
+.card-nav-dark{
+    /* background-color: gray;
+    border-radius: 10px; */
+    margin-left: 2px;
+    margin-right: 2px;
+}
+.card-nav-light{
+    /* background-color: rgb(194, 194, 194);
+    border-radius: 10px; */
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.icon{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.buttonRight{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.searchBar{
+    margin-left: 10px;
+    margin-right: 10px;
+}

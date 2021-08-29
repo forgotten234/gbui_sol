@@ -5,6 +5,7 @@ import { Form, Button, Alert } from 'react-bootstrap'
 import { Link } from "react-router-dom"
 import ProfilePicturePlaceholder from '../../assets/user.png'
 import './styles.css' 
+import Navigationbar from "../main/Navigationbar"
 
 export default function Login({history}){
     const [email, setEmail] = useState()
@@ -49,6 +50,7 @@ export default function Login({history}){
 
     return (
         <div>
+            <Navigationbar/>
             <div className="loginContainer">
                 <Form onSubmit={onFormSubmit}>
                     <div className="registrationHeader">

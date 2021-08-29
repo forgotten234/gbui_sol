@@ -3,6 +3,7 @@ import { Form, Button, Alert, Modal } from 'react-bootstrap'
 import { Link } from "react-router-dom"
 import './styles.css'
 import ProfilePicturePlaceholder from '../../assets/user.png'
+import Navigationbar from "../main/Navigationbar"
 
 export default function Registration(){
     const [email, setEmail] = useState('')
@@ -107,6 +108,7 @@ export default function Registration(){
 
     return(
         <div>
+            <Navigationbar/>
             <div className="registrationContainer">
                 <Form onSubmit={onFormSubmit}>
                     <div className="registrationHeader">
