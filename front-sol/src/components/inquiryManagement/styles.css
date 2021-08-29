@@ -1,0 +1,14 @@
+.inquiryFormContainer {
+    max-width: 300px;
+}
+
+.inquiryListContainer {
+    max-width: 300px;
+}
+
+.toastContainer {
+    position: absolute;
+    z-index: 999;
+    top: 2px;
+    right: 2px;
+}
