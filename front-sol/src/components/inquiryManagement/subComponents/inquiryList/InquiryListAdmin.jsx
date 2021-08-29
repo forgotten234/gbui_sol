@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useContext } from "react"
 import { ListGroup } from "react-bootstrap"
 import {WebSocketContext} from "../../../contexts/WebSocketContext"
-import EditInquiry from "./EditInquiry"
-import './styles.css' 
+import EditInquiry from "../EditInquiry"
 
 const isNewOrInProgress = (element) => {
     return element === "NEW" || element === "IN_PROGRESS"
@@ -54,7 +53,7 @@ const InquiryListAdmin = () => {
     return (
         <>
             Inquiries:
-            <ListGroup className="inquiryListContainer">
+            <ListGroup >
                 {inquiryMap}
             </ListGroup>
             <EditInquiry 

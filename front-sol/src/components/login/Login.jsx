@@ -34,7 +34,7 @@ export default function Login({history}){
             if(fetchedData.errorAvailable === true) setShowAlert(true)
             else {       
                 setAuthData(fetchedData)
-                await activateRole(fetchedData.id)
+                await activateRole(fetchedData.userId)
             }
         })     
         history.replace('/')

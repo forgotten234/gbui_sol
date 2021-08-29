@@ -1,16 +1,10 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import { Form, Button } from 'react-bootstrap'
-
-//for the websSocket
-const reader = new FileReader()
-var message = ""
-reader.addEventListener('loadend', (e) => {
-    var text = e.target.result;
-    message = text
-    console.log(message);
-});
-
+import { AuthContext } from '../../contexts/AuthContext'
+import { WebSocketContext } from '../../contexts/WebSocketContext'
 const InquiryForm = () => {
+    const { setMessageData } = useContext(WebSocketContext)
+    const {auth} = useContext(AuthContext)
     const [inquiryDataForm, setInquiryDataForm] = useState({
         name: "",
         description: "",
@@ -24,10 +18,12 @@ const InquiryForm = () => {
     const ws = new WebSocket('ws://localhost:3030')
     const onFormSubmit = async (e) => {
         e.preventDefault()
+        let idForPassing = ""
+        if(auth.data) idForPassing = auth.data.userId
         await fetch('http://localhost:9003/inquiries/create-inquiry', {
             method: "POST",
             body: JSON.stringify({
-                userId: "", //this is the form for guest so we can simply use "" for the userId -> a guest does not have a userId
+                userId: idForPassing, //this is the form for guest so we can simply use "" for the userId -> a guest does not have a userId
                 name: inquiryDataForm.name,
                 description: inquiryDataForm.description,
                 webpage: inquiryDataForm.webpage,
@@ -42,7 +38,9 @@ const InquiryForm = () => {
             }
         })
         .then(response => response.json())
-        .then(data => ws.send(JSON.stringify({data}))) //sends to admin
+        .then(data => ws.send(JSON.stringify({data, newMessage: true}))) //sends to admin
+        .then(data => setMessageData(data))
+        
     }
 
     const setInquiryDataFromForm = field => e => {

@@ -1,11 +1,15 @@
 //for email
 import emailjs from 'emailjs-com';
 
-import React, { useState } from "react"
+import React, { useState,  useContext } from "react"
 import { Button, Modal, Table, Dropdown, DropdownButton } from 'react-bootstrap'
+import { WebSocketContext } from '../../contexts/WebSocketContext';
 
 const EditInquiry = (props) => {
     const [inqStatus, setInqstatus] = useState("IN_PROGRESS")
+    const { setMessageData } = useContext(WebSocketContext)
+    
+    const ws = new WebSocket('ws://localhost:3030')
 
     const changeStatusOfBui = () => {
         if(props.inqData.inquiryStatus === "NEW" && inqStatus == "IN_PROGRESS") {
@@ -26,6 +30,9 @@ const EditInquiry = (props) => {
                 "Content-type": "application/json; charset=UTF-8"
             }
         })
+        .then(response => response.json())
+        .then(data => ws.send(JSON.stringify({data, updatedMessage: true}))) //sends to user
+        .then(setInqstatus("IN_PROGRESS"))
         .then(sendEmailToGuest())
     }
 

@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect} from 'react'
 import WelcomeAdmin from './WelcomeAdmin'
 import WelcomeGuest from './WelcomeGuest'
 import WelcomeUser from './WelcomeUser'
@@ -6,7 +6,6 @@ import {AuthContext} from '../contexts/AuthContext'
 import {RoleContext} from '../contexts/RoleContext'
 import { Link } from "react-router-dom"
 import { Button } from 'react-bootstrap'
-
 //simple welcome page to navigate between the existing pages (settings / logout / login)
 //can be used as the main page of the system
 //used to demonstrate role management right now
@@ -18,6 +17,7 @@ export default function WelcomePage(){
         setAuthData(null)
         setRoleData(null)
     }
+
 
     if(role.data === null){
         return (

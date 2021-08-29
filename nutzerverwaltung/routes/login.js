@@ -9,7 +9,7 @@ router.post('/login', function(req, res){
             if(!user){
                 res.send({error: "User not found", errorAvailable: true})
             } else {
-                if(bcrypt.compareSync(req.body.password, user.password)) res.send({"mail": user.email, "id": user.userId, errorAvailable: false})
+                if(bcrypt.compareSync(req.body.password, user.password)) res.send({"email": user.email, "userId": user.userId, errorAvailable: false})
                 else res.send({error: "Password don't match", errorAvailable: true})
             }
         })
