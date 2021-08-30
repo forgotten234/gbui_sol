@@ -116,38 +116,38 @@ export default function Registration(){
                     </div>
                     <div className="registrationBody">
                         <Form.Group id="userDataForm">
-                            <Form.Group id="emailForm"> 
-                                <Form.Control className="inputFields" type="email" placeholder="E-Mail" onChange={setEmailFromForm}/>
+                            <Form.Group id="emailForm" className="inputFieldsRegister"> 
+                                <Form.Control type="email" placeholder="E-Mail" onChange={setEmailFromForm}/>
                             </Form.Group>
-                            <Form.Group id="passwordForm">
-                                <Form.Control className="inputFields" type="password" placeholder="Password" onChange={setPasswordFromForm}/>
+                            <Form.Group id="passwordForm" className="inputFieldsRegister">
+                                <Form.Control  type="password" placeholder="Password" onChange={setPasswordFromForm}/>
                             </Form.Group>
-                            <Form.Group id="confirmPasswordForm">
-                                <Form.Control className="inputFields" type="password" placeholder="Password again" onChange={setConfirmedPasswordFromForm}/>
+                            <Form.Group id="confirmPasswordForm" className="inputFieldsRegister">
+                                <Form.Control  type="password" placeholder="Password again" onChange={setConfirmedPasswordFromForm}/>
                             </Form.Group>
                             <Form.Group id="personalInformationForm">
                                 <Form.Group id="adressForm"> 
-                                    <Form.Group id="streetForm">
-                                        <Form.Control className="inputFields" type="text" placeholder="Street" onChange={setUserDataFromForm("street")}/>
+                                    <Form.Group id="streetForm" className="inputFieldsRegister">
+                                        <Form.Control type="text" placeholder="Street" onChange={setUserDataFromForm("street")}/>
                                     </Form.Group>
-                                    <Form.Group id="cpForm">
-                                        <Form.Control className="inputFields" type="text" placeholder="Code postal" onChange={setUserDataFromForm("cp")}/>
+                                    <Form.Group id="cpForm" className="inputFieldsRegister">
+                                        <Form.Control type="text" placeholder="Code postal" onChange={setUserDataFromForm("cp")}/>
                                     </Form.Group>
-                                    <Form.Group id="townForm">
-                                        <Form.Control className="inputFields" type="text" placeholder="Town" onChange={setUserDataFromForm("town")}/>
+                                    <Form.Group id="townForm" className="inputFieldsRegister">
+                                        <Form.Control type="text" placeholder="Town" onChange={setUserDataFromForm("town")}/>
                                     </Form.Group>
-                                    <Form.Group id="countryForm">
-                                        <Form.Control className="inputFields" type="text" placeholder="Country" onChange={setUserDataFromForm("country")}/>
+                                    <Form.Group id="countryForm" className="inputFieldsRegister">
+                                        <Form.Control type="text" placeholder="Country" onChange={setUserDataFromForm("country")}/>
                                     </Form.Group>
                                 </Form.Group>
-                                <Form.Group id="firmForm"> 
-                                    <Form.Control className="inputFields" type="text" placeholder="Firm" onChange={setUserDataFromForm("firm")}/>
+                                <Form.Group id="firmForm" className="inputFieldsRegister"> 
+                                    <Form.Control type="text" placeholder="Firm" onChange={setUserDataFromForm("firm")}/>
                                 </Form.Group>
-                                <Form.Group id="nameForm"> 
-                                    <Form.Control className="inputFields" type="text" placeholder="Name" onChange={setUserDataFromForm("name")}/>
+                                <Form.Group id="nameForm" className="inputFieldsRegister"> 
+                                    <Form.Control  type="text" placeholder="Name" onChange={setUserDataFromForm("name")}/>
                                 </Form.Group>
-                                <Form.Group id="surnameForm"> 
-                                    <Form.Control className="inputFields" type="text" placeholder="Surname" onChange={setUserDataFromForm("surname")}/>
+                                <Form.Group id="surnameForm" className="inputFieldsRegister"> 
+                                    <Form.Control type="text" placeholder="Surname" onChange={setUserDataFromForm("surname")}/>
                                 </Form.Group>
                             </Form.Group>
                             <div className="registrationSubmit">

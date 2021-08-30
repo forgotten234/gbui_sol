@@ -1,9 +1,90 @@
+.col {
+    margin-top: 10px;
+}
+
+/* Inquiry Form Begin*/
 .inquiryFormContainer {
-    max-width: 300px;
+    position: relative;
+    align-items: center;
+    min-width: 500px;
+}
+
+.inquiryFormHeader {
+    background-color: #788b91;
+    text-align: center;
+    min-height: 40px;
+}
+
+.imageInquiryForm {
+    width: 40px;
+    filter: grayscale(100%);
+    top: 10px;
+    position: relative;
+}
+
+.inputFieldsInquiryForm {
+    margin-bottom: 5px;
+    min-width: 300px;
+}
+
+.inputDescription {
+    margin: 5px;
+    width: 97%;
+    min-width: 300px;
+}
+
+.inquiryFormBody {
+    background-color: #cfd8dc;
+    width: 100%;
+    padding: 15px;
+}
+
+.inquirySubmit {
+    width: 100%;
+}
+
+.outline-light {
+    background-color: transparent;
+    border-color: #cfd8dc;
+    width: 100%;
+}
+
+.signUpParagraph {
+    color: #9ea7aa;
+    text-align: center;
+}
+
+/* Inquiry Form End */
+
+/* Inquiry List Begin */
+.inquiryListAreaContainer {
+    position: relative;
+    align-items: center;
+    min-width: 500px;
+}
+
+.inquiryListHeader {
+    background-color: #788b91;
+    text-align: center;
+    min-height: 40px;
 }
 
 .inquiryListContainer {
-    max-width: 300px;
+    max-width: 500px;
+    max-height: 387px;
+    overflow-y: auto;
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+}
+
+.inquiryListBody {
+    background-color: #cfd8dc;
+    width: 100%;
+    padding: 15px;
+}
+
+.inquiryListContainer::-webkit-scrollbar {
+    display: none;
 }
 
 .toastContainer {
@@ -11,4 +92,16 @@
     z-index: 999;
     top: 2px;
     right: 2px;
+}
+/* Inquiry List End*/
+
+/* Other */
+.squareLeft {
+    float: left;
+    font-size: 25px;
+}
+
+.squareRight {
+    float: right;
+    font-size: 25px;
 }

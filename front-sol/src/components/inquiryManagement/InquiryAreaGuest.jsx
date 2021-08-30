@@ -1,13 +1,20 @@
 import React, { useState, useContext, useEffect } from "react"
-import { Form, Button } from 'react-bootstrap'
+import { Container, Row, Col} from 'react-bootstrap'
 import InquiryForm from "./subComponents/InquiryForm"
 const InquiryAreaGuest = () => {
 
     return(
         <>  
-            <div className="inquiryListContainer">
-                <InquiryForm />        
-            </div>
+            <Container>   
+                <Row>
+                    <Col className="d-flex justify-content-center">
+
+                    </Col>
+                    <Col className="d-flex justify-content-center">
+                        <InquiryForm />
+                    </Col>
+                </Row>   
+            </Container>
         </>
     )
 }
