@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react"
-import { ListGroup, Button } from "react-bootstrap"
+import { ListGroup } from "react-bootstrap"
 import {WebSocketContext} from "../../../contexts/WebSocketContext"
 import {AuthContext} from "../../../contexts/AuthContext"
 
@@ -33,11 +33,18 @@ const InquiryListUser = () => {
 
     return (
         <>  
-            Your inquiries:
-            <ListGroup >
-                {inquiryMap}
-            </ListGroup>
-            <Button onClick={() => console.log(message.data)}>fsfsf</Button>
+            <div className={"inquiryListAreaContainer"}>
+                <div className="inquiryListHeader">
+                    <p className="squareLeft">&#9725;</p>
+                    <p className="squareRight">&#9725;</p>
+                    <h5>Your Inquiries:</h5>
+                </div>
+                <div className="inquiryListBody">
+                    <ListGroup className={"inquiryListContainer"}>
+                        {inquiryMap}
+                    </ListGroup>
+                </div>
+            </div>
         </>
     )
 }

@@ -3,6 +3,7 @@ import {RoleContext} from '../contexts/RoleContext'
 import InquiryAreaGuest from "./InquiryAreaGuest"
 import InquiryAreaUser from "./InquiryAreaUser"
 import InquiryAreaAdmin from "./InquiryAreaAdmin"
+
 const InquiryMainPage = () => {
     const {role} = useContext(RoleContext)
     if(role.data === null){

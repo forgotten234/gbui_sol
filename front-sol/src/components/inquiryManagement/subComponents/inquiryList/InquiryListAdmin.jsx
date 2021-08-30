@@ -44,7 +44,8 @@ const InquiryListAdmin = () => {
                             key={element.inquiryId}
                             onClick={() => showEditInquiryAreaAndSetBuiDataForItem(element)}
                         >
-                            {element.name}
+                            Name: {element.name} <br />
+                            Status: {element.inquiryStatus}
                         </ListGroup.Item>
                     )
                 ))
@@ -52,10 +53,18 @@ const InquiryListAdmin = () => {
 
     return (
         <>
-            Inquiries:
-            <ListGroup >
-                {inquiryMap}
-            </ListGroup>
+            <div className={"inquiryListAreaContainer"}>
+                <div className="inquiryListHeader">
+                    <p className="squareLeft">&#9725;</p>
+                    <p className="squareRight">&#9725;</p>
+                    <h5>Incomming Inquiries:</h5>
+                </div>
+                <div className="inquiryListBody">
+                    <ListGroup className={"inquiryListContainer"}>
+                        {inquiryMap}
+                    </ListGroup>
+                </div>
+            </div>
             <EditInquiry 
                 editInq={showEditInquiryArea} 
                 inqData={dataForEditInquiryArea} 

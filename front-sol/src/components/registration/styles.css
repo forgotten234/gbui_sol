@@ -25,10 +25,8 @@
     width: 100%;
 }
 
-.inputFields {
-    margin: 5px;
-    height: 25px;
-    width: 97%;
+.inputFieldsRegister {
+    margin-bottom: 5px;
     min-width: 300px;
 }
 
