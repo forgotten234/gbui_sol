@@ -1,0 +1,83 @@
+version: '3.7'
+
+services:
+
+  nutzerverwaltung:
+    container_name: nutzerverwaltung
+    build:
+      context: ./nutzerverwaltung
+      dockerfile: Dockerfile
+    # volumes:
+    #   - '.:/www/nutzerverwaltung'
+    #   - '/www/nutzerverwaltung/node_modules'
+    ports:
+      - 3001:9001
+
+  rollenmanagement:
+    container_name: rollenmanagement
+    build:
+      context: ./rollenmanagement
+      dockerfile: Dockerfile
+    # volumes:
+    #   - '.:/www/rollenmanagement'
+    #   - '/www/rollenmanagement/node_modules'
+    ports:
+      - 3000:9000
+
+  buis-verwaltung:
+    container_name: buis-verwaltung
+    build:
+      context: ./buis-verwaltung
+      dockerfile: Dockerfile
+    # volumes:
+    #   - '.:/www/buis-verwaltung'
+    #   - '/www/buis-verwaltung/node_modules'
+    ports:
+      - 3002:9002
+
+  anfragemanagement:
+    container_name: anfragemanagement
+    build:
+      context: ./anfragemanagement
+      dockerfile: Dockerfile
+    # volumes:
+    #   - '.:/www/anfragemanagement'
+    #   - '/www/anfragemanagement/node_modules'
+    ports:
+      - 3003:9003
+
+  front-sol:
+    container_name: front-sol
+    build:
+      context: ./front-sol
+      dockerfile: Dockerfile.dev
+    # volumes:
+    #   - '.:/www/front-sol'
+    #   - '/www/front-sol/node_modules'
+    ports:
+      - 4000:3000
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+
+  mongo:
+    container_name: mongoDB
+    image: mongo:4.4.8
+    restart: always
+    volumes:
+      - dbdata:/data/db
+    # environment:
+    #   MONGO_INITDB_ROOT_USERNAME: root
+    #   MONGO_INITDB_ROOT_PASSWORD: bumms
+
+  # mongo-express:
+  #   container_name: mongoDB-gui
+  #   image: mongo-express
+  #   restart: always
+  #   ports:
+  #     - 8081:8081
+  #   environment:
+  #     ME_CONFIG_MONGODB_ADMINUSERNAME: root
+  #     ME_CONFIG_MONGODB_ADMINPASSWORD: example
+  #     ME_CONFIG_MONGODB_URL: mongodb://root:bumms@mongo:27017/
+
+      
