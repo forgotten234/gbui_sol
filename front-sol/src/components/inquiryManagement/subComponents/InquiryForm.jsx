@@ -78,7 +78,7 @@ const InquiryForm = () => {
                 <div className="inquiryFormHeader">
                     <p className="squareLeft">&#9725;</p>
                     <p className="squareRight">&#9725;</p>
-                    <img src={BriefcasePlaceholder} className="imageInquiryForm" alt="Profile"/>                 
+                    <img src={BriefcasePlaceholder} className="imageInquiryForm" alt="Briefcase"/>                 
                 </div>
                 <div className="inquiryFormBody">
                     <Form.Group className="inputFieldsInquiryForm">

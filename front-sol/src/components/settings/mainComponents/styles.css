@@ -1,0 +1,54 @@
+.settingsButtonArea {
+    width: 500px;
+    margin-top: 50px
+}
+
+.settingsButton {
+    width: 250px;
+    margin-top: 10px
+}
+
+.containerHeader {
+    background-color: #788b91;
+    min-height: 40px
+}
+
+.containerBody {
+    background-color: #cfd8dc;
+    height: 85vh
+}
+
+.settingsForm {
+    background-color: #e5e5e8;
+    min-width: 500px
+}
+
+.inputSettingsForm {
+    margin: 15px
+}
+
+.submitArea {
+    width: 100%
+}
+
+.submitParagraph {
+    color: #9ea7aa;
+    text-align: center;
+}
+
+.outline-light {
+    background-color: transparent;
+    border-color: #cfd8dc;
+    width: 100%;
+}
+
+/* Other */
+.squareLeft {
+    float: left;
+    font-size: 25px;
+}
+
+.squareRight {
+    float: right;
+    font-size: 25px;
+}
