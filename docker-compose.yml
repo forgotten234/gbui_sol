@@ -65,6 +65,9 @@ services:
     restart: always
     volumes:
       - dbdata:/data/db
+
+volumes:
+  dbdata:
     # environment:
     #   MONGO_INITDB_ROOT_USERNAME: root
     #   MONGO_INITDB_ROOT_PASSWORD: bumms
