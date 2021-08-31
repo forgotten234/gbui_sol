@@ -2,10 +2,10 @@
 FROM node:13.12.0-alpine
 
 # set working directory
-WORKDIR /anfragemanagement
+WORKDIR /buis-verwaltung
 
 # add `/app/node_modules/.bin` to $PATH
-# ENV PATH /anfragemangement/node_modules/.bin:$PATH
+# ENV PATH /buis-verwaltung/node_modules/.bin:$PATH
 
 # install app dependencies
 COPY package*.json ./

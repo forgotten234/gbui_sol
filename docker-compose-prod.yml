@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+  front-sol:
+    container_name: front-sol
+    build:
+      context: ./front-sol
+      dockerfile: Dockerfile.prod
+    ports:
+      - 4000:3000
