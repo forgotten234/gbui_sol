@@ -33,7 +33,8 @@ function Navigationbar(){
                             </div>
                             <div className="card-nav-light">
                                 <NavDropdown title="Menü">
-                                    <NavDropdown.Item onClick={logOut}>Logout</NavDropdown.Item>
+                                    <NavDropdown.Item onClick={() => history.push("/settings")}>Settings</NavDropdown.Item>
+                                    
                                 </NavDropdown>
                                 </div>   
                         </Nav>

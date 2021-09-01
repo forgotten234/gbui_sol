@@ -22,10 +22,11 @@ function LoginStatus(){
         setRoleData(null)*/
     }
 
-    // const onLogOut = () => {
-    //     setAuthData(null)
-    //     setRoleData(null)
-    // }
+    const onLogOut = () => {
+         setAuthData(null)
+         setRoleData(null)
+         history.push("/")
+     }
 
     if(role.data === null){
         return (
@@ -51,10 +52,10 @@ function LoginStatus(){
             <div>
             <Button 
                  variant="outline-dark"
-                 onClick={handleClick("/settings")}
+                 onClick={onLogOut}
                  className="buttonRight"
              >
-                 Settings
+                 Logout
              </Button>
              <Button 
                  variant="outline-dark"
@@ -70,10 +71,10 @@ function LoginStatus(){
             <div>
             <Button 
                  variant="outline-dark"
-                 onClick={handleClick("/settings")}
+                 onClick={onLogOut}
                  className="buttonRight"
              >
-                 Settings
+                 Logout
              </Button>
              <Button 
                  variant="outline-dark"
