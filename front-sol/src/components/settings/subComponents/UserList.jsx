@@ -3,6 +3,7 @@ import { ListGroup } from "react-bootstrap"
 import {AuthContext} from "../../contexts/AuthContext"
 import '../mainComponents/styles.css'
 import EditUser from "./EditUser"
+import { RoleContext } from "../../contexts/RoleContext"
 
 const UserList = () => {
     const [userMap, setUserMap] = useState([])
@@ -11,6 +12,7 @@ const UserList = () => {
     //need this extra state for getting Users after at one is worked on
     //beacuse if we do it with the showEditUserArea state we need one api call more
     const [editUserAreaIsClosed, setEditUserAreaIsClosed] = useState(0)
+    const {role} = useContext(RoleContext)
 
     useEffect(() => {
         getUsers()
@@ -32,15 +34,16 @@ const UserList = () => {
         await fetch('http://localhost:9001/users/get-users')
             .then(response => response.json())
             .then(data => setUserMap(
-                data.map(element => 
-                    <ListGroup.Item
-                        key={element.userId}
-                        onClick={() => showEditUserAreaAndSetUserDataForItem(element)}
-                    >
-                        Name: {element.name}
-                    </ListGroup.Item>
-                )
-
+                data
+                    .filter(element => element.userId !== role.data[0].userId)
+                    .map(element => 
+                        <ListGroup.Item
+                            key={element.userId}
+                            onClick={() => showEditUserAreaAndSetUserDataForItem(element)}
+                        >
+                            Name: {element.name}
+                        </ListGroup.Item>
+                    )
             ))
     }
     
