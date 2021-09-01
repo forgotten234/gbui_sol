@@ -23,6 +23,7 @@ function App() {
             </InquiryNotificationHandlerMain>
         </div>
     );
+
 }
 
 export default App;

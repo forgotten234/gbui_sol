@@ -122,6 +122,7 @@ const InquiryForm = () => {
             </Form>
         </div>
     )
+
 }
 
 export default InquiryForm

@@ -4,14 +4,16 @@ import InquiryAreaGuest from "./InquiryAreaGuest"
 import InquiryAreaUser from "./InquiryAreaUser"
 import InquiryAreaAdmin from "./InquiryAreaAdmin"
 
+import Navigationbar from "../main/Navigationbar"
+
 const InquiryMainPage = () => {
     const {role} = useContext(RoleContext)
     if(role.data === null){
-        return <InquiryAreaGuest />
+        return <><Navigationbar/><InquiryAreaGuest /></>
     } else if (role.data[0].role === "User") {
-        return <><InquiryAreaUser /></>
+        return <><Navigationbar/><InquiryAreaUser /></>
     } else if (role.data[0].role === "Admin") {
-        return <><InquiryAreaAdmin/></>
+        return <><Navigationbar/><InquiryAreaAdmin/></>
     }
 }
 

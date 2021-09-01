@@ -1,18 +1,23 @@
-import React, {useContext, useEffect} from 'react'
+
+
 import WelcomeAdmin from './WelcomeAdmin'
 import WelcomeGuest from './WelcomeGuest'
 import WelcomeUser from './WelcomeUser'
 import {AuthContext} from '../contexts/AuthContext'
 import {RoleContext} from '../contexts/RoleContext'
+
+import React, {useContext} from 'react'
 import { Link } from "react-router-dom"
-import { Button } from 'react-bootstrap'
+import { Button, Navbar } from 'react-bootstrap'
+import Navigationbar from './Navigationbar'
+import Infopart from './Infopart'
+import BuiCardShow from './BuiCardShow'
+
 //simple welcome page to navigate between the existing pages (settings / logout / login)
 //can be used as the main page of the system
 //used to demonstrate role management right now
 export default function WelcomePage(){
-    const { setAuthData } = useContext(AuthContext)
-    const { role, setRoleData } = useContext(RoleContext)
-
+   
     const onLogOut = () => {
         setAuthData(null)
         setRoleData(null)
@@ -61,24 +66,12 @@ export default function WelcomePage(){
     } else if(role.data[0].role === "Admin" ){
         return (
             <div>
-                <WelcomeAdmin />
-                <Button 
-                    variant="outline-info"
-                    onClick={onLogOut}
-                    className="buttonRight"
-                >Log Out
-                </Button>
-                <Button 
-                    variant="outline-info"
-                    className="buttonRight"
-                ><Link to="/settings">Settings</Link>
-                </Button>
-                <Button 
-                    variant="outline-info"
-                    className="buttonRight"
-                ><Link to="/inquiry">Inquiry</Link>
-                </Button>
+                <Navigationbar/>
+                <Infopart/>
+                <BuiCardShow/>
+                
             </div>
         )
     }
+   
 }
