@@ -1,24 +1,27 @@
 import React, {useState, useEffect, useContext} from 'react'
-import { Form, Button, Container, Row, Col } from 'react-bootstrap'
-import {AuthContext} from '../../contexts/AuthContext'
-import SettingsForm from '../subComponents/SettingsForm'
-import SettingsPlaceholder from '../../../assets/settings.png'
-//see below role comment
-//import {RoleContext} from '../contexts/RoleContext'
 import './styles.css'
+import { Button, Container, Row, Col } from 'react-bootstrap'
+import SettingsPlaceholder from '../../../assets/settings.png'
+import SettingsForm from '../subComponents/SettingsForm'
+import UserList from '../subComponents/UserList'
 
-export default function SettingsUser(){
-    const { auth } = useContext(AuthContext)
-    //maybe we need to use role here as well (User vs. Admin Settings) ---> but in main settings page! see below
-    //const { role } = useContext(RoleContext)
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [userData, setUserData] = useState()
+const SettingsAdmin = () => {
     const [showFormForChangingPersonalData, setShowFormForChangingPersonalData] = useState(false)
     const [showBuisList, setShowBuisList] = useState(false)
+    const [showUsers, setShowUsers] = useState(false)
 
-    //if no userData are there a loading component will be rendert till the userData are fetched
-    return  (
+
+    const showSelectedArea = () => {
+        if(showFormForChangingPersonalData === true){
+            return <SettingsForm />
+        } else if (showUsers === true) {
+            return <UserList />
+        } else {
+            return <p className="defaultParagraph">Select one of the buttons <br />to show something in here</p>
+        }
+    }
+
+    return(
         <div style={{marginTop: "50px"}}>
             <Container className="settingsContainerHeader">
                 <p className="squareLeft">&#9725;</p>
@@ -31,7 +34,7 @@ export default function SettingsUser(){
                         <div className="settingsButtonArea">
                             <div className="settingsButton d-grid gap-2">
                                 <Button variant="outline-light" onClick={() => setShowBuisList(prevState => !prevState)}>
-                                    Show Buis
+                                    Maintain buis
                                 </Button>
                             </div>
                             <div className="settingsButton d-grid gap-2">
@@ -39,18 +42,23 @@ export default function SettingsUser(){
                                     Change personal data
                                 </Button>
                             </div>
+                            <div className="settingsButton d-grid gap-2">
+                                <Button variant="outline-light" onClick={() => setShowUsers(prevState => !prevState)}>
+                                    Maintain user
+                                </Button>
+                            </div>
                         </div>
                     </Col>
                     <Col className="d-flex justify-content-center">
                         {
-                            showFormForChangingPersonalData
-                            ?
-                                <SettingsForm />
-                            :   <p className="defaultParagraph">Select one of the buttons <br />to show something in here</p>
+                            showSelectedArea()
                         }
+                        
                     </Col>
                 </Row>
             </Container>
         </div>
-      ) 
+    )
 }
+
+export default SettingsAdmin

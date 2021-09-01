@@ -60,4 +60,14 @@ router.get("/get-user/:userId", async (req, res) => {
   }
 })
 
+router.get("/get-users", async (req, res) => {
+    try {
+        const users = await User.find()
+        res.send(users)
+    } catch {
+        res.status(404)
+        res.send({error: "Something went wrong!"})
+    }
+})
+
 module.exports = router;

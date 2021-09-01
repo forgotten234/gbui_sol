@@ -8,12 +8,13 @@
     margin-top: 10px
 }
 
-.containerHeader {
+.settingsContainerHeader {
     background-color: #788b91;
+    text-align: center;
     min-height: 40px
 }
 
-.containerBody {
+.settingsContainerBody {
     background-color: #cfd8dc;
     height: 85vh
 }
@@ -42,6 +43,13 @@
     width: 100%;
 }
 
+.imageSettings {
+    width: 40px;
+    filter: grayscale(100%);
+    top: 10px;
+    position: relative;
+}
+
 /* Other */
 .squareLeft {
     float: left;
@@ -51,4 +59,10 @@
 .squareRight {
     float: right;
     font-size: 25px;
+}
+
+.defaultParagraph {
+    margin-top: 300px;
+    font-size: 25px;
+    color: #f4f6f7;
 }
