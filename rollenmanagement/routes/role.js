@@ -2,6 +2,15 @@ var express = require('express');
 var router = express.Router();
 const Role = require("../models/Role.js")
 
+router.delete("/delete-role/:userId", async (req, res) => {
+    try {
+        await Role.deleteOne({userId: req.params.userId})
+    } catch {
+        res.status(404)
+        res.send({error: "Something went wrong"})
+    }
+})
+
 router.post("/create", async (req, res) => {
     const role = new Role({
         userId: req.body.userId,

@@ -34,7 +34,7 @@ export default function Login({history}){
             if(fetchedData.errorAvailable === true) setShowAlert(true)
             else {       
                 setAuthData(fetchedData)
-                await activateRole(fetchedData.id)
+                await activateRole(fetchedData.userId)
             }
         })     
         history.replace('/')
@@ -57,11 +57,11 @@ export default function Login({history}){
                         <img src={ProfilePicturePlaceholder} className="image" alt="Profile"/>                 
                     </div> 
                     <div className="loginBody">
-                        <Form.Group>
-                            <Form.Control className="inputFields" type="email" placeholder="E-Mail" onChange={e => {setEmail(e.target.value)}}/>
+                        <Form.Group className="inputFieldsLogin">
+                            <Form.Control type="email" placeholder="E-Mail" onChange={e => {setEmail(e.target.value)}}/>
                         </Form.Group>
-                        <Form.Group>
-                            <Form.Control className="inputFields" type="password" placeholder="Password" onChange={e => {setPassword(e.target.value)}}/>
+                        <Form.Group className="inputFieldsLogin">
+                            <Form.Control type="password" placeholder="Password" onChange={e => {setPassword(e.target.value)}}/>
                         </Form.Group>
                         <div className="loginSubmit">
                             <div>

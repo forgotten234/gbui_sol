@@ -1,0 +1,108 @@
+.settingsButtonArea {
+    width: 500px;
+    margin-top: 50px
+}
+
+.settingsButton {
+    width: 250px;
+    margin-top: 10px
+}
+
+.settingsContainerHeader {
+    background-color: #788b91;
+    text-align: center;
+    min-height: 40px
+}
+
+.settingsContainerBody {
+    background-color: #cfd8dc;
+    height: 85vh
+}
+
+.settingsForm {
+    background-color: #e5e5e8;
+    min-width: 500px
+}
+
+.settingsFormInput {
+    margin: 15px
+}
+
+.settingsSubmitArea {
+    width: 100%
+}
+
+.submitParagraph {
+    color: #9ea7aa;
+    text-align: center;
+}
+
+.outline-light {
+    background-color: transparent;
+    border-color: #cfd8dc;
+    width: 100%;
+}
+
+.imageSettings {
+    width: 40px;
+    filter: grayscale(100%);
+    top: 10px;
+    position: relative;
+}
+
+/* Other */
+.squareLeft {
+    float: left;
+    font-size: 25px;
+}
+
+.squareRight {
+    float: right;
+    font-size: 25px;
+}
+
+.defaultParagraph {
+    margin-top: 300px;
+    font-size: 25px;
+    color: #f4f6f7;
+}
+
+.imageSettingsForm {
+    width: 40px;
+    filter: grayscale(100%);
+    top: 10px;
+    position: relative;
+}
+
+.content {
+    display:table-cell;
+    vertical-align:middle;
+
+}
+
+/* User list begin*/
+.userListAreaContainer {
+    position: relative;
+    align-items: center;
+    min-width: 500px;
+}
+
+.userListContainer {
+    max-width: 500px;
+    max-height: 387px;
+    overflow-y: auto;
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+}
+
+.userListBody {
+    background-color: #e5e5e8;
+    width: 100%;
+    padding: 15px;
+}
+
+.userListContainer::-webkit-scrollbar {
+    display: none;
+}
+
+/* User list ends */

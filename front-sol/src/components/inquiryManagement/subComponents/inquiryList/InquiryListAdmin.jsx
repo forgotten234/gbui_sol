@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useContext } from "react"
 import { ListGroup } from "react-bootstrap"
 import {WebSocketContext} from "../../../contexts/WebSocketContext"
-import EditInquiry from "./EditInquiry"
-import './styles.css' 
+import EditInquiry from "../EditInquiry"
 
 const isNewOrInProgress = (element) => {
     return element === "NEW" || element === "IN_PROGRESS"
@@ -45,7 +44,8 @@ const InquiryListAdmin = () => {
                             key={element.inquiryId}
                             onClick={() => showEditInquiryAreaAndSetBuiDataForItem(element)}
                         >
-                            {element.name}
+                            Name: {element.name} <br />
+                            Status: {element.inquiryStatus}
                         </ListGroup.Item>
                     )
                 ))
@@ -53,10 +53,13 @@ const InquiryListAdmin = () => {
 
     return (
         <>
-            Inquiries:
-            <ListGroup className="inquiryListContainer">
-                {inquiryMap}
-            </ListGroup>
+            <div className={"inquiryListAreaContainer"}>
+                <div className="inquiryListBody">
+                    <ListGroup className={"inquiryListContainer"}>
+                        {inquiryMap}
+                    </ListGroup>
+                </div>
+            </div>
             <EditInquiry 
                 editInq={showEditInquiryArea} 
                 inqData={dataForEditInquiryArea} 

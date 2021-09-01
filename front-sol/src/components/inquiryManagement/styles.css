@@ -1,0 +1,175 @@
+/*  New styles
+    Old one can be removed if neccessary
+*/
+/* New styles begin */
+
+.inquiryButtonArea {
+    width: 500px;
+    margin-top: 50px;
+    float: left;
+}
+
+.inquiryButton {
+    width: 250px;
+    margin-top: 10px;
+}
+
+.inquiryContainerHeader {
+    background-color: #788b91;
+    text-align: center;
+    min-height: 40px
+}
+
+.inquiryContainerBody {
+    background-color: #cfd8dc;
+    height: 85vh;
+}
+
+.inquiryForm {
+    background-color: #e5e5e8;
+    min-width: 500px
+}
+
+.inquiryFormInput {
+    margin: 15px
+}
+
+.inquirySubmitArea {
+    width: 100%
+}
+
+.inquiryParagraph {
+    color: #9ea7aa;
+    text-align: center;
+}
+
+.outline-light {
+    background-color: transparent;
+    border-color: #cfd8dc;
+    width: 100%;
+}
+
+/* Other */
+.squareLeft {
+    float: left;
+    font-size: 25px;
+}
+
+.squareRight {
+    float: right;
+    font-size: 25px;
+}
+
+/* Inquiry List Begin */
+.inquiryListAreaContainer {
+    position: relative;
+    align-items: center;
+    min-width: 500px;
+}
+.inquiryListContainer {
+    max-width: 500px;
+    max-height: 387px;
+    overflow-y: auto;
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+}
+
+.inquiryListBody {
+    background-color: #e5e5e8;
+    width: 100%;
+    padding: 15px;
+}
+
+.inquiryListContainer::-webkit-scrollbar {
+    display: none;
+}
+
+/* inquiry Form */
+
+.inquiryFormBody {
+    background-color: #e5e5e8;
+    width: 100%;
+    padding: 15px;
+}
+
+.inquiryFormContainer {
+    position: relative;
+    align-items: center;
+    min-width: 500px;
+}
+
+.inputFieldsInquiryForm {
+    margin-bottom: 5px;
+    min-width: 300px;
+}
+
+/* New styles end */
+
+/* Old styles begin */
+.col {
+    margin-top: 10px;
+}
+
+/* Inquiry Form Begin*/
+
+
+.inquiryFormHeader {
+    background-color: #788b91;
+    text-align: center;
+    min-height: 40px;
+}
+
+.imageInquiryForm {
+    width: 40px;
+    filter: grayscale(100%);
+    top: 10px;
+    position: relative;
+}
+
+.inputDescription {
+    margin: 5px;
+    width: 97%;
+    min-width: 300px;
+}
+
+.inquiryFormBody {
+    background-color: #e5e5e8;
+    width: 100%;
+    padding: 15px;
+}
+
+.inquirySubmit {
+    width: 100%;
+}
+
+.outline-light {
+    background-color: transparent;
+    border-color: #cfd8dc;
+    width: 100%;
+}
+
+.signUpParagraph {
+    color: #9ea7aa;
+    text-align: center;
+}
+
+/* Inquiry Form End */
+
+
+
+
+.inquiryListHeader {
+    background-color: #788b91;
+    text-align: center;
+    min-height: 40px;
+}
+
+
+
+.toastContainer {
+    position: absolute;
+    z-index: 999;
+    top: 2px;
+    right: 2px;
+}
+/* Inquiry List End*/

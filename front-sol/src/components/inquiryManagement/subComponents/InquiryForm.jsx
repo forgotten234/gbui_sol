@@ -1,16 +1,12 @@
-import React, {useState} from 'react'
-import { Form, Button } from 'react-bootstrap'
-
-//for the websSocket
-const reader = new FileReader()
-var message = ""
-reader.addEventListener('loadend', (e) => {
-    var text = e.target.result;
-    message = text
-    console.log(message);
-});
+import React, {useState, useContext} from 'react'
+import { Form, Button, Alert } from 'react-bootstrap'
+import { AuthContext } from '../../contexts/AuthContext'
+import { WebSocketContext } from '../../contexts/WebSocketContext'
+import '../styles.css'
 
 const InquiryForm = () => {
+    const { setMessageData } = useContext(WebSocketContext)
+    const {auth} = useContext(AuthContext)
     const [inquiryDataForm, setInquiryDataForm] = useState({
         name: "",
         description: "",
@@ -21,28 +17,48 @@ const InquiryForm = () => {
         ap_phoneNumber: "",
         ap_email: ""
     })
+    const [showAlert, setShowAlert] = useState(false)
     const ws = new WebSocket('ws://localhost:3030')
     const onFormSubmit = async (e) => {
         e.preventDefault()
-        await fetch('http://localhost:9003/inquiries/create-inquiry', {
-            method: "POST",
-            body: JSON.stringify({
-                userId: "", //this is the form for guest so we can simply use "" for the userId -> a guest does not have a userId
-                name: inquiryDataForm.name,
-                description: inquiryDataForm.description,
-                webpage: inquiryDataForm.webpage,
-                cost: inquiryDataForm.cost,
-                ap_name: inquiryDataForm.ap_name,
-                ap_surname: inquiryDataForm.ap_surname,
-                ap_phoneNumber: inquiryDataForm.ap_phoneNumber,
-                ap_email: inquiryDataForm.ap_email
-            }),
-            headers: {
-                "Content-type": "application/json; charset=UTF-8"
-            }
-        })
-        .then(response => response.json())
-        .then(data => ws.send(JSON.stringify({data}))) //sends to admin
+        if(checkForEmptyFields === true){
+            setShowAlert(true)
+        } else {
+            let idForPassing = ""
+            if(auth.data) idForPassing = auth.data.userId
+            await fetch('http://localhost:9003/inquiries/create-inquiry', {
+                method: "POST",
+                body: JSON.stringify({
+                    userId: idForPassing, //this is the form for guest so we can simply use "" for the userId -> a guest does not have a userId
+                    name: inquiryDataForm.name,
+                    description: inquiryDataForm.description,
+                    webpage: inquiryDataForm.webpage,
+                    cost: inquiryDataForm.cost,
+                    ap_name: inquiryDataForm.ap_name,
+                    ap_surname: inquiryDataForm.ap_surname,
+                    ap_phoneNumber: inquiryDataForm.ap_phoneNumber,
+                    ap_email: inquiryDataForm.ap_email
+                }),
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8"
+                }
+            })
+            .then(response => response.json())
+            .then(data => ws.send(JSON.stringify({data, newMessage: true}))) //sends to admin
+            .then(data => setMessageData(data))
+            .then(setShowAlert(false))
+        }
+    }
+
+    const checkForEmptyFields = () => {
+        if(inquiryDataForm.name === "" || inquiryDataForm.description === "" || inquiryDataForm.webpage === ""
+            || inquiryDataForm.cost === 0.00 || inquiryDataForm.ap_name === "" || inquiryDataForm.ap_surname === ""
+            || inquiryDataForm.ap_phoneNumber === "" || inquiryDataForm.ap_email === "")
+        {
+            return true
+        } else {
+            return false
+        }
     }
 
     const setInquiryDataFromForm = field => e => {
@@ -57,61 +73,54 @@ const InquiryForm = () => {
     }
 
     return (
-        <Form onSubmit={onFormSubmit}>
-                <Form.Group>
-                    <Form.Label>
-                        Type In the name of the bui
-                    </Form.Label>
-                    <Form.Control type="textarea" placeholder="Bui..." onChange={setInquiryDataFromForm("name")}></Form.Control>
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label>
-                        Type In some description
-                    </Form.Label>
-                    <Form.Control type="textarea" placeholder="Description..." onChange={setInquiryDataFromForm("description")}></Form.Control>
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label>
-                        Type In the webpage of the bui
-                    </Form.Label>
-                    <Form.Control type="textarea" placeholder="Webpage..." onChange={setInquiryDataFromForm("webpage")}></Form.Control>
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label>
-                        Type In the cost of the bui
-                    </Form.Label>
-                    <Form.Control type="textarea" placeholder="Cost..." onChange={setInquiryDataFromForm("cost")}></Form.Control>
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label>
-                        Type In the contact person's name
-                    </Form.Label>
-                    <Form.Control type="textarea" placeholder="Name contact person..." onChange={setInquiryDataFromForm("ap_name")}></Form.Control>
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label>
-                        Type In the contact person's surname
-                    </Form.Label>
-                    <Form.Control type="textarea" placeholder="Surname..." onChange={setInquiryDataFromForm("ap_surname")}></Form.Control>
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label>
-                        Type In the contact person's phone number
-                    </Form.Label>
-                    <Form.Control type="textarea" placeholder="Phone number..." onChange={setInquiryDataFromForm("ap_phoneNumber")}></Form.Control>
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label>
-                        Type In the contact person's E-Mail
-                    </Form.Label>
-                    <Form.Control type="textarea" placeholder="E-Mail.." onChange={setInquiryDataFromForm("ap_email")}></Form.Control>
-                </Form.Group>
-                <Form.Group>
-                    <Button variant="primary" type="submit">
-                        Submit Inquiry
-                     </Button>
-                </Form.Group>
+        <div className={"inquiryFormContainer"}>
+            <Form onSubmit={onFormSubmit}>
+                <div className="inquiryFormBody">
+                    <Form.Group className="inputFieldsInquiryForm">
+                        <Form.Control type="textarea" placeholder="BUIS name" onChange={setInquiryDataFromForm("name")}></Form.Control>
+                    </Form.Group>
+                    <Form.Group className="inputFieldsInquiryForm">
+                        <Form.Control type="textarea" placeholder="Description" rows={3} onChange={setInquiryDataFromForm("description")}></Form.Control>
+                    </Form.Group>
+                    <Form.Group className="inputFieldsInquiryForm">
+                        <Form.Control type="textarea" placeholder="Webpage" onChange={setInquiryDataFromForm("webpage")}></Form.Control>
+                    </Form.Group>
+                    <Form.Group className="inputFieldsInquiryForm">
+                        <Form.Control type="textarea" placeholder="Cost" onChange={setInquiryDataFromForm("cost")}></Form.Control>
+                    </Form.Group>
+                    <Form.Group className="inputFieldsInquiryForm">
+                        <Form.Control type="textarea" placeholder="Name contact person" onChange={setInquiryDataFromForm("ap_name")}></Form.Control>
+                    </Form.Group>
+                    <Form.Group className="inputFieldsInquiryForm">
+                        <Form.Control type="textarea" placeholder="Surname contact person" onChange={setInquiryDataFromForm("ap_surname")}></Form.Control>
+                    </Form.Group>
+                    <Form.Group className="inputFieldsInquiryForm">
+                        <Form.Control type="textarea" placeholder="Phone number contact person" onChange={setInquiryDataFromForm("ap_phoneNumber")}></Form.Control>
+                    </Form.Group>
+                    <Form.Group className="inputFieldsInquiryForm">
+                        <Form.Control type="email" placeholder="E-Mail contact person" onChange={setInquiryDataFromForm("ap_email")}></Form.Control>
+                    </Form.Group >
+                    <div className="inquirySubmit">
+                        <Form.Group>
+                            <div>
+                                <Button variant="outline-light" type="submit" className="outline-light">
+                                    <div className="signUpParagraph">Submit Inquiry</div>
+                                </Button>
+                            </div>
+                            <div style={{marginTop: '5px'}}>
+                                {
+                                    showAlert
+                                    ?   <Alert variant="danger" >
+                                            Please fill in all fields! 
+                                        </Alert>
+                                    : <></>
+                                }           
+                            </div>                  
+                        </Form.Group>
+                    </div>
+                </div>
             </Form>
+        </div>
     )
 }
 
