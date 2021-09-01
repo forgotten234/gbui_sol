@@ -50,7 +50,6 @@ export default function Login({history}){
 
     return (
         <div>
-            <Navigationbar/>
             <div className="loginContainer">
                 <Form onSubmit={onFormSubmit}>
                     <div className="registrationHeader">

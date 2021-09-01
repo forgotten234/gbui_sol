@@ -9,9 +9,14 @@ import Login from './components/login/Login'
 import Settings from './components/settings/mainComponents/Settings'
 import InquiryMainPage from './components/inquiryManagement/InquiryMainPage'
 import InquiryNotificationHandlerMain from './components/inquiryManagement/subComponents/notifications/InquiryNotificationHandlerMain';
+import Navigationbar from './components/main/Navigationbar';
+import Infopart from './components/main/Infopart';
+import BuiCardShow from './components/main/BuiCardShow';
+
 function App() {
     return (
         <div>
+            <Navigationbar/>
             <InquiryNotificationHandlerMain>
                 <Switch>
                     <Route exact path="/sign-in" component={Login} />

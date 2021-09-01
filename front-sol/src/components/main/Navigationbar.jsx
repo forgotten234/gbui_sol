@@ -1,11 +1,25 @@
-import React, {useState,useEffect} from 'react'
+import React, {useState,useEffect,useContext} from 'react'
 import './styles.css'
 import {Navbar, Nav, NavDropdown, FormControl, Form, Button, Container} from 'react-bootstrap'
 import { PersonCircle } from 'react-bootstrap-icons'
 import LoginStatus from './LoginStatus'
+import { useHistory } from "react-router-dom"
+
+import { RoleContext } from '../contexts/RoleContext'
+import { AuthContext } from '../contexts/AuthContext'
 
 function Navigationbar(){
-    
+    const {auth, setAuthData} = useContext(AuthContext)
+    const {role, setRoleData} = useContext(RoleContext)
+
+    const history = useHistory()
+
+    const logOut = () => {
+        setAuthData(null)
+        setRoleData(null)
+        history.push("/")
+    }
+
     return(
         <div>
             <Navbar sticky="top" bg="light" expand="md" className="navigation ">
@@ -28,10 +42,10 @@ function Navigationbar(){
                                 className="mr-2"
                                 aria-label="Search"
                             />
-                            <Button variant="outline-dark"s>Suche</Button>
+                            <Button variant="outline-dark">Suche</Button>
                         </Form>
                         <Nav>
-                            <PersonCircle className="icon" size="40"/>
+                            <PersonCircle className="icon" size="40" onClick={logOut}/>
                             <LoginStatus/>
                         </Nav>      
                     </Navbar.Collapse>

@@ -108,7 +108,6 @@ export default function Registration(){
 
     return(
         <div>
-            <Navigationbar/>
             <div className="registrationContainer">
                 <Form onSubmit={onFormSubmit}>
                     <div className="registrationHeader">

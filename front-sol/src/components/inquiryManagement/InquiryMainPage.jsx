@@ -9,11 +9,11 @@ import Navigationbar from "../main/Navigationbar"
 const InquiryMainPage = () => {
     const {role} = useContext(RoleContext)
     if(role.data === null){
-        return <><Navigationbar/><InquiryAreaGuest /></>
+        return <><InquiryAreaGuest /></>
     } else if (role.data[0].role === "User") {
-        return <><Navigationbar/><InquiryAreaUser /></>
+        return <><InquiryAreaUser /></>
     } else if (role.data[0].role === "Admin") {
-        return <><Navigationbar/><InquiryAreaAdmin/></>
+        return <><InquiryAreaAdmin/></>
     }
 }
 

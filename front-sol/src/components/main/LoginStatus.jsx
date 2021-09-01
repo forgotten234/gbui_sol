@@ -18,8 +18,8 @@ function LoginStatus(){
 
     const handleClick = location => () => {
         history.push(location)
-        setAuthData(null)
-        setRoleData(null)
+        /*setAuthData(null)
+        setRoleData(null)*/
     }
 
     // const onLogOut = () => {
