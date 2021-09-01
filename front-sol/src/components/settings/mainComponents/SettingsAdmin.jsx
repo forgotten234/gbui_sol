@@ -45,7 +45,7 @@ const SettingsAdmin = () => {
     }
 
     return(
-        <div style={{marginTop: "50px"}}>
+        <div style={{marginTop: "20px"}}>
             <Container className="settingsContainerHeader">
                 <p className="squareLeft">&#9725;</p>
                 <p className="squareRight">&#9725;</p>

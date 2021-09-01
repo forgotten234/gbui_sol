@@ -24,15 +24,17 @@ function Navigationbar(){
         <div>
             <Navbar sticky="top" bg="light" expand="md" className="navigation ">
                 <Container>
-                    <Navbar.Brand href="#home" className="font-weight-bolder text-uppercase">Sol</Navbar.Brand>
+                    <Navbar.Brand onClick={() => history.push("/")} className="font-weight-bolder text-uppercase">Sol</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav" className="justify-content-betweens">
                         <Nav className="mr-auto">
                             <div className="card-nav-dark">
-                            <Nav.Link href="#home">Start</Nav.Link>
+                                <Nav.Link onClick={() => history.push("/")}>Start</Nav.Link>
                             </div>
                             <div className="card-nav-light">
-                                <NavDropdown title="Menü"></NavDropdown>
+                                <NavDropdown title="Menü">
+                                    <NavDropdown.Item onClick={logOut}>Logout</NavDropdown.Item>
+                                </NavDropdown>
                                 </div>   
                         </Nav>
                         <Form className="d-flex flex-grow-1 searchBar">
@@ -45,7 +47,7 @@ function Navigationbar(){
                             <Button variant="outline-dark">Suche</Button>
                         </Form>
                         <Nav>
-                            <PersonCircle className="icon" size="40" onClick={logOut}/>
+                            <PersonCircle className="icon" size="40"/>
                             <LoginStatus/>
                         </Nav>      
                     </Navbar.Collapse>

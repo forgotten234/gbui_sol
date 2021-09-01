@@ -24,7 +24,7 @@ const InquiryAreaUser = () => {
     }
 
     return(
-        <div style={{position: "relative", marginTop: "50px"}}>
+        <div style={{position: "relative", marginTop: "20px"}}>
             <Container className="inquiryContainerHeader">
                 <p className="squareLeft">&#9725;</p>
                 <p className="squareRight">&#9725;</p>
