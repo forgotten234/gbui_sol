@@ -10,6 +10,29 @@ const SettingsAdmin = () => {
     const [showBuisList, setShowBuisList] = useState(false)
     const [showUsers, setShowUsers] = useState(false)
 
+    const showOnlyForm = () => {
+        if(showBuisList === true || showUsers === true){
+            setShowBuisList(false)
+            setShowUsers(false)
+        }
+        setShowFormForChangingPersonalData(prevState => !prevState)
+    }
+
+    const showOnlyBuisList = () => {
+        if(showFormForChangingPersonalData === true || showUsers === true){
+            setShowFormForChangingPersonalData(false)
+            setShowUsers(false)
+        }
+        setShowBuisList(prevState => !prevState)
+    }
+
+    const showOnlyUsers = () => {
+        if(showFormForChangingPersonalData === true || showBuisList === true){
+            setShowBuisList(false)
+            setShowFormForChangingPersonalData(false)
+        }
+        setShowUsers(prevState => !prevState)
+    }
 
     const showSelectedArea = () => {
         if(showFormForChangingPersonalData === true){
@@ -33,17 +56,17 @@ const SettingsAdmin = () => {
                     <Col className="d-flex justify-content-center">
                         <div className="settingsButtonArea">
                             <div className="settingsButton d-grid gap-2">
-                                <Button variant="outline-light" onClick={() => setShowBuisList(prevState => !prevState)}>
+                                <Button variant="outline-light" onClick={showOnlyBuisList}>
                                     Maintain buis
                                 </Button>
                             </div>
                             <div className="settingsButton d-grid gap-2">
-                                <Button variant="outline-light" onClick={() => setShowFormForChangingPersonalData(prevState => !prevState)}>
+                                <Button variant="outline-light" onClick={showOnlyForm}>
                                     Change personal data
                                 </Button>
                             </div>
                             <div className="settingsButton d-grid gap-2">
-                                <Button variant="outline-light" onClick={() => setShowUsers(prevState => !prevState)}>
+                                <Button variant="outline-light" onClick={showOnlyUsers}>
                                     Maintain user
                                 </Button>
                             </div>

@@ -24,11 +24,11 @@
     min-width: 500px
 }
 
-.inputSettingsForm {
+.settingsFormInput {
     margin: 15px
 }
 
-.submitArea {
+.settingsSubmitArea {
     width: 100%
 }
 
@@ -66,3 +66,43 @@
     font-size: 25px;
     color: #f4f6f7;
 }
+
+.imageSettingsForm {
+    width: 40px;
+    filter: grayscale(100%);
+    top: 10px;
+    position: relative;
+}
+
+.content {
+    display:table-cell;
+    vertical-align:middle;
+
+}
+
+/* User list begin*/
+.userListAreaContainer {
+    position: relative;
+    align-items: center;
+    min-width: 500px;
+}
+
+.userListContainer {
+    max-width: 500px;
+    max-height: 387px;
+    overflow-y: auto;
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+}
+
+.userListBody {
+    background-color: #e5e5e8;
+    width: 100%;
+    padding: 15px;
+}
+
+.userListContainer::-webkit-scrollbar {
+    display: none;
+}
+
+/* User list ends */

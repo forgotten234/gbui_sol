@@ -3,7 +3,7 @@ import { Form, Button, Alert } from 'react-bootstrap'
 import { AuthContext } from '../../contexts/AuthContext'
 import { WebSocketContext } from '../../contexts/WebSocketContext'
 import '../styles.css'
-import BriefcasePlaceholder from '../../../assets/briefcase.png'
+
 const InquiryForm = () => {
     const { setMessageData } = useContext(WebSocketContext)
     const {auth} = useContext(AuthContext)
@@ -75,11 +75,6 @@ const InquiryForm = () => {
     return (
         <div className={"inquiryFormContainer"}>
             <Form onSubmit={onFormSubmit}>
-                <div className="inquiryFormHeader">
-                    <p className="squareLeft">&#9725;</p>
-                    <p className="squareRight">&#9725;</p>
-                    <img src={BriefcasePlaceholder} className="imageInquiryForm" alt="Briefcase"/>                 
-                </div>
                 <div className="inquiryFormBody">
                     <Form.Group className="inputFieldsInquiryForm">
                         <Form.Control type="textarea" placeholder="BUIS name" onChange={setInquiryDataFromForm("name")}></Form.Control>

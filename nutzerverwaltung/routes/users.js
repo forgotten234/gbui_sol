@@ -4,6 +4,15 @@ const User = require("../models/User.js")
 const saltRounds = 10;
 const bcrypt = require('bcrypt');
 
+router.delete("/delete-user/:userId", async (req, res) => {
+    try {
+        await User.deleteOne({userId: req.params.userId})
+    } catch {
+        res.status(404)
+        res.send({error: "Something went wrong"})
+    }
+})
+
 router.patch("/update-user/:userId", async (req, res) => {
   try {
     const user = await User.findOne({userId: req.params.userId})

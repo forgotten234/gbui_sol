@@ -54,11 +54,6 @@ const InquiryListAdmin = () => {
     return (
         <>
             <div className={"inquiryListAreaContainer"}>
-                <div className="inquiryListHeader">
-                    <p className="squareLeft">&#9725;</p>
-                    <p className="squareRight">&#9725;</p>
-                    <h5>Incomming Inquiries:</h5>
-                </div>
                 <div className="inquiryListBody">
                     <ListGroup className={"inquiryListContainer"}>
                         {inquiryMap}

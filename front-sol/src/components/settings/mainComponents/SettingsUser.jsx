@@ -1,12 +1,11 @@
 import React, {useState, useEffect, useContext} from 'react'
-import { Form, Button, Container, Row, Col } from 'react-bootstrap'
+import { Button, Container, Row, Col } from 'react-bootstrap'
 import {AuthContext} from '../../contexts/AuthContext'
 import SettingsForm from '../subComponents/SettingsForm'
 import SettingsPlaceholder from '../../../assets/settings.png'
 //see below role comment
 //import {RoleContext} from '../contexts/RoleContext'
 import './styles.css'
-
 export default function SettingsUser(){
     const { auth } = useContext(AuthContext)
     //maybe we need to use role here as well (User vs. Admin Settings) ---> but in main settings page! see below
@@ -19,11 +18,14 @@ export default function SettingsUser(){
 
     //if no userData are there a loading component will be rendert till the userData are fetched
     return  (
+
         <div style={{marginTop: "50px"}}>
             <Container className="settingsContainerHeader">
                 <p className="squareLeft">&#9725;</p>
                 <p className="squareRight">&#9725;</p>
+
                 <img src={SettingsPlaceholder} className="imageSettings" alt="Briefcase"/>   
+
             </Container>
             <Container className="settingsContainerBody" fluid="md">
                 <Row>
@@ -47,6 +49,7 @@ export default function SettingsUser(){
                             ?
                                 <SettingsForm />
                             :   <p className="defaultParagraph">Select one of the buttons <br />to show something in here</p>
+
                         }
                     </Col>
                 </Row>
