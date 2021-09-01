@@ -1,7 +1,19 @@
 import React, { useState,  useContext } from "react"
-import { Button, Modal, Table, Dropdown, DropdownButton } from 'react-bootstrap'
+import { Button, Modal, Table } from 'react-bootstrap'
 
 const EditUser = (props) => {
+
+    const deleteRole = async () => {
+        await fetch('http://localhost:9000/role/delete-role/' + props.userData.userId, {
+            method: 'DELETE',
+            body: JSON.stringify({
+                userId: props.userId
+            }),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
+    }
 
     const deleteUser = async () => {
         await fetch('http://localhost:9001/users/delete-user/' + props.userData.userId, {
@@ -13,6 +25,7 @@ const EditUser = (props) => {
                 "Content-type": "application/json; charset=UTF-8"
             }
         })
+        .then(deleteRole())
         .then(props.action())
     }
 
