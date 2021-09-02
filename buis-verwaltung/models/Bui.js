@@ -27,4 +27,6 @@ const buiSchema = mongoose.Schema({
     userId: String
 })
 
+buiSchema.index({'$**': 'text'})
+
 module.exports = mongoose.model("Bui", buiSchema)

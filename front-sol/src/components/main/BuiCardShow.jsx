@@ -6,7 +6,7 @@ import BuiCard from './BuiCard'
 function BuiCardShow(){
 
     return(
-        <div>
+        <div >
             <h4 className="text-uppercase">Hoch Bewertete Buis</h4>
             <BuiCard/>
         </div>

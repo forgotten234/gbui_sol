@@ -4,15 +4,27 @@ import {Navbar, Nav, NavDropdown, FormControl, Form, Button, Container} from 're
 import { PersonCircle } from 'react-bootstrap-icons'
 import LoginStatus from './LoginStatus'
 import { useHistory } from "react-router-dom"
-
+import { ListGroup } from "react-bootstrap"
 import { RoleContext } from '../contexts/RoleContext'
 import { AuthContext } from '../contexts/AuthContext'
 
 function Navigationbar(){
     const {auth, setAuthData} = useContext(AuthContext)
     const {role, setRoleData} = useContext(RoleContext)
+    const [searchResults, setSearchResults] = useState([])
+    const [displayResults, setDisplayResults] = useState(false)
+
+    useEffect(() => {
+        console.log(searchResults)
+        if(searchResults.length === 0){
+            setDisplayResults(false)
+        } else if (searchResults.length > 0){
+            setDisplayResults(true)
+        }
+    }, [searchResults])
 
     const history = useHistory()
+
 
     const logOut = () => {
         setAuthData(null)
@@ -20,9 +32,28 @@ function Navigationbar(){
         history.push("/")
     }
 
+    const searchBui = async (searchString) => {
+        await fetch('http://localhost:9004/buis/search-bui', {
+            method: 'POST',
+            body: JSON.stringify({
+                searchString: searchString
+            }),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
+        .then(response => response.json())
+        .then(data => setSearchResults(data))
+    }
+
+    const startSearching = e => {
+        searchBui(e.target.value)
+    }
+
+
     return(
         <div>
-            <Navbar sticky="top" bg="light" expand="md" className="navigation ">
+            <Navbar sticky="top" bg="light" expand="md" className="navigation">
                 <Container>
                     <Navbar.Brand onClick={() => history.push("/")} className="font-weight-bolder text-uppercase">Sol</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -38,22 +69,39 @@ function Navigationbar(){
                                 </NavDropdown>
                                 </div>   
                         </Nav>
-                        <Form className="d-flex flex-grow-1 searchBar">
+                        <Form className="d-flex flex-grow-1">
                             <FormControl
                                 type="search"
                                 placeholder="SUCHE BUIS"
                                 className="mr-2"
                                 aria-label="Search"
-                            />
+                                onChange={startSearching}
+                            />      
                             <Button variant="outline-dark">Suche</Button>
                         </Form>
-                        <Nav>
+                        <Nav>   
                             <PersonCircle className="icon" size="40"/>
                             <LoginStatus/>
                         </Nav>      
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
+            {
+                displayResults 
+                ?   <Container className="searchResultsContainer">
+                        <ListGroup className="searchResults">
+                            {
+                                searchResults.map(element => 
+                                    <ListGroup.Item>
+                                        <img src={element.logo} style={{width: '150px', height: '75px'}}/>
+                                        <span style={{marginRight: '100px'}}>{element.name}</span>
+                                    </ListGroup.Item>    
+                                )
+                            }
+                        </ListGroup>
+                    </Container>
+                :   <></>
+            }
         </div>
     )
 }

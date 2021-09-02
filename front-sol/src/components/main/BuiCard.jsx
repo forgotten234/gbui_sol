@@ -11,7 +11,7 @@ const handleClick = () => {
 }
 
     return(
-        <div>
+        <div >
             <Card bg="light" style={{ width: '25rem' }}>
                 <Row>
                     <Col xs={4}>

@@ -31,4 +31,14 @@ router.delete("/delete/:_id", async (req, res) => {
     }
 })
 
+router.post("/search-bui", async (req, res) => {
+    try {
+        const bui = await Bui.find({$text: {$search: req.body.searchString}})
+        res.send(bui)
+    } catch {
+        res.status(404)
+        res.send({error: "Something went wrong"})
+    }
+})
+
 module.exports = router;
