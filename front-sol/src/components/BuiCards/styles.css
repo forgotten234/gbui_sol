@@ -1,0 +1,19 @@
+.card-text{
+    line-height: 1.2em;
+    max-height: 9.6em;
+    overflow: hidden;
+}
+
+.card-logo-container{
+    width: 120px;
+    height: 120px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-logo{
+    width: 100%;
+    height: auto;
+    
+}

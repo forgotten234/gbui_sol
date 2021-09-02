@@ -24,7 +24,8 @@ const buiSchema = mongoose.Schema({
         targetGroup: [String],
         integrationLevel: [String]
     },
-    userId: String
+    userId: String,
+    rating: Number
 })
 
 module.exports = mongoose.model("Bui", buiSchema)
