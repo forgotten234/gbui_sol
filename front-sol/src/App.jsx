@@ -11,7 +11,7 @@ import InquiryMainPage from './components/inquiryManagement/InquiryMainPage'
 import InquiryNotificationHandlerMain from './components/inquiryManagement/subComponents/notifications/InquiryNotificationHandlerMain';
 import Navigationbar from './components/main/Navigationbar';
 import Infopart from './components/main/Infopart';
-import BuiCardShow from './components/main/BuiCardShow';
+import BuiCardShow from './components/BuiCards/BuiCardShow';
 
 function App() {
     return (

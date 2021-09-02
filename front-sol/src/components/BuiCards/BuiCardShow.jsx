@@ -7,8 +7,10 @@ function BuiCardShow(){
 
     return(
         <div>
-            <h4 className="text-uppercase">Hoch Bewertete Buis</h4>
-            <BuiCard/>
+            <Container>
+              <h4 className="text-uppercase">Hoch Bewertete Buis</h4>
+              <BuiCard/>
+            </Container>
         </div>
     )
 }
