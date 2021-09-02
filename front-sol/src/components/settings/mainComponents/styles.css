@@ -106,3 +106,31 @@
 }
 
 /* User list ends */
+
+/* Bui list starts */
+
+.buiListAreaContainer {
+    position: relative;
+    align-items: center;
+    min-width: 500px;
+}
+
+.buiListContainer {
+    max-width: 500px;
+    max-height: 387px;
+    overflow-y: auto;
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+}
+
+.buiListBody {
+    background-color: #e5e5e8;
+    width: 100%;
+    padding: 15px;
+}
+
+.buiListContainer::-webkit-scrollbar {
+    display: none;
+}
+
+/* Bui list ends */
