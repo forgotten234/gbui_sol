@@ -30,11 +30,6 @@ function BuiCardShow(){
   
 
     return(
-<<<<<<< HEAD:front-sol/src/components/main/BuiCardShow.jsx
-        <div >
-            <h4 className="text-uppercase">Hoch Bewertete Buis</h4>
-            <BuiCard/>
-=======
         <div>
             <Container>
                 <div className="my-3">
@@ -51,7 +46,6 @@ function BuiCardShow(){
                 </div>
   
             </Container>
->>>>>>> added container and restrucered bui Cards:front-sol/src/components/BuiCards/BuiCardShow.jsx
         </div>
     )
 }

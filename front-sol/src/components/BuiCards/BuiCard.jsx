@@ -14,86 +14,39 @@ const handleClick = () => {
 }
 
     return(
-<<<<<<< HEAD
-        <div >
-            <Card bg="light" style={{ width: '25rem' }}>
-=======
-        <div>
-<<<<<<< HEAD
-            <Card bg="light" style={{ width: '25rem' }} className="mx-2">
->>>>>>> mapped data to Bui Cards
-                <Row>
-                    <Col xs={4}>
-                        <div className="card-logo-container rounded mx-3 mt-3 md-block"> 
-                            <img src={props.item.logo} className="card-logo"></img>
-                        </div> 
-                    </Col>
-                    <Col xs={8}>
-                        <Card.Body>
-                            <Card.Title >{props.item.name}</Card.Title>
-                            <Card.Text className="card-text">
-                                {props.item.description}
-                            </Card.Text>
-                        </Card.Body>
-                        <Card.Body>
-                            <Card.Text>
-                                <h5>Hersteller:</h5>
-                                {props.item.manufacturer.map(item=>{return(<p>{item}</p>)})}
-                            </Card.Text>
-                        </Card.Body>
-                    </Col>
-                </Row>
-                <Card.Footer className="d-flex justify-content-between align-items-center">
-                   
-                    <Button variant="outline-dark" onClick={handleClick}>Details</Button>
+        <Card bg="light" style={{ width: '25rem'}} className="mx-2 card-container">
+            <Row className="card-container">
+                <Col xs={4}>
+                    <div className="card-logo-container rounded mx-3 mt-3 md-block"> 
+                        <img src={props.item.logo} className="card-logo"></img>
+                    </div> 
+                </Col>
+                <Col xs={8}>
+                    <Card.Body className="card-container">
+                        <Card.Title >{props.item.name}</Card.Title>
+                        <Card.Text className="card-text-hidden">
+                            {props.item.description}
+                        </Card.Text>
+                        <p>...</p>
+                        <Card.Text>
+                            <h5>Hersteller:</h5>
+                            {props.item.manufacturer.map(item=>{return(<p className="m-0">{item}</p>)})}
+                        </Card.Text>
+                    </Card.Body>
+                </Col>
+            </Row>
+            <Card.Footer className="d-flex justify-content-between align-items-center">
+                <Button variant="outline-dark" onClick={handleClick}>Details</Button>
+                {props.item.rating != null ?
                     <div>
-                      <StarFill/>
-                      <span> {props.item.rating}</span>
+                        <StarFill/>
+                        <span className="badge alert-warning py-2 mx-2"> {props.item.rating}</span>
                     </div>
-                    
-                  
-                      
-                    
-                    
-                </Card.Footer>
-            </Card>
-=======
-                <Card bg="light" style={{ width: '25rem'}} className="mx-2 card-container">
-                    <Row className="card-container">
-                        <Col xs={4}>
-                            <div className="card-logo-container rounded mx-3 mt-3 md-block"> 
-                                <img src={props.item.logo} className="card-logo"></img>
-                            </div> 
-                        </Col>
-                        <Col xs={8}>
-                            <Card.Body className="card-container">
-                                <Card.Title >{props.item.name}</Card.Title>
-                                <Card.Text className="card-text-hidden">
-                                    {props.item.description}
-                                </Card.Text>
-                                <p>...</p>
-                                <Card.Text>
-                                    <h5>Hersteller:</h5>
-                                    {props.item.manufacturer.map(item=>{return(<p className="m-0">{item}</p>)})}
-                                </Card.Text>
-                            </Card.Body>
-                        </Col>
-                    </Row>
-                    <Card.Footer className="d-flex justify-content-between align-items-center">
-                        <Button variant="outline-dark" onClick={handleClick}>Details</Button>
-                        {props.item.rating != null ?
-                            <div>
-                                <StarFill/>
-                                <span className="badge alert-warning py-2 mx-2"> {props.item.rating}</span>
-                            </div>
-                            :
-                             <></>
-                        }
-                       
-                    </Card.Footer>
-                </Card>
->>>>>>> added rating and count to Bui Card
-        </div>
+                    :
+                        <></>
+                }
+            </Card.Footer>
+        </Card>
     )
 }
 export default BuiCard

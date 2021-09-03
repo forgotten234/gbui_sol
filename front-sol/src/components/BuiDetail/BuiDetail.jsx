@@ -25,7 +25,7 @@ function BuiDetail(props){
 
     //Check if Logo exists or return empty
     const logo = (item) => {
-        return item ? <Image src={item} fluid rounded className="mx-auto d-block p-5"/> : <></>
+        return item ? <Image src={item} fluid rounded className="mx-auto d-block p-5 bui-logo"/> : <></>
     }
     //map multiple manufacturers to list
     const getManufacturer = (items) =>{
