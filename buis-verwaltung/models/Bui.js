@@ -24,7 +24,7 @@ const buiSchema = mongoose.Schema({
         targetGroup: [String],
         integrationLevel: [String]
     },
-    userId: String
+    userId: String,
 })
 
 buiSchema.index({'$**': 'text'})

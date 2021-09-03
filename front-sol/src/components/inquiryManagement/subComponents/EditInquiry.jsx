@@ -4,11 +4,13 @@ import emailjs from 'emailjs-com';
 import React, { useState,  useContext } from "react"
 import { Button, Modal, Table, Dropdown, DropdownButton } from 'react-bootstrap'
 import { WebSocketContext } from '../../contexts/WebSocketContext';
+import { AuthContext } from '../../contexts/AuthContext';
 
 const EditInquiry = (props) => {
     const [inqStatus, setInqstatus] = useState("IN_PROGRESS")
     const { setMessageData } = useContext(WebSocketContext)
-    
+    const { auth } = useContext(AuthContext)
+
     const ws = new WebSocket('ws://localhost:3030')
 
     const changeStatusOfBui = () => {
@@ -32,6 +34,7 @@ const EditInquiry = (props) => {
         })
         .then(response => response.json())
         .then(data => ws.send(JSON.stringify({data, updatedMessage: true}))) //sends to user
+        .then(insertBUItoDB())
         .then(setInqstatus("IN_PROGRESS"))
         .then(sendEmailToGuest())
     }
@@ -51,6 +54,32 @@ const EditInquiry = (props) => {
             }, (err) => {
                 console.log('FAILED...', err);
             });
+        }
+    }
+
+    const insertBUItoDB = async () => {
+        if(inqStatus === "ACCEPTED"){
+            let idForPassing = ""
+            if(auth.data) idForPassing = auth.data.userId
+            await fetch('http://localhost:9004/buis/create-bui', {
+                method: "POST",
+                body: JSON.stringify({
+                    userId: idForPassing,
+                    name: props.inqData.name,
+                    type: props.inqData.type,
+                    description: props.inqData.description,
+                    website: props.inqData.webpage,
+                    downloadLink: props.inqData.downloadLink,
+                    manufacturer: props.inqData.manufacturer,
+                    price: props.inqData.cost,
+                    contact: props.inqData.contact,
+                    logo: props.inqData.logo,
+                    characteristic: props.inqData.characteristic
+                }),
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8"
+                }
+            })
         }
     }
 

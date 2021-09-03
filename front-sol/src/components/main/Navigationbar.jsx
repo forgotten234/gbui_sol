@@ -5,12 +5,8 @@ import { PersonCircle } from 'react-bootstrap-icons'
 import LoginStatus from './LoginStatus'
 import { useHistory } from "react-router-dom"
 import { ListGroup } from "react-bootstrap"
-import { RoleContext } from '../contexts/RoleContext'
-import { AuthContext } from '../contexts/AuthContext'
 
 function Navigationbar(){
-    const {auth, setAuthData} = useContext(AuthContext)
-    const {role, setRoleData} = useContext(RoleContext)
     const [searchResults, setSearchResults] = useState([])
     const [displayResults, setDisplayResults] = useState(false)
 
@@ -24,13 +20,6 @@ function Navigationbar(){
     }, [searchResults])
 
     const history = useHistory()
-
-
-    const logOut = () => {
-        setAuthData(null)
-        setRoleData(null)
-        history.push("/")
-    }
 
     const searchBui = async (searchString) => {
         await fetch('http://localhost:9004/buis/search-bui', {
@@ -77,7 +66,7 @@ function Navigationbar(){
                                 aria-label="Search"
                                 onChange={startSearching}
                             />      
-                            <Button variant="outline-dark">Suche</Button>
+                            
                         </Form>
                         <Nav>   
                             <PersonCircle className="icon" size="40"/>
@@ -87,12 +76,13 @@ function Navigationbar(){
                 </Container>
             </Navbar>
             {
+                //should this be an own component?
                 displayResults 
                 ?   <Container className="searchResultsContainer">
                         <ListGroup className="searchResults">
                             {
                                 searchResults.map(element => 
-                                    <ListGroup.Item>
+                                    <ListGroup.Item key={() => Math.random().toString(36).substr(2, 9)}>
                                         <img src={element.logo} style={{width: '150px', height: '75px'}}/>
                                         <span style={{marginRight: '100px'}}>{element.name}</span>
                                     </ListGroup.Item>    

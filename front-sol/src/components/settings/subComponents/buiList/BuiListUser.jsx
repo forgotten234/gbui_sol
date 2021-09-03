@@ -1,17 +1,19 @@
 import React, { useState, useEffect, useContext } from "react"
 import { Button, ListGroup } from "react-bootstrap"
-import '../mainComponents/styles.css'
+import '../../mainComponents/styles.css'
+import { AuthContext } from "../../../contexts/AuthContext"
 
-const BuiList = () => {
+const BuiListUser = () =>  {
     const [buiMap, setBuiMap] = useState([])
-    const [buiIsDeletedOrAdded, setBuiIsDeletedOrAdded] = useState(0)
+    const [buiIsDeleted, setBuiIsDeleted] = useState(0)
+    const {auth} = useContext(AuthContext)
 
     useEffect(() => {
         getBuis()
-    }, [buiIsDeletedOrAdded])
+    }, [buiIsDeleted])
 
     const getBuis = async () => {
-        await fetch('http://localhost:9004/buis/get-buis')
+        await fetch('http://localhost:9004/buis/get-bui/' + auth.data.userId)
             .then(response => response.json())
             .then(data => setBuiMap(
                 data.map(element => 
@@ -36,7 +38,7 @@ const BuiList = () => {
                 "Content-type": "application/json; charset=UTF-8"
             }
         })
-        .then(setBuiIsDeletedOrAdded(prevState => prevState + 1))
+        .then(setBuiIsDeleted(prevState => prevState + 1))
     }
 
     return (
@@ -52,4 +54,4 @@ const BuiList = () => {
     )
 }
 
-export default BuiList
+export default BuiListUser

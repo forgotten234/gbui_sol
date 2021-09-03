@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react"
 import { Container, Row, Col, Button} from 'react-bootstrap'
-import InquiryForm from "./subComponents/InquiryForm"
+import InquiryForm from "./subComponents/inquiryForm/InquiryForm"
 import InquiryListUser from "./subComponents/inquiryList/InquiryListUser"
 import BriefcasePlaceholder from '../../assets/briefcase.png'
 import './styles.css'
@@ -21,6 +21,16 @@ const InquiryAreaUser = () => {
             setShowInquiryList(false)
         }
         setShowInquiryForm(prevState => !prevState)
+    }
+
+    const showSelectedArea = () => {
+        if(showInquiryList === true){
+            return <InquiryListUser />
+        } else if (showInquiryForm === true) { 
+            return <InquiryForm />
+        }else {
+            return <p className="defaultParagraph">Select one of the buttons <br />to show something in here</p>
+        }
     }
 
     return(
@@ -49,18 +59,7 @@ const InquiryAreaUser = () => {
                     </Col>
                     <Col className="d-flex justify-content-center">
                         {
-                            showInquiryList 
-                            ? <InquiryListUser />
-                            : <></>
-                            /*
-                                 <InquiryListUser />
-                                <InquiryForm />
-                            */
-                        }
-                        {
-                            showInquiryForm 
-                            ? <InquiryForm />
-                            : <></>
+                            showSelectedArea()
                         }
                     </Col>
                 </Row>   
