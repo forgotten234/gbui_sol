@@ -23,6 +23,7 @@
 .inquiryContainerBody {
     background-color: #cfd8dc;
     height: 85vh;
+
 }
 
 .inquiryForm {
@@ -87,15 +88,19 @@
 /* inquiry Form */
 
 .inquiryFormBody {
-    background-color: #e5e5e8;
     width: 100%;
     padding: 15px;
 }
 
 .inquiryFormContainer {
+    background-color: #e5e5e8;
     position: relative;
     align-items: center;
     min-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
 }
 
 .inputFieldsInquiryForm {
@@ -103,6 +108,11 @@
     min-width: 300px;
 }
 
+.inputFieldsInquiryForArrays{
+    margin-top: -10px;
+    min-width: 300px;
+    margin-bottom: 5px;
+}
 /* New styles end */
 
 /* Old styles begin */

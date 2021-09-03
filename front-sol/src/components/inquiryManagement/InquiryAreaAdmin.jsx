@@ -24,11 +24,15 @@ const InquiryAreaAdmin = () => {
                 <Row>
                     <Col className="d-flex justify-content-center">
                         <div className="inquiryButtonArea">
-                            <div className="inquiryButton d-grid gap-2 ">
-                                <Button variant="outline-light" >
-                                    Show something different
-                                </Button>
-                            </div>
+                             {
+                                 /* No need for a second button right now
+                                    <div className="inquiryButton d-grid gap-2 ">
+                                        <Button variant="outline-light" >
+                                            Show something different
+                                        </Button>
+                                    </div>
+                                 */
+                             }
                             <div className="inquiryButton d-grid gap-2">
                                 <Button variant="outline-light" onClick={showOnlyInquiryList}>
                                     Show Inquiry List
@@ -41,7 +45,7 @@ const InquiryAreaAdmin = () => {
                         {
                             showInquiryList 
                             ? <InquiryListAdmin />
-                            : <></>
+                            : <p className="defaultParagraph">Select one of the buttons <br />to show something in here</p>
                         }
                     </Col>
                 </Row>   

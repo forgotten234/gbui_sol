@@ -11,13 +11,15 @@ router.post("/create-inquiry", async (req, res) => {
             inquiryId: generatedIdForInquiryId,
             creationDate: generatedDateForCreationDate,
             name: req.body.name,
+            type: req.body.type,
             description: req.body.description,
             webpage: req.body.webpage,
             cost: req.body.cost,
-            ap_name: req.body.ap_name,
-            ap_surname: req.body.ap_surname,
-            ap_phoneNumber: req.body.ap_phoneNumber,    
-            ap_email: req.body.ap_email  
+            manufacturer: req.body.manufacturer,
+            characteristic: req.body.characteristic,
+            logo: req.body.logo,
+            downloadLink: req.body.downloadLink,
+            contact: req.body.contact
         })
         await inq.save()
         res.send({inq, newInquiryAvailable: true})
@@ -76,13 +78,22 @@ router.patch("/update-inquiry/:inquiryId", async (req, res) => {
             res.send({inq, statusOfInquiryChanged: true})
         } else {
             if(req.body.name) inq.name = req.body.name       
+            if(req.body.type) inq.type = req.body.type
             if(req.body.description) inq.description = req.body.description
             if(req.body.webpage) inq.webpage = req.body.webpage
             if(req.body.cost) inq.cost = req.body.cost
-            if(req.body.ap_name) inq.ap_name = req.body.ap_name
-            if(req.body.ap_surname) inq.ap_surname = req.body.ap_surname
-            if(req.body.ap_phoneNumber) inq.ap_phoneNumber = req.body.ap_phoneNumber
-            if(req.body.ap_email) inq.ap_email = req.body.ap_email
+            if(req.body.manufacturer) inq.manufacturer = req.body.manufacturer
+            if(req.body.characteristic.applicationField) inq.characteristic.applicationField = req.body.characteristic.applicationField
+            if(req.body.characteristic.observationObject) inq.characteristic.observationObject = req.body.characteristic.observationObject
+            if(req.body.characteristic.oberservationLimit) inq.characteristic.oberservationLimit = req.body.characteristic.oberservationLimit
+            if(req.body.characteristic.targetGroup) inq.characteristic.targetGroup = req.body.characteristic.targetGroup
+            if(req.body.characteristic.integrationLevel) inq.characteristic.integrationLevel = req.body.characteristic.integrationLevel
+            if(req.body.logo) inq.logo = req.body.logo
+            if(req.body.downloadLink) inq.downloadLink = req.body.downloadLink
+            if(req.body.contact.ap_name) inq.contact.ap_name = req.body.contact.ap_name
+            if(req.body.contact.ap_surname) inq.contact.ap_surname = req.body.contact.ap_surname
+            if(req.body.contact.ap_phoneNumber) inq.contact.ap_phoneNumber = req.body.contact.ap_phoneNumber
+            if(req.body.contact.ap_email) inq.contact.ap_email = req.body.contact.ap_email
             await inq.save()
             res.send(inq)
         }      

@@ -4,7 +4,7 @@ import { Button, Container, Row, Col } from 'react-bootstrap'
 import SettingsPlaceholder from '../../../assets/settings.png'
 import SettingsForm from '../subComponents/SettingsForm'
 import UserList from '../subComponents/UserList'
-import BuiList from '../subComponents/BuiList'
+import BuiListAdmin from '../subComponents/buiList/BuiListAdmin'
 
 const SettingsAdmin = () => {
     const [showFormForChangingPersonalData, setShowFormForChangingPersonalData] = useState(false)
@@ -41,7 +41,7 @@ const SettingsAdmin = () => {
         } else if (showUsers === true) {
             return <UserList />
         } else if (showBuisList === true) { 
-            return <BuiList />
+            return <BuiListAdmin />
         }else {
             return <p className="defaultParagraph">Select one of the buttons <br />to show something in here</p>
         }

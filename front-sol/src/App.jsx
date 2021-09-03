@@ -16,8 +16,8 @@ import BuiCardShow from './components/main/BuiCardShow';
 function App() {
     return (
         <div>
-            <Navigationbar/>
-            <InquiryNotificationHandlerMain>
+            <Navigationbar style={{zIndex: "99"}}/>
+            <InquiryNotificationHandlerMain style={{zIndex: "9"}}>
                 <Switch>
                     <Route exact path="/sign-in" component={Login} />
                     <Route exact path="/register" component={Registration} />

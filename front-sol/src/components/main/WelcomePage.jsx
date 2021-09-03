@@ -30,8 +30,8 @@ export default function WelcomePage(){
 
 
     return(
-        <div>
-            <Infopart/>
+        <div >
+            <Infopart />
             <BuiCardShow/>
         </div>
 

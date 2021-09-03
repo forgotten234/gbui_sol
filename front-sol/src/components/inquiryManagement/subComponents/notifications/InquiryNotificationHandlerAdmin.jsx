@@ -46,7 +46,7 @@ const InquiryNotificationHandlerAdmin = ({children}) => {
     const webSocketEventListenerMethod = (e) => {
         var text = JSON.parse(e.target.result)
         setReceivedMessage(prevState => [...prevState, text])
-        if(text.newMessage === true){
+        if(text.newMessage === true || text === message){
             toast.info(
                 <div>
                     New Inquiry for BUI: {text.data.inq.name} <br />

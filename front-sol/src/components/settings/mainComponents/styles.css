@@ -50,6 +50,9 @@
     position: relative;
 }
 
+.settingsNotLoggedIn{
+    margin-top: 300px;
+}
 /* Other */
 .squareLeft {
     float: left;
