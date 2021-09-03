@@ -1,6 +1,6 @@
 .card-text{
     line-height: 1.2em;
-    max-height: 9.6em;
+    max-height: 9.6em; 
     overflow: hidden;
 }
 
@@ -17,3 +17,16 @@
     height: auto;
     
 }
+.card-container{
+   max-height: 22em;
+   overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.card-container::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+

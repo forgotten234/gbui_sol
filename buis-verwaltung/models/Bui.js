@@ -25,10 +25,7 @@ const buiSchema = mongoose.Schema({
         integrationLevel: [String]
     },
     userId: String,
-<<<<<<< HEAD
-=======
     rating: Number
->>>>>>> mapped data to Bui Cards
 })
 
 buiSchema.index({'$**': 'text'})
