@@ -1,13 +1,16 @@
 import React, {useState,useEffect} from 'react'
+import { useHistory } from "react-router-dom"
 import './styles.css'
 import {Container, Card, Row,Col, Button, Carousel} from 'react-bootstrap'
 import { EmojiSmile, Star, StarFill } from 'react-bootstrap-icons'
 import ProfilePicturePlaceholder from '../../assets/user.png'
 
 function BuiCard(props){
-
+const history = useHistory()
 const handleClick = () => {
-
+    history.push({
+        pathname: "/detail/"+props.item._id,
+    })
 }
 
     return(
@@ -65,22 +68,28 @@ const handleClick = () => {
                         <Col xs={8}>
                             <Card.Body className="card-container">
                                 <Card.Title >{props.item.name}</Card.Title>
-                                <Card.Text>
+                                <Card.Text className="card-text-hidden">
                                     {props.item.description}
                                 </Card.Text>
+                                <p>...</p>
                                 <Card.Text>
                                     <h5>Hersteller:</h5>
-                                    {props.item.manufacturer.map(item=>{return(<p>{item}</p>)})}
+                                    {props.item.manufacturer.map(item=>{return(<p className="m-0">{item}</p>)})}
                                 </Card.Text>
                             </Card.Body>
                         </Col>
                     </Row>
                     <Card.Footer className="d-flex justify-content-between align-items-center">
                         <Button variant="outline-dark" onClick={handleClick}>Details</Button>
-                        <div>
-                        <StarFill/>
-                        <span> {props.item.rating}</span>
-                        </div>
+                        {props.item.rating != null ?
+                            <div>
+                                <StarFill/>
+                                <span className="badge alert-warning py-2 mx-2"> {props.item.rating}</span>
+                            </div>
+                            :
+                             <></>
+                        }
+                       
                     </Card.Footer>
                 </Card>
 >>>>>>> added rating and count to Bui Card
