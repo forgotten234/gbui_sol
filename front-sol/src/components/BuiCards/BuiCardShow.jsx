@@ -1,40 +1,50 @@
 import React, {useState,useEffect} from 'react'
 import './styles.css'
-import {CardGroup, Container, Row, Col} from 'react-bootstrap'
+import {CardGroup, Container, Row, Col, Carousel, CarouselItem} from 'react-bootstrap'
 import BuiCard from "./BuiCard"
 
 function BuiCardShow(){
 
     const [BuiList, setBuiList] = useState([])
+    const [BuiRatedList, setBuiRatedList] = useState([])
+    const [BuiCountList, setBuiCountList] = useState([])
 
     const getItems = async () => {
         await fetch("http://localhost:9004/buis/get-buis")
         .then(response => response.json())
         .then((items) => {
             setBuiList(items)
+            setBuiRatedList(items.sort((a,b)=>b.rating - a.rating))
+            setBuiCountList(items.sort((a,b)=>b.count - a.count))
         })    
     } 
     useEffect(()=> {
         getItems()
     },[])
 
-    const showItems=()=>{
+    const showItems=(list)=>{
         return(
-            BuiList.map(item => {return(<Col><BuiCard item={item}/></Col>)})
+            list.map(item => {return(<Col><BuiCard item={item}/></Col>)})
         )
     }
-    // const showRatedItems=()=>{
-
-    // }
+  
 
     return(
         <div>
             <Container>
-              <h4 className="text-uppercase">Hoch Bewertete Buis</h4>
-              <Row md={1} lg={3} className="">
-                    {showItems()}
-              </Row>
-              
+                <div className="my-3">
+                    <h4 className="text-uppercase">Hoch Bewertete Buis</h4>
+                    <Row className="d-flex align-item-stretch" dataToggle="collapse">
+                        {showItems(BuiRatedList)}
+                    </Row>
+                </div>
+                <div className="my-3">
+                <h4 className="text-uppercase">Meistgesehene Buis</h4>
+                    <Row className="d-flex align-item-stretch">
+                        {showItems(BuiCountList)}
+                    </Row> 
+                </div>
+  
             </Container>
         </div>
     )
