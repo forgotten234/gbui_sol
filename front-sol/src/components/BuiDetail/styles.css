@@ -1,0 +1,31 @@
+.description-text-hidden{
+    max-height: 18em;
+    text-overflow: clip;
+    background: linear-gradient(to bottom,#333,#333 70%,#eee);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;
+}
+.description-text-full{
+    overflow: auto;
+}
+.morph-container{
+    overflow: scroll;
+}
+.characteristic-container{
+    width: 10em;
+    height: auto;
+    padding: 0.5em;
+    text-align: left;
+    border-radius: 5px;
+}
+.attribute-container{
+    padding: 0.5em;
+    text-align: left;
+    border-radius: 5px;
+    border: 1px solid #333;
+    margin-left: 0.5em;
+
+
+}

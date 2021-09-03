@@ -1,7 +1,13 @@
-.card-text{
-    line-height: 1.2em;
-    max-height: 9.6em; 
-    overflow: hidden;
+.card-text-hidden{
+    max-height: 10em;
+    margin-bottom: 0;
+    text-overflow: clip;
+    background: linear-gradient(to bottom,#333,#333 70%,#eee);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;
+
 }
 
 .card-logo-container{
@@ -18,7 +24,7 @@
     
 }
 .card-container{
-   max-height: 22em;
+   height: 25em;
    overflow-y: auto;
     -ms-overflow-style: none;
     scrollbar-width: none;

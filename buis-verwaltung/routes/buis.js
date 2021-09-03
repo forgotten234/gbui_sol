@@ -20,7 +20,7 @@ router.get("/get-buis/:_id", async (req, res) => {
         res.status(404)
         res.send({error: "Something went wrong"})
     }
-})
+}) 
 
 router.delete("/delete/:_id", async (req, res) => {
     try {

@@ -10,8 +10,7 @@ import Settings from './components/settings/mainComponents/Settings'
 import InquiryMainPage from './components/inquiryManagement/InquiryMainPage'
 import InquiryNotificationHandlerMain from './components/inquiryManagement/subComponents/notifications/InquiryNotificationHandlerMain';
 import Navigationbar from './components/main/Navigationbar';
-import Infopart from './components/main/Infopart';
-import BuiCardShow from './components/BuiCards/BuiCardShow';
+import BuiDetail from './components/BuiDetail/BuiDetail';
 
 function App() {
     return (
@@ -23,6 +22,7 @@ function App() {
                     <Route exact path="/register" component={Registration} />
                     <Route exact path="/settings" component={Settings} />
                     <Route exact path="/inquiry" component={InquiryMainPage} />
+                    <Route path="/detail/:id" component={BuiDetail} />
                     <Route path="/" component={WelcomePage} />
                 </Switch>
             </InquiryNotificationHandlerMain>
