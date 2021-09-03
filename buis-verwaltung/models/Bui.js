@@ -25,6 +25,7 @@ const buiSchema = mongoose.Schema({
         integrationLevel: [String]
     },
     userId: String,
+    rating: Number
 })
 
 buiSchema.index({'$**': 'text'})
