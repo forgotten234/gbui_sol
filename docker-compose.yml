@@ -64,8 +64,10 @@ services:
     image: mongo:4.4.8
     restart: always
     volumes:
-      - dbdata:/data/db
-
+      - ~/dbdata:/data/db
+    ports: 
+      - 27017:27017
+    restart: unless-stopped
 volumes:
   dbdata:
     # environment:
