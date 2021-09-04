@@ -31,7 +31,6 @@ router.get("/get-buis/:_id", async (req, res) => {
         res.send({error: "Something went wrong"})
     }
 }) 
-<<<<<<< HEAD
 
 router.get("/get-bui/:userId", async (req, res) => {
     try{
@@ -42,8 +41,6 @@ router.get("/get-bui/:userId", async (req, res) => {
         res.send({error: "Something went wrong"})
     }
 })
-=======
->>>>>>> bae623365c576434fabcdf5137643d5ecbae666a
 
 router.delete("/delete/:_id", async (req, res) => {
     try {

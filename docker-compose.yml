@@ -64,7 +64,7 @@ services:
     image: mongo:4.4.8
     restart: always
     volumes:
-      - dbdata:/data/db
+      - mongo/dbdata:/data/db
 
 volumes:
   dbdata:

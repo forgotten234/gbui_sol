@@ -9,7 +9,7 @@ function BuiCard(props){
 const history = useHistory()
 const handleClick = () => {
     history.push({
-        pathname: "/detail/"+props.item._id,
+        pathname: "/detail/"+props.item._id
     })
 }
 
