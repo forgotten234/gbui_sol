@@ -62,7 +62,7 @@ function BuiDetail(props){
                         <h1>{SelectedBui[0].name}</h1>
                     </Col>
                 </Row>
-                <Row className="bg-light">
+                <Row className="bg-secondary rounded pb-3">
                     <Col className="border border-dark rounded bg-light mx-2">
                         {logo(SelectedBui[0].logo)}
                         <Table>
