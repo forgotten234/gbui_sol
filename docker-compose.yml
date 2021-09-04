@@ -65,7 +65,9 @@ services:
     restart: always
     volumes:
       - dbdata:/data/db
-
+    ports: 
+      - 27017:27017
+    restart: unless-stopped
 volumes:
   dbdata:
     # environment:
