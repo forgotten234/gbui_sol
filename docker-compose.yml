@@ -33,7 +33,7 @@ services:
     #   - '.:/www/buis-verwaltung'
     #   - '/www/buis-verwaltung/node_modules'
     ports:
-      - 9002:9002
+      - 9004:9004
 
   anfragemanagement:
     container_name: anfragemanagement
