@@ -23,7 +23,7 @@ const EditInquiry = (props) => {
     } 
 
     const updateInquiry = async () => {
-        await fetch('http://localhost:9003/inquiries/update-inquiry/' + props.inqData.inquiryId, {
+        await fetch('http://141.45.92.192:9003/inquiries/update-inquiry/' + props.inqData.inquiryId, {
             method: "PATCH",
             body: JSON.stringify({
                 inquiryStatus: inqStatus
@@ -61,7 +61,7 @@ const EditInquiry = (props) => {
         if(inqStatus === "ACCEPTED"){
             let idForPassing = ""
             if(auth.data) idForPassing = auth.data.userId
-            await fetch('http://localhost:9004/buis/create-bui', {
+            await fetch('http://141.45.92.192:9004/buis/create-bui', {
                 method: "POST",
                 body: JSON.stringify({
                     userId: idForPassing,

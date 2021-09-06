@@ -11,7 +11,7 @@ const BuiListAdmin = () => {
     }, [buiIsDeletedOrAdded])
 
     const getBuis = async () => {
-        await fetch('http://localhost:9004/buis/get-buis')
+        await fetch('http://141.45.92.192:9004/buis/get-buis')
             .then(response => response.json())
             .then(data => setBuiMap(
                 data.map(element => 
@@ -27,7 +27,7 @@ const BuiListAdmin = () => {
     }
 
     const deleteBui = async (id) => {
-        await fetch("http://localhost:9004/buis/delete/" + id, {
+        await fetch("http://141.45.92.192:9004/buis/delete/" + id, {
             method: 'DELETE',
             body: JSON.stringify({
                 _id: id

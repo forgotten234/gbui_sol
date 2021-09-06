@@ -11,7 +11,7 @@ services:
     #   - '.:/www/nutzerverwaltung'
     #   - '/www/nutzerverwaltung/node_modules'
     ports:
-      - 3001:9001
+      - 9001:9001
 
   rollenmanagement:
     container_name: rollenmanagement
@@ -22,7 +22,7 @@ services:
     #   - '.:/www/rollenmanagement'
     #   - '/www/rollenmanagement/node_modules'
     ports:
-      - 3000:9000
+      - 9000:9000
 
   buis-verwaltung:
     container_name: buis-verwaltung
@@ -33,7 +33,7 @@ services:
     #   - '.:/www/buis-verwaltung'
     #   - '/www/buis-verwaltung/node_modules'
     ports:
-      - 3002:9002
+      - 9002:9002
 
   anfragemanagement:
     container_name: anfragemanagement
@@ -44,7 +44,7 @@ services:
     #   - '.:/www/anfragemanagement'
     #   - '/www/anfragemanagement/node_modules'
     ports:
-      - 3003:9003
+      - 9003:9003
 
   front-sol:
     container_name: front-sol
