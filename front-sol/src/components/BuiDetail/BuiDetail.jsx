@@ -12,7 +12,7 @@ function BuiDetail(props){
     const [showDescription, setShowDescription] = useState(false)
 
     const getItem = async () => {
-        await fetch("http://localhost:9004/buis/get-buis/"+props.match.params.id)
+        await fetch("http://141.45.92.192:9004/buis/get-buis/"+props.match.params.id)
         .then(response => response.json())
         .then((item) => {
             setSelectedBui(item)

@@ -95,7 +95,7 @@ const InquiryForm = () => {
         } else {
             let idForPassing = ""
             if(auth.data) idForPassing = auth.data.userId
-            await fetch('http://localhost:9003/inquiries/create-inquiry', {
+            await fetch('http://141.45.92.192:9003/inquiries/create-inquiry', {
                 method: "POST",
                 body: JSON.stringify({
                     userId: idForPassing, //this is the form for guest so we can simply use "" for the userId -> a guest does not have a userId

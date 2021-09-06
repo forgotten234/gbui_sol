@@ -29,7 +29,7 @@ const CharacteristicsArea = (props) => {
     })
 
     const getAllCharacteristics = async () => {
-        await fetch('http://localhost:9004/buis/get-characteristics')
+        await fetch('http://141.45.92.192:9004/buis/get-characteristics')
             .then(response => response.json())
             .then(data => setAllCharacteristics(data[0].characteristic))
     }
