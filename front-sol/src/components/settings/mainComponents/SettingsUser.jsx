@@ -57,12 +57,12 @@ export default function SettingsUser(){
                     <Col className="d-flex justify-content-center">
                         <div className="settingsButtonArea">
                             <div className="settingsButton d-grid gap-2">
-                                <Button variant="outline-light" onClick={showOnlyBuisList}>
+                                <Button variant="outline-warning" onClick={showOnlyBuisList}>
                                     Show Buis
                                 </Button>
                             </div>
                             <div className="settingsButton d-grid gap-2">
-                                <Button variant="outline-light" onClick={showOnlyForm}>
+                                <Button variant="outline-warning" onClick={showOnlyForm}>
                                     Change personal data
                                 </Button>
                             </div>

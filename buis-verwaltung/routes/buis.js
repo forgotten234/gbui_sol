@@ -77,6 +77,8 @@ router.post("/create-bui", async (req, res) => {
             logo: req.body.logo,
             characteristic: req.body.characteristic,
             userId: req.body.userId,
+            rating: 0,
+            count: 0
         })
         await bui.save()
         res.send(bui)

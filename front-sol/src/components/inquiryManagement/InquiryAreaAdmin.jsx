@@ -34,7 +34,7 @@ const InquiryAreaAdmin = () => {
                                  */
                              }
                             <div className="inquiryButton d-grid gap-2">
-                                <Button variant="outline-light" onClick={showOnlyInquiryList}>
+                                <Button variant="outline-warning" onClick={showOnlyInquiryList}>
                                     Show Inquiry List
                                 </Button>
                             </div>

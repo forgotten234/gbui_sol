@@ -28,8 +28,8 @@ const BuiListAdmin = () => {
                         key={element._id}
                     >
                         Name: {element.name} <br />
-                        <Button variant="outline-dark" size="sm" style={{marginRight: "5px"}} onClick={() => deleteBui(element._id)}>Delete</Button>
-                        <Button variant="outline-dark" size="sm" style={{marginRight: "5px"}} onClick={() => navigateToDetailPage(element._id)}>Go to page</Button>
+                        <Button variant="outline-warning" size="sm" style={{marginRight: "5px"}} onClick={() => deleteBui(element._id)}>Delete</Button>
+                        <Button variant="outline-warning" size="sm" style={{marginRight: "5px"}} onClick={() => navigateToDetailPage(element._id)}>Go to page</Button>
                     </ListGroup.Item>    
                 )
             ))

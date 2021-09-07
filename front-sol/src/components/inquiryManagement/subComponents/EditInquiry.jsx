@@ -11,7 +11,7 @@ const EditInquiry = (props) => {
     const { setMessageData } = useContext(WebSocketContext)
     const { auth } = useContext(AuthContext)
 
-    const ws = new WebSocket('ws://localhost:3030')
+    const ws = new WebSocket('ws://141.45.92.192:3030')
 
     const changeStatusOfBui = () => {
         if(props.inqData.inquiryStatus === "NEW" && inqStatus == "IN_PROGRESS") {

@@ -9,13 +9,14 @@
 }
 
 .settingsContainerHeader {
-    background-color: #788b91;
+    background-color: #4c4c4c;
     text-align: center;
     min-height: 40px
 }
 
 .settingsContainerBody {
-    background-color: #cfd8dc;
+    border-color: #ffc106;
+    border-style: solid;
     height: 85vh
 }
 
@@ -75,6 +76,12 @@
     width: 100%;
 }
 
+.outline-warning {
+    background-color: transparent;
+    border-color: #ffc106;
+    width: 100%;
+}
+
 .imageSettings {
     width: 40px;
     filter: grayscale(100%);
@@ -100,7 +107,7 @@
     .defaultParagraph {
         margin-top: 300px;
         font-size: 25px;
-        color: #f4f6f7;
+        color: #ffc106;
     }
 }
 
@@ -108,7 +115,7 @@
     .defaultParagraph {
         margin-top: 150px;
         font-size: 25px;
-        color: #f4f6f7;
+        color: #ffc106;
     }
 }
 

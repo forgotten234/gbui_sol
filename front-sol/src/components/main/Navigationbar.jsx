@@ -53,15 +53,15 @@ function Navigationbar(){
         <div>
             <Navbar sticky="top" expand="md" className="navigation navbar-custom ">
                 <Container>
-                    <Navbar.Brand onClick={() => history.push("/")} className="font-weight-bolder text-uppercase">Sol</Navbar.Brand>
+                    <Navbar.Brand onClick={() => history.push("/")} className="font-weight-bolder text-uppercase" style={{color: '#ffc106'}}>Sol</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav" className="justify-content-betweens">
                         <Nav className="mr-auto">
                             <div className="card-nav-dark">
-                                <Nav.Link onClick={() => history.push("/")}>Start</Nav.Link>
+                                <Nav.Link onClick={() => history.push("/")} style={{color: '#ffc106'}}>Start</Nav.Link>
                             </div>
-                            <div className="card-nav-light">
-                                <NavDropdown title="Menü">
+                            <div className="card-nav-light" >
+                                <NavDropdown title="Menü" id="nav-dropdown">
                                     <NavDropdown.Item onClick={() => history.push("/settings")}>Settings</NavDropdown.Item>
                                     <NavDropdown.Item onClick={() => history.push("/morphological-box")}>Morphologischer Kasten</NavDropdown.Item>
                                 </NavDropdown>

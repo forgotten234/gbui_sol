@@ -15,15 +15,15 @@
 }
 
 .inquiryContainerHeader {
-    background-color: #788b91;
+    background-color: #4c4c4c;
     text-align: center;
     min-height: 40px
 }
 
 .inquiryContainerBody {
-    background-color: #cfd8dc;
     height: 85vh;
-
+    border-color: #ffc106;
+    border-style: solid;
 }
 
 .inquiryForm {
@@ -190,6 +190,13 @@
     border-color: #cfd8dc;
     width: 100%;
 }
+
+.outline-warning {
+    background-color: transparent;
+    border-color: #ffc106;
+    width: 100%;
+}
+
 
 .signUpParagraph {
     color: #9ea7aa;

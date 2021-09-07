@@ -8,7 +8,7 @@ function Infopart(){
     return(
         <div>
             <Container className="text-center text-info mt-2">
-                To Do Infos über Login
+                Um BUIS hinzufügen zu können, logge dich bitte ein.
             </Container>
             
             <Container className="text-center mt-2">

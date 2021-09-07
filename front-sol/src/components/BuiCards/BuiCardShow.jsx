@@ -26,7 +26,7 @@ function BuiCardShow(){
         getItems()
     },[])
 
-<<<<<<< HEAD
+
     const displayList = (list, count) =>{
         var newList = []
         for(var i = 0; i<count; i++){
@@ -35,26 +35,7 @@ function BuiCardShow(){
         return(   
             showItems(newList)
         )
-=======
-    const showItems=(list)=>{
-        if(BuiList.length % 2 === 0){
-            return(
-                list.map(item => {return(<Col><BuiCard item={item}/></Col>)})
-            )
-        } else {
-            return(
-                <>
-                    {
-                        list.map(item => {return(<Col><BuiCard item={item}/></Col>)})
-                    }
-                    <Col></Col>
-                </>
-            )
-        }
->>>>>>> 5f0e4f0b4349ee17d05ee32f3aa1bee1c79a3e41
     }
-
-
     const showItems=(list)=>{
         if(BuiList.length % 2 === 0){
             return(

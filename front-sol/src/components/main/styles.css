@@ -2,6 +2,11 @@
     padding: 10px;
 }
 
+#nav-dropdown{
+    color: #ffc106;
+
+}
+
 .navbar-custom {
     background-color: #4c4c4c;
 }

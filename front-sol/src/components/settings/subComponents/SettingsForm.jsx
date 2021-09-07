@@ -76,8 +76,8 @@ const SettingsForm = () => {
                     <Form.Control type="textarea" placeholder={userData.surname} onChange={(e)=> setUserData({...userData, surname: e.target.value})}/>
                 </Form.Group>
                 <div className="settingsFormInput">
-                    <Button variant="outline-light" type="submit" className="outline-light">
-                        <div className="submitParagraph">Submit Changes</div>
+                    <Button variant="outline-warning" type="submit" className="outline-warning">
+                        <div >Submit Changes</div>
                     </Button>
                 </div>
             </Form>
