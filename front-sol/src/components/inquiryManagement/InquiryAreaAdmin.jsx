@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useContext } from "react"
+import React, { useState } from "react"
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import InquiryListAdmin from "./subComponents/inquiryList/InquiryListAdmin"
 import BriefcasePlaceholder from '../../assets/briefcase.png'

@@ -72,7 +72,13 @@ const EditInquiry = (props) => {
                     downloadLink: props.inqData.downloadLink,
                     manufacturer: props.inqData.manufacturer,
                     price: props.inqData.cost,
-                    contact: props.inqData.contact,
+                    contact: {
+                        title: "",
+                        firstName: props.inqData.contact.ap_surname,
+                        lastname: props.inqData.contact.ap_lastName,
+                        telephoneNumber: props.inqData.contact.ap_phoneNumber,
+                        email: props.inqData.contact.ap_email
+                    },
                     logo: props.inqData.logo,
                     characteristic: props.inqData.characteristic
                 }),
@@ -80,11 +86,12 @@ const EditInquiry = (props) => {
                     "Content-type": "application/json; charset=UTF-8"
                 }
             })
+            console.log(props.inqData)
         }
     }
 
     return(
-        props.inqData ?
+        props.inqData && props.inqData.contact ?
             <Modal show={props.editInq} onHide={changeStatusOfBui}>
                 <Modal.Header closeButton>
                     <Modal.Title>Edit BUI: {props.inqData.name}</Modal.Title>
@@ -110,19 +117,19 @@ const EditInquiry = (props) => {
                             </tr>
                             <tr>
                                 <td>Name contact person:</td>
-                                <td>{props.inqData.ap_name}</td>
+                                <td>{props.inqData.contact.ap_name}</td>
                             </tr>
                             <tr>
                                 <td>Surname contact person:</td>
-                                <td>{props.inqData.ap_surname}</td>
+                                <td>{props.inqData.contact.ap_surname}</td>
                             </tr>
                             <tr>
                                 <td>Phone number contact person:</td>
-                                <td>{props.inqData.ap_phoneNumber}</td>
+                                <td>{props.inqData.contact.ap_phoneNumber}</td>
                             </tr>
                             <tr>
                                 <td>E-Mail contact person:</td>
-                                <td>{props.inqData.ap_email}</td>
+                                <td>{props.inqData.contact.ap_email}</td>
                             </tr>
                         </tbody>
                     </Table>

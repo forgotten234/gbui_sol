@@ -90,7 +90,7 @@ const InquiryForm = () => {
 
     const onFormSubmit = async (e) => {
         e.preventDefault()
-        if(checkForEmptyFields === true){
+        if(checkForEmptyFields() === true){
             setShowAlert(true)
         } else {
             let idForPassing = ""
@@ -161,7 +161,7 @@ const InquiryForm = () => {
                     <Form.Group className="inputFieldsInquiryForArrays">
                         {
                             inquiryDataForm.manufacturer.map(element => 
-                                <Row>
+                                <Row key={() => Math.random().toString(36).substr(2, 9)}>
                                     <Col>
                                         <Form.Control style={{width: '340px', height: '38px'}} type="textarea" placeholder="Hersteller" onChange={setInquiryDataFromForm("manufacturer")} />
                                     </Col>

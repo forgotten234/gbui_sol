@@ -38,9 +38,20 @@ function BuiCardShow(){
 
 
     const showItems=(list)=>{
-        return(
-            list.map(item => {return(<Col><BuiCard item={item}/></Col>)})
-        )
+        if(BuiList.length % 2 === 0){
+            return(
+                list.map(item => {return(<Col><BuiCard item={item}/></Col>)})
+            )
+        } else {
+            return(
+                <>
+                    {
+                        list.map(item => {return(<Col><BuiCard item={item}/></Col>)})
+                    }
+                    <Col></Col>
+                </>
+            )
+        }
     }
 
     const handleClickRated = () => {

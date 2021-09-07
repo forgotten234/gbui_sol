@@ -18,9 +18,10 @@ const buiSchema = mongoose.Schema({
     },
     logo: String,
     characteristic: {
+        observationObject: [String],
+        observationLimit: [String],
         applicationField: [String],
         observationObject: [String],
-        oberservationLimit: [String],
         targetGroup: [String],
         integrationLevel: [String]
     },

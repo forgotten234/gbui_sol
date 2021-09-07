@@ -46,40 +46,42 @@ const SettingsForm = () => {
     }
 
     return userData ? (
-        <Form onSubmit={onFormSubmit} className="settingsForm">
-            <Form.Group className="settingsFormInput">
-                <Form.Control type="password" placeholder={"•••••••••••••"} onChange={(e)=> setPassword(e.target.value)}/>
-            </Form.Group>
-            <Form.Group className="settingsFormInput">
-                <Form.Control type="email" placeholder={email} onChange={(e)=> setEmail(e.target.value)}/>
-            </Form.Group>
-            <Form.Group className="settingsFormInput">
-                <Form.Control type="textarea" placeholder={userData.adress.street} onChange={(e)=> setUserData({...userData, adress: {...userData.adress, street: e.target.value}})}/>
-            </Form.Group>
-            <Form.Group className="settingsFormInput">
-                <Form.Control type="textarea" placeholder={userData.adress.cp} onChange={(e)=> setUserData({...userData, adress: {...userData.adress, cp: e.target.value}})}/>
-            </Form.Group>
-            <Form.Group className="settingsFormInput">
-                <Form.Control type="textarea" placeholder={userData.adress.town} onChange={(e)=> setUserData({...userData, adress: {...userData.adress, town: e.target.value}})}/>
-            </Form.Group>
-            <Form.Group className="settingsFormInput">
-                <Form.Control type="textarea" placeholder={userData.adress.country} onChange={(e)=> setUserData({...userData, adress: {...userData.adress, country: e.target.value}})}/>
-            </Form.Group>
-            <Form.Group className="settingsFormInput">                       
-                <Form.Control type="textarea" placeholder={userData.firm} onChange={(e)=> setUserData({...userData, firm: e.target.value})}/>
-            </Form.Group>
-            <Form.Group className="settingsFormInput">
-                <Form.Control type="textarea" placeholder={userData.name} onChange={(e)=> setUserData({...userData, name: e.target.value})}/>
-            </Form.Group>
-            <Form.Group className="settingsFormInput">
-                <Form.Control type="textarea" placeholder={userData.surname} onChange={(e)=> setUserData({...userData, surname: e.target.value})}/>
-            </Form.Group>
-            <div className="settingsFormInput">
-                <Button variant="outline-light" type="submit" className="outline-light">
-                    <div className="submitParagraph">Submit Changes</div>
-                </Button>
-            </div>
-        </Form>
+        <div className="settingsFormContainer">
+            <Form onSubmit={onFormSubmit} className="settingsFormBody">
+                <Form.Group className="settingsFormInput">
+                    <Form.Control type="password" placeholder={"•••••••••••••"} onChange={(e)=> setPassword(e.target.value)}/>
+                </Form.Group>
+                <Form.Group className="settingsFormInput">
+                    <Form.Control type="email" placeholder={email} onChange={(e)=> setEmail(e.target.value)}/>
+                </Form.Group>
+                <Form.Group className="settingsFormInput">
+                    <Form.Control type="textarea" placeholder={userData.adress.street} onChange={(e)=> setUserData({...userData, adress: {...userData.adress, street: e.target.value}})}/>
+                </Form.Group>
+                <Form.Group className="settingsFormInput">
+                    <Form.Control type="textarea" placeholder={userData.adress.cp} onChange={(e)=> setUserData({...userData, adress: {...userData.adress, cp: e.target.value}})}/>
+                </Form.Group>
+                <Form.Group className="settingsFormInput">
+                    <Form.Control type="textarea" placeholder={userData.adress.town} onChange={(e)=> setUserData({...userData, adress: {...userData.adress, town: e.target.value}})}/>
+                </Form.Group>
+                <Form.Group className="settingsFormInput">
+                    <Form.Control type="textarea" placeholder={userData.adress.country} onChange={(e)=> setUserData({...userData, adress: {...userData.adress, country: e.target.value}})}/>
+                </Form.Group>
+                <Form.Group className="settingsFormInput">                       
+                    <Form.Control type="textarea" placeholder={userData.firm} onChange={(e)=> setUserData({...userData, firm: e.target.value})}/>
+                </Form.Group>
+                <Form.Group className="settingsFormInput">
+                    <Form.Control type="textarea" placeholder={userData.name} onChange={(e)=> setUserData({...userData, name: e.target.value})}/>
+                </Form.Group>
+                <Form.Group className="settingsFormInput">
+                    <Form.Control type="textarea" placeholder={userData.surname} onChange={(e)=> setUserData({...userData, surname: e.target.value})}/>
+                </Form.Group>
+                <div className="settingsFormInput">
+                    <Button variant="outline-light" type="submit" className="outline-light">
+                        <div className="submitParagraph">Submit Changes</div>
+                    </Button>
+                </div>
+            </Form>
+        </div>
     ) : (
         <div>Loading..</div>
     )
