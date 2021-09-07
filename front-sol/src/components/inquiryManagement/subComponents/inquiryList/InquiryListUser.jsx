@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react"
 import { ListGroup } from "react-bootstrap"
 import {WebSocketContext} from "../../../contexts/WebSocketContext"
 import {AuthContext} from "../../../contexts/AuthContext"
-
+import '../../styles.css'
 
 const InquiryListUser = () => {
     const { message } = useContext(WebSocketContext)
@@ -33,12 +33,10 @@ const InquiryListUser = () => {
 
     return (
         <>  
-            <div className={"inquiryListAreaContainer"}>
-                <div className="inquiryListBody">
-                    <ListGroup className={"inquiryListContainer"}>
-                        {inquiryMap}
-                    </ListGroup>
-                </div>
+            <div className={"inquiryListContainer"}>
+                <ListGroup className={"inquiryListBody"}>
+                    {inquiryMap}
+                </ListGroup>
             </div>
         </>
     )

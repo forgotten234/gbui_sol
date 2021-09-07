@@ -141,6 +141,10 @@ const CharacteristicsArea = (props) => {
         }
     }
 
+    const generateKey = () => {
+        return Math.random().toString(36).substr(2, 9)
+    }
+
     return(
         <>
             <Form.Group className="inputFieldsInquiryForArrays">
@@ -149,7 +153,7 @@ const CharacteristicsArea = (props) => {
                         <Form.Control as="select" multiple style={{width: '230px'}} onChange={getSelectedValuesFromSelectArea("applicationField")}>
                             {
                                 allCharacteristics.applicationField.map(element => 
-                                    <option>{element}</option>
+                                    <option key={generateKey()}>{element}</option>
                                 )
                             }
                         </Form.Control>
@@ -167,7 +171,7 @@ const CharacteristicsArea = (props) => {
                         <Form.Control as="select" multiple style={{width: '230px'}} onChange={getSelectedValuesFromSelectArea("observationObject")}>
                             {
                                 allCharacteristics.observationObject.map(element => 
-                                    <option>{element}</option>
+                                    <option key={generateKey()}>{element}</option>
                                 )
                             }
                         </Form.Control>
@@ -185,7 +189,7 @@ const CharacteristicsArea = (props) => {
                         <Form.Control as="select" multiple style={{width: '230px'}} onChange={getSelectedValuesFromSelectArea("oberservationLimit")}>
                             {
                                 allCharacteristics.oberservationLimit.map(element => 
-                                    <option>{element}</option>
+                                    <option key={generateKey()}>{element}</option>
                                 )
                             }
                         </Form.Control>
@@ -203,7 +207,7 @@ const CharacteristicsArea = (props) => {
                         <Form.Control as="select" multiple style={{width: '230px'}} onChange={getSelectedValuesFromSelectArea("targetGroup")}>
                             {
                                 allCharacteristics.targetGroup.map(element => 
-                                    <option>{element}</option>
+                                    <option key={generateKey()}>{element}</option>
                                 )
                             }
                         </Form.Control>
@@ -221,7 +225,7 @@ const CharacteristicsArea = (props) => {
                         <Form.Control as="select" multiple style={{width: '230px'}} onChange={getSelectedValuesFromSelectArea("integrationLevel")}>
                             {
                                 allCharacteristics.integrationLevel.map(element => 
-                                    <option>{element}</option>
+                                    <option key={generateKey()}>{element}</option>
                                 )
                             }
                         </Form.Control>

@@ -1,7 +1,11 @@
 .navigation{
     padding: 10px;
-
 }
+
+.navbar-custom {
+    background-color: #4c4c4c;
+}
+
 .card-nav-dark{
     /* background-color: gray;
     border-radius: 10px; */
@@ -50,48 +54,3 @@
         width: 600px;
     }
 }
-
-
-/* OLD!!!*/
-/* Autocomplete starts */
-
-@media only screen and (min-width: 760px) {
-    .react-autosuggest__input{
-        width: 500px;
-        height: 40px;
-        padding: 10px 20px;
-        font-family: Helvetica, sans-serif;
-        font-weight: 300;
-        font-size: 16px;
-        border: 1px solid #aaa;
-        border-radius: 4px;
-    }
-}
-
-@media only screen and (min-width: 1140px) {
-    .react-autosuggest__input{
-        width: 700px;
-        height: 40px;
-        padding: 10px 20px;
-        font-family: Helvetica, sans-serif;
-        font-weight: 300;
-        font-size: 16px;
-        border: 1px solid #aaa;
-        border-radius: 4px;
-    }
-}
-
-@media only screen and (min-width: 1350px) {
-    .react-autosuggest__input{
-        width: 875px;
-        height: 40px;
-        padding: 10px 20px;
-        font-family: Helvetica, sans-serif;
-        font-weight: 300;
-        font-size: 16px;
-        border: 1px solid #aaa;
-        border-radius: 4px;
-    }
-}
-
-/* Autocomplete ends */

@@ -4,7 +4,7 @@ const Bui = require("../models/Bui.js")
 
 router.get("/get-characteristics", async (req, res) => {
     try {
-        const bui = await Bui.find({_id: "61153f3e8824b4c941a992f0"})
+        const bui = await Bui.find({_id: "6133a40a1d9da9c8bf234eee"})
         res.send(bui)
     } catch {
         res.status(404)
@@ -31,7 +31,6 @@ router.get("/get-buis/:_id", async (req, res) => {
         res.send({error: "Something went wrong"})
     }
 }) 
-<<<<<<< HEAD
 
 router.get("/get-bui/:userId", async (req, res) => {
     try{
@@ -42,8 +41,7 @@ router.get("/get-bui/:userId", async (req, res) => {
         res.send({error: "Something went wrong"})
     }
 })
-=======
->>>>>>> bae623365c576434fabcdf5137643d5ecbae666a
+
 
 router.delete("/delete/:_id", async (req, res) => {
     try {
@@ -90,3 +88,5 @@ router.post("/create-bui", async (req, res) => {
 })
 
 module.exports = router;
+
+

@@ -7,7 +7,7 @@ import {Transition} from 'react-transition-group'
 
 
 function BuiDetail(props){
-
+    const [reRender, setRerender] = useState(0)
     const [SelectedBui, setSelectedBui] = useState([])
     const [showDescription, setShowDescription] = useState(false)
 
@@ -21,7 +21,7 @@ function BuiDetail(props){
     useEffect(()=> {
         getItem()
         console.log(SelectedBui)
-    },[])
+    }, [props.match.params.id])
 
     //Check if Logo exists or return empty
     const logo = (item) => {

@@ -14,7 +14,7 @@ const handleClick = () => {
 }
 
     return(
-        <Card bg="light" style={{ width: '25rem'}} className="mx-2 card-container">
+        <Card style={{ width: '25rem'}} className="mx-2 card-container border-warning">
             <Row className="card-container">
                 <Col xs={4}>
                     <div className="card-logo-container rounded mx-3 mt-3 md-block"> 
@@ -24,7 +24,7 @@ const handleClick = () => {
                 <Col xs={8}>
                     <Card.Body className="card-container">
                         <Card.Title >{props.item.name}</Card.Title>
-                        <Card.Text className="card-text-hidden">
+                        <Card.Text className="card-text-hidden ">
                             {props.item.description}
                         </Card.Text>
                         <p>...</p>
@@ -35,8 +35,8 @@ const handleClick = () => {
                     </Card.Body>
                 </Col>
             </Row>
-            <Card.Footer className="d-flex justify-content-between align-items-center">
-                <Button variant="outline-dark" onClick={handleClick}>Details</Button>
+            <Card.Footer style={{backgroundColor: "white"}} className="d-flex justify-content-between align-items-center border-warning">
+                <Button variant="outline-warning" onClick={handleClick}>Details</Button>
                 {props.item.rating != null ?
                     <div>
                         <StarFill/>
