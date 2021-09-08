@@ -246,9 +246,6 @@ const EditInquiry = (props) => {
                     <Button variant="outline-warning" onClick={changeStatusOfBui}>
                         Okay
                     </Button>
-                    <Button variant="outline-warning" onClick={checkIfNewCharaIsAvailableAndPushToChara}>
-                        blaaa
-                    </Button>
                 </Modal.Footer>
             </Modal>
         :   <></>
