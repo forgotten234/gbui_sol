@@ -29,7 +29,7 @@ const InquiryAreaUser = () => {
         } else if (showInquiryForm === true) { 
             return <InquiryForm />
         }else {
-            return <p className="defaultParagraph">Select one of the buttons <br />to show something in here</p>
+            return <p className="defaultParagraph">Wählen Sie einer der Button, <br />um hier etwas anzuzeigen.</p>
         }
     }
 
@@ -46,12 +46,12 @@ const InquiryAreaUser = () => {
                         <div className="inquiryButtonArea">
                             <div className="inquiryButton d-grid gap-2 ">
                                 <Button variant="outline-warning" onClick={showOnlyInquiryList}>
-                                    Show inquiries
+                                    Anfragen anzeigen
                                 </Button>
                             </div>
                             <div className="inquiryButton d-grid gap-2">
                                 <Button variant="outline-warning" onClick={showOnlyInquiryForm}>
-                                    Create inquiry
+                                    Anfrage hinzufügen
                                 </Button>
                             </div>
                         </div>

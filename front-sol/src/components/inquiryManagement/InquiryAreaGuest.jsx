@@ -35,7 +35,7 @@ const InquiryAreaGuest = () => {
                             }
                             <div className="inquiryButton d-grid gap-2">
                                 <Button variant="outline-warning" onClick={showOnlyInquiryForm}>
-                                    Create inquiry
+                                    Anfrage hinzufügen
                                 </Button>
                             </div>
                         </div>
@@ -45,7 +45,7 @@ const InquiryAreaGuest = () => {
                         {
                             showInquiryForm 
                             ? <InquiryForm />
-                            : <p className="defaultParagraph">Select one of the buttons <br />to show something in here</p>
+                            : <p className="defaultParagraph">Wählen Sie einer der Button, <br />um hier etwas anzuzeigen.</p>
                         }
                     </Col>
                 </Row>   

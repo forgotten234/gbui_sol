@@ -35,9 +35,9 @@ export default function Login({history}){
             else {       
                 setAuthData(fetchedData)
                 await activateRole(fetchedData.userId)
+                history.replace("/")
             }
         })     
-        history.replace('/')
     }
 
     //after login activate the role, means that the systems knows which role is activated right now
@@ -66,18 +66,18 @@ export default function Login({history}){
                         <div className="loginSubmit">
                             <div>
                                 <Button variant="outline-warning" type="submit" className="outline-warning">
-                                    <div>Log in</div>
+                                    <div>Einloggen</div>
                                 </Button>
                             </div> 
                             <div>
                                 {
                                     showAlert
-                                    ? <Alert variant="danger" style={{width: "100%"}}>Wrong data!</Alert>
+                                    ? <Alert variant="danger" style={{width: "100%"}}>Falsche Daten!</Alert>
                                     : <></>
                                 }
                             </div>
                             <div>
-                                <Link to="/register">Register</Link>
+                                <Link to="/register">Registrieren</Link>
                             </div>
                         </div>
                     </div>

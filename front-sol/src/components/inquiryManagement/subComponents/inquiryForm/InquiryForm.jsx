@@ -79,7 +79,7 @@ const InquiryForm = () => {
     const checkForEmptyFields = () => {
         if(inquiryDataForm.name === "" || inquiryDataForm.description === "" || inquiryDataForm.webpage === ""
             || inquiryDataForm.cost === 0.00 || inquiryDataForm.ap_name === "" || inquiryDataForm.ap_surname === ""
-            || inquiryDataForm.ap_phoneNumber === "" || inquiryDataForm.ap_email === "" || inquiryDataForm.type === ""
+            || inquiryDataForm.ap_phoneNumber === "" || typeof inquiryDataForm.cost !== 'number' || Form.ap_email === "" || inquiryDataForm.type === ""
             || !inquiryDataForm.manufacturer.length || inquiryDataForm.logo === "" || inquiryDataForm.downloadLink === "" || inquiryDataForm.contact.ap_name === ""
             || inquiryDataForm.contact.ap_surname === "" || inquiryDataForm.contact.ap_phoneNumber === "" || inquiryDataForm.contact.ap_email=== "")
         {
@@ -168,7 +168,7 @@ const InquiryForm = () => {
                                     </Col>
                                     <Col>
                                         <Button variant="outline-warning">
-                                            <div onClick={addMoreManufacturer}>Add more?</div>
+                                            <div onClick={addMoreManufacturer}>Mehr?</div>
                                         </Button>
                                     </Col>
                                 </Row>
@@ -176,7 +176,7 @@ const InquiryForm = () => {
                         }
                     </Form.Group>
                     <Button variant="outline-warning" className="outline-warning">
-                        <div onClick={() => setShowCharacteristics(prevState => !prevState)}>Add characteristics</div>
+                        <div onClick={() => setShowCharacteristics(prevState => !prevState)}>Charakteristik hinzufügen</div>
                     </Button>
                     {
                         showCharacteristics
@@ -187,14 +187,14 @@ const InquiryForm = () => {
                         <Form.Group>
                             <div>
                                 <Button variant="outline-warning" type="submit" className="outline-warning">
-                                    <div >Submit Inquiry</div>
+                                    <div >Anfrage absenden</div>
                                 </Button>
                             </div>
                             <div style={{marginTop: '5px'}}>
                                 {
                                     showAlert
                                     ?   <Alert variant="danger" >
-                                            Please fill in all fields! 
+                                            Bitte füllen Sie alle Felder aus oder korrigieren Sie Ihre Angaben!
                                         </Alert>
                                     : <></>
                                 }           

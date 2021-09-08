@@ -57,41 +57,17 @@ const CharacteristicsArea = (props) => {
     //for select options -> update array correctly (remove / add the items)
     const getSelectedValuesFromSelectArea = field => e => {
         if(field === "applicationField"){
-            let newApplArray = []
-            Object.keys(e.target.selectedOptions).map((key, index) => {
-                newApplArray.push(e.target.selectedOptions[key].value)
-            })
-            setNewCharacteristicsSelected({...newCharacteristicsSelected, applicationField: newApplArray})
+            setNewCharacteristicsSelected({...newCharacteristicsSelected, applicationField: Array.from(e.target.selectedOptions, option => option.value)})
         } else if (field === "observationObject") {
-            let newApplArray = []
-            Object.keys(e.target.selectedOptions).map((key, index) => {
-                newApplArray.push(e.target.selectedOptions[key].value)
-            })
-            setNewCharacteristicsSelected({...newCharacteristicsSelected, observationObject: newApplArray})
+            setNewCharacteristicsSelected({...newCharacteristicsSelected, observationObject: Array.from(e.target.selectedOptions, option => option.value)})
         } else if (field === "observationConcept") {
-            let newApplArray = []
-            Object.keys(e.target.selectedOptions).map((key, index) => {
-                newApplArray.push(e.target.selectedOptions[key].value)
-            })
-            setNewCharacteristicsSelected({...newCharacteristicsSelected, observationConcept: newApplArray})
+            setNewCharacteristicsSelected({...newCharacteristicsSelected, observationConcept: Array.from(e.target.selectedOptions, option => option.value)})
         } else if (field === "observationLimit") {
-            let newApplArray = []
-            Object.keys(e.target.selectedOptions).map((key, index) => {
-                newApplArray.push(e.target.selectedOptions[key].value)
-            })
-            setNewCharacteristicsSelected({...newCharacteristicsSelected, observationLimit: newApplArray})
+            setNewCharacteristicsSelected({...newCharacteristicsSelected, observationLimit: Array.from(e.target.selectedOptions, option => option.value)})
         } else if (field === "targetGroup") {
-            let newApplArray = []
-            Object.keys(e.target.selectedOptions).map((key, index) => {
-                newApplArray.push(e.target.selectedOptions[key].value)
-            })
-            setNewCharacteristicsSelected({...newCharacteristicsSelected, targetGroup: newApplArray})
+            setNewCharacteristicsSelected({...newCharacteristicsSelected, targetGroup: Array.from(e.target.selectedOptions, option => option.value)})
         } else if (field === "integrationLevel") {
-            let newApplArray = []
-            Object.keys(e.target.selectedOptions).map((key, index) => {
-                newApplArray.push(e.target.selectedOptions[key].value)
-            })
-            setNewCharacteristicsSelected({...newCharacteristicsSelected, integrationLevel: newApplArray})
+            setNewCharacteristicsSelected({...newCharacteristicsSelected, integrationLevel: Array.from(e.target.selectedOptions, option => option.value)})
         }
         //props.action()
     }
@@ -166,7 +142,7 @@ const CharacteristicsArea = (props) => {
             <Form.Group className="inputFieldsInquiryForArrays">
                 <Row>
                     <Col>  
-                        <Form.Control as="select" multiple style={{width: '230px'}} onChange={getSelectedValuesFromSelectArea("applicationField")}>
+                        <Form.Control as="select" multiple value={newCharacteristicsSelected.applicationField} style={{width: '230px'}} onChange={getSelectedValuesFromSelectArea("applicationField")}>
                             {
                                 allCharacteristics.applicationField.map(element => 
                                     <option key={generateKey()}>{element}</option>
@@ -184,7 +160,7 @@ const CharacteristicsArea = (props) => {
             <Form.Group className="inputFieldsInquiryForArrays">
                 <Row>
                     <Col>  
-                        <Form.Control as="select" multiple style={{width: '230px'}} onChange={getSelectedValuesFromSelectArea("observationObject")}>
+                        <Form.Control as="select" multiple value={newCharacteristicsSelected.observationObject} style={{width: '230px'}} onChange={getSelectedValuesFromSelectArea("observationObject")}>
                             {
                                 allCharacteristics.observationObject.map(element => 
                                     <option key={generateKey()}>{element}</option>
@@ -202,7 +178,7 @@ const CharacteristicsArea = (props) => {
             <Form.Group className="inputFieldsInquiryForArrays">
                 <Row>
                     <Col>  
-                        <Form.Control as="select" multiple style={{width: '230px'}} onChange={getSelectedValuesFromSelectArea("observationConcept")}>
+                        <Form.Control as="select" multiple value={newCharacteristicsSelected.observationConcept} style={{width: '230px'}} onChange={getSelectedValuesFromSelectArea("observationConcept")}>
                             {
                                 allCharacteristics.observationConcept.map(element => 
                                     <option key={generateKey()}>{element}</option>
@@ -220,7 +196,7 @@ const CharacteristicsArea = (props) => {
             <Form.Group className="inputFieldsInquiryForArrays">
                 <Row>
                     <Col>  
-                        <Form.Control as="select" multiple style={{width: '230px'}} onChange={getSelectedValuesFromSelectArea("observationLimit")}>
+                        <Form.Control as="select" multiple value={newCharacteristicsSelected.observationLimit} style={{width: '230px'}} onChange={getSelectedValuesFromSelectArea("observationLimit")}>
                             {
                                 allCharacteristics.observationLimit.map(element => 
                                     <option key={generateKey()}>{element}</option>
@@ -238,7 +214,7 @@ const CharacteristicsArea = (props) => {
             <Form.Group className="inputFieldsInquiryForArrays">
                 <Row>
                     <Col>  
-                        <Form.Control as="select" multiple style={{width: '230px'}} onChange={getSelectedValuesFromSelectArea("targetGroup")}>
+                        <Form.Control as="select" multiple value={newCharacteristicsSelected.targetGroup} style={{width: '230px'}} onChange={getSelectedValuesFromSelectArea("targetGroup")}>
                             {
                                 allCharacteristics.targetGroup.map(element => 
                                     <option key={generateKey()}>{element}</option>
@@ -256,7 +232,7 @@ const CharacteristicsArea = (props) => {
             <Form.Group className="inputFieldsInquiryForArrays">
                 <Row>
                     <Col>  
-                        <Form.Control as="select" multiple style={{width: '230px'}} onChange={getSelectedValuesFromSelectArea("integrationLevel")}>
+                        <Form.Control as="select" multiple value={newCharacteristicsSelected.integrationLevel} style={{width: '230px'}} onChange={getSelectedValuesFromSelectArea("integrationLevel")}>
                             {
                                 allCharacteristics.integrationLevel.map(element => 
                                     <option key={generateKey()}>{element}</option>

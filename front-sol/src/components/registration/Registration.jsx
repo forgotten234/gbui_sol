@@ -155,15 +155,15 @@ export default function Registration(){
                                 <Form.Group>
                                     <div >
                                         <Button variant="outline-warning" type="submit" className="outline-warning">
-                                            <div >Sign up</div>
+                                            <div >Anmelden</div>
                                         </Button>
                                     </div> 
                                     <div>
                                         {
                                             showAlert
                                             ?   <Alert variant="danger" >
-                                                    Passwords don't match <br />
-                                                    and or E-Mail has the wrong format!
+                                                    Passwörter stimmen nicht überein <br />
+                                                    und oder die E-Mail Adresse hat das falsche Format!
                                                 </Alert>
                                             : <></>
                                         }
@@ -171,7 +171,7 @@ export default function Registration(){
                                 </Form.Group>
                             </div>
                             <div >
-                                <Link to="/sign-in">Back to Login</Link>
+                                <Link to="/sign-in">Zurück zum Login</Link>
                             </div>
                         </Form.Group>
                     </div>
@@ -182,16 +182,16 @@ export default function Registration(){
                     <Modal.Title>
                         {
                             userInUse
-                            ? <p>User exists!</p>
-                            : <p>Successful!</p>
+                            ? <p>Der Nutzer existiert bereits!</p>
+                            : <p>Erfolgreich!</p>
                         }
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     {
                         userInUse
-                        ? <p>Please use a different E-Mail!</p>
-                        : <p>You can login now!</p>
+                        ? <p>Bitte nutzen Sie eine andere E-Mail!</p>
+                        : <p>Sie können sich nun einloggen!</p>
                     }
                 </Modal.Body>
             </Modal>
