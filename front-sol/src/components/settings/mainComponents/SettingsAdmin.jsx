@@ -43,7 +43,7 @@ const SettingsAdmin = () => {
         } else if (showBuisList === true) { 
             return <BuiListAdmin />
         }else {
-            return <p className="defaultParagraph">Select one of the buttons <br />to show something in here</p>
+            return <p className="defaultParagraph">Wählen Sie einer der Button, <br />um hier etwas anzuzeigen.</p>
         }
     }
 
@@ -60,17 +60,17 @@ const SettingsAdmin = () => {
                         <div className="settingsButtonArea">
                             <div className="settingsButton d-grid gap-2">
                                 <Button variant="outline-warning" onClick={showOnlyBuisList}>
-                                    Maintain buis
+                                    Buis verwalten
                                 </Button>
                             </div>
                             <div className="settingsButton d-grid gap-2">
                                 <Button variant="outline-warning" onClick={showOnlyForm}>
-                                    Change personal data
+                                    Persöbliche Daten ändern
                                 </Button>
                             </div>
                             <div className="settingsButton d-grid gap-2">
                                 <Button variant="outline-warning" onClick={showOnlyUsers}>
-                                    Maintain user
+                                    User verwalten
                                 </Button>
                             </div>
                         </div>

@@ -21,8 +21,8 @@ const BuiListUser = () =>  {
                         key={element._id}
                     >
                         Name: {element.name} <br />
-                        <Button variant="outline-dark" size="sm" style={{marginRight: "5px"}} onClick={() => deleteBui(element._id)}>Delete</Button>
-                        <Button variant="outline-dark" size="sm" style={{marginRight: "5px"}}>Go to page</Button>
+                        <Button variant="outline-dark" size="sm" style={{marginRight: "5px"}} onClick={() => deleteBui(element._id)}>Löschen</Button>
+                        <Button variant="outline-dark" size="sm" style={{marginRight: "5px"}}>Zur Seite</Button>
                     </ListGroup.Item>    
                 )
             ))

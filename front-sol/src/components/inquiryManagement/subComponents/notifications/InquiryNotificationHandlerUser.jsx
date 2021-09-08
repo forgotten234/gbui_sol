@@ -47,7 +47,7 @@ const InquiryNotificationHandlerUser = ({children}) => {
     const webSocketEventListenerMethod = (e) => {
         var text = JSON.parse(e.target.result)
         setReceivedMessage(prevState => [...prevState, text])
-        if(text.updatedMessage === true && text.data.inq.userId !== auth.data.userId){
+        if(text.updatedMessage === true && text.data.inq.userId === auth.data.userId){
             toast.info(
                 <div>
                     Der Status der Anfrage für das BUI {text.data.inq.name} hat sich geändert!<br />

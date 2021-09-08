@@ -38,7 +38,7 @@ export default function SettingsUser(){
         } else if (showBuisList === true) { 
             return <BuiListUser />
         }else {
-            return <p className="defaultParagraph">Select one of the buttons <br />to show something in here</p>
+            return <p className="defaultParagraph">Wählen Sie einer der Button, <br />um hier etwas anzuzeigen.</p>
         }
     }
 
@@ -58,12 +58,12 @@ export default function SettingsUser(){
                         <div className="settingsButtonArea">
                             <div className="settingsButton d-grid gap-2">
                                 <Button variant="outline-warning" onClick={showOnlyBuisList}>
-                                    Show Buis
+                                    Buis anzeigen
                                 </Button>
                             </div>
                             <div className="settingsButton d-grid gap-2">
                                 <Button variant="outline-warning" onClick={showOnlyForm}>
-                                    Change personal data
+                                    Ändere persönliche Daten
                                 </Button>
                             </div>
                         </div>

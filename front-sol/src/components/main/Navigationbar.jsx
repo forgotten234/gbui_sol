@@ -62,7 +62,7 @@ function Navigationbar(){
                             </div>
                             <div className="card-nav-light" >
                                 <NavDropdown title="Menü" id="nav-dropdown">
-                                    <NavDropdown.Item onClick={() => history.push("/settings")}>Settings</NavDropdown.Item>
+                                    <NavDropdown.Item onClick={() => history.push("/settings")}>Einstellungen</NavDropdown.Item>
                                     <NavDropdown.Item onClick={() => history.push("/morphological-box")}>Morphologischer Kasten</NavDropdown.Item>
                                 </NavDropdown>
                                 </div>   

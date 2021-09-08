@@ -9,7 +9,7 @@ const Settings = () => {
     if(role.data === null){
         return (
             <Container className="text-center mt-2 ">
-               <h5 className={"settingsNotLoggedIn"}>Please register or log in !</h5>
+               <h5 className={"settingsNotLoggedIn"}>Bitte loggen Sie sich ein oder registrieren Sie sich!</h5>
             </Container>
         )
     } else if (role.data[0].role === "User") {

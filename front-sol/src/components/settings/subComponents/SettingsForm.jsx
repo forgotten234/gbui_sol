@@ -77,7 +77,7 @@ const SettingsForm = () => {
                 </Form.Group>
                 <div className="settingsFormInput">
                     <Button variant="outline-warning" type="submit" className="outline-warning">
-                        <div >Submit Changes</div>
+                        <div >Änderungen speichern</div>
                     </Button>
                 </div>
             </Form>
