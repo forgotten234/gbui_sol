@@ -13,7 +13,8 @@ const inquirySchema = mongoose.Schema({
     characteristic: {
         applicationField: [String],
         observationObject: [String],
-        oberservationLimit: [String],
+        observationConcept: [String],
+        observationLimit: [String],
         targetGroup: [String],
         integrationLevel: [String]
     },
