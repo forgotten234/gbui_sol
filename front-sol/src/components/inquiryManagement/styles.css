@@ -223,3 +223,17 @@
     right: 2px;
 }
 /* Inquiry List End*/
+
+.toastProgress {
+    background: #ffc106 !important;
+}
+
+.Toastify__toast--info {
+    background: #4c4c4c !important;
+}
+
+.toastBody {
+
+    color: #ffc106; /* #10171D */
+
+}

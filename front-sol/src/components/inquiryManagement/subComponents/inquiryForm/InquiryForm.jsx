@@ -79,7 +79,7 @@ const InquiryForm = () => {
     const checkForEmptyFields = () => {
         if(inquiryDataForm.name === "" || inquiryDataForm.description === "" || inquiryDataForm.webpage === ""
             || inquiryDataForm.cost === 0.00 || inquiryDataForm.ap_name === "" || inquiryDataForm.ap_surname === ""
-            || inquiryDataForm.ap_phoneNumber === "" || typeof inquiryDataForm.cost !== 'number' || Form.ap_email === "" || inquiryDataForm.type === ""
+            || inquiryDataForm.ap_phoneNumber === "" || isNaN(inquiryDataForm.cost) === true || Form.ap_email === "" || inquiryDataForm.type === ""
             || !inquiryDataForm.manufacturer.length || inquiryDataForm.logo === "" || inquiryDataForm.downloadLink === "" || inquiryDataForm.contact.ap_name === ""
             || inquiryDataForm.contact.ap_surname === "" || inquiryDataForm.contact.ap_phoneNumber === "" || inquiryDataForm.contact.ap_email=== "")
         {

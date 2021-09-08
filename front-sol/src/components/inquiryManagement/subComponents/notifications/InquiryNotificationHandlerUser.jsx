@@ -50,8 +50,8 @@ const InquiryNotificationHandlerUser = ({children}) => {
         if(text.updatedMessage === true && text.data.inq.userId !== auth.data.userId){
             toast.info(
                 <div>
-                    The status of your inquiry for BUI {text.data.inq.name} has changed!<br />
-                    <Link to="/inquiry">Go to Inquiries</Link>
+                    Der Status der Anfrage für das BUI {text.data.inq.name} hat sich geändert!<br />
+                    <Link to="/inquiry">Gehe zu Anfragen</Link>
                 </div>,          
                 {
                     position: "top-right",
@@ -82,7 +82,7 @@ const InquiryNotificationHandlerUser = ({children}) => {
 
     return (
         <> 
-            <ToastContainer />
+            <ToastContainer progressClassName="toastProgress" bodyClassName="toastBody"/>
             {children}
         </>
     )

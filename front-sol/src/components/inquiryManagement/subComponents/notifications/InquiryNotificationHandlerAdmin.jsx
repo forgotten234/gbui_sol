@@ -49,8 +49,8 @@ const InquiryNotificationHandlerAdmin = ({children}) => {
         if(text.newMessage === true || text === message){
             toast.info(
                 <div>
-                    New Inquiry for BUI: {text.data.inq.name} <br />
-                    <Link to="/inquiry">Go to Inquiries</Link>
+                    Neue Anfrage für das BUI: {text.data.inq.name} <br />
+                    <Link to="/inquiry">Gehe zu Anfragen</Link>
                 </div>,
                 {
                     position: "top-right",
@@ -82,7 +82,7 @@ const InquiryNotificationHandlerAdmin = ({children}) => {
 
     return (
         <>  
-            <ToastContainer />
+            <ToastContainer progressClassName="toastProgress" bodyClassName="toastBody"/>
             {children}
         </>
     )
