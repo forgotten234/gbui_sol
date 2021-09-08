@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useContext } from "react"
+import React, { useState } from "react"
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import InquiryListAdmin from "./subComponents/inquiryList/InquiryListAdmin"
 import BriefcasePlaceholder from '../../assets/briefcase.png'
@@ -34,7 +34,7 @@ const InquiryAreaAdmin = () => {
                                  */
                              }
                             <div className="inquiryButton d-grid gap-2">
-                                <Button variant="outline-light" onClick={showOnlyInquiryList}>
+                                <Button variant="outline-warning" onClick={showOnlyInquiryList}>
                                     Show Inquiry List
                                 </Button>
                             </div>

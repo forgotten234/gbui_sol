@@ -15,15 +15,15 @@
 }
 
 .inquiryContainerHeader {
-    background-color: #788b91;
+    background-color: #4c4c4c;
     text-align: center;
     min-height: 40px
 }
 
 .inquiryContainerBody {
-    background-color: #cfd8dc;
     height: 85vh;
-
+    border-color: #ffc106;
+    border-style: solid;
 }
 
 .inquiryForm {
@@ -65,18 +65,36 @@
 .inquiryListAreaContainer {
     position: relative;
     align-items: center;
-    min-width: 500px;
+    width: 500px;
 }
-.inquiryListContainer {
-    max-width: 500px;
-    max-height: 387px;
-    overflow-y: auto;
-    -ms-overflow-style: none; 
-    scrollbar-width: none;
+
+@media only screen and (min-width: 1px) {
+    .inquiryListContainer {
+        background-color: #e5e5e8;
+        position: relative;
+        align-items: center;
+        width: 500px;
+        max-height: 50vh;
+        overflow-y: auto;
+        -ms-overflow-style: none; 
+        scrollbar-width: none;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .inquiryListContainer {
+        background-color: #e5e5e8;
+        position: relative;
+        align-items: center;
+        width: 500px;
+        max-height: 65vh;
+        overflow-y: auto;
+        -ms-overflow-style: none; 
+        scrollbar-width: none;
+    }
 }
 
 .inquiryListBody {
-    background-color: #e5e5e8;
     width: 100%;
     padding: 15px;
 }
@@ -92,15 +110,30 @@
     padding: 15px;
 }
 
-.inquiryFormContainer {
-    background-color: #e5e5e8;
-    position: relative;
-    align-items: center;
-    min-width: 500px;
-    max-height: 80vh;
-    overflow-y: auto;
-    -ms-overflow-style: none; 
-    scrollbar-width: none;
+@media only screen and (max-width: 768px) {
+    .inquiryFormContainer {
+        background-color: #e5e5e8;
+        position: relative;
+        align-items: center;
+        /*min-width: 500px;*/
+        max-height: 50vh;
+        overflow-y: auto;
+        -ms-overflow-style: none; 
+        scrollbar-width: none;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .inquiryFormContainer {
+        background-color: #e5e5e8;
+        position: relative;
+        align-items: center;
+        /*min-width: 500px;*/
+        max-height: 65vh;
+        overflow-y: auto;
+        -ms-overflow-style: none; 
+        scrollbar-width: none;
+    }
 }
 
 .inputFieldsInquiryForm {
@@ -110,7 +143,7 @@
 
 .inputFieldsInquiryForArrays{
     margin-top: -10px;
-    min-width: 300px;
+    /*min-width: 300px;*/
     margin-bottom: 5px;
 }
 /* New styles end */
@@ -157,6 +190,13 @@
     border-color: #cfd8dc;
     width: 100%;
 }
+
+.outline-warning {
+    background-color: transparent;
+    border-color: #ffc106;
+    width: 100%;
+}
+
 
 .signUpParagraph {
     color: #9ea7aa;

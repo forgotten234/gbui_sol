@@ -11,6 +11,7 @@ import InquiryMainPage from './components/inquiryManagement/InquiryMainPage'
 import InquiryNotificationHandlerMain from './components/inquiryManagement/subComponents/notifications/InquiryNotificationHandlerMain';
 import Navigationbar from './components/main/Navigationbar';
 import BuiDetail from './components/BuiDetail/BuiDetail';
+import MorphologicalBox from './components/morphologicalBox/MorphologicalBox';
 
 function App() {
     return (
@@ -22,6 +23,7 @@ function App() {
                     <Route exact path="/register" component={Registration} />
                     <Route exact path="/settings" component={Settings} />
                     <Route exact path="/inquiry" component={InquiryMainPage} />
+                    <Route exact path="/morphological-box" component={MorphologicalBox}/>
                     <Route path="/detail/:id" component={BuiDetail} />
                     <Route path="/" component={WelcomePage} />
                 </Switch>

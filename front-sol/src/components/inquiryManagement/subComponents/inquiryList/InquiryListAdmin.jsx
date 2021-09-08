@@ -53,12 +53,10 @@ const InquiryListAdmin = () => {
 
     return (
         <>
-            <div className={"inquiryListAreaContainer"}>
-                <div className="inquiryListBody">
-                    <ListGroup className={"inquiryListContainer"}>
+            <div className={"inquiryListContainer"}>
+                    <ListGroup className={"inquiryListBody"}>
                         {inquiryMap}
                     </ListGroup>
-                </div>
             </div>
             <EditInquiry 
                 editInq={showEditInquiryArea} 

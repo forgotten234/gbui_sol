@@ -37,7 +37,7 @@ export default function Registration(){
     const onFormSubmit = async (e) => {
         e.preventDefault()
         if(password === confirmedPassword && validateEmail(email)){
-            await fetch('http://localhost:9001/registration/register', {
+            await fetch('http://141.45.92.192:9001/registration/register', {
                 method: "POST",
                 body: JSON.stringify({
                     email: {email},
@@ -66,7 +66,7 @@ export default function Registration(){
     //only create a new role if the user does not exists
     const checkIfAccountIsInUseAndCreateRole = async (checkData) => {
         if(checkData === false){
-            await fetch('http://localhost:9000/role/create', {
+            await fetch('http://141.45.92.192:9000/role/create', {
                 method: "POST",
                 body: JSON.stringify({
                     userId: userData.userId,
@@ -154,8 +154,8 @@ export default function Registration(){
                             <div className="registrationSubmit">
                                 <Form.Group>
                                     <div >
-                                        <Button variant="outline-light" type="submit" className="outline-light">
-                                            <div className="signUpParagraph">Sign up</div>
+                                        <Button variant="outline-warning" type="submit" className="outline-warning">
+                                            <div >Sign up</div>
                                         </Button>
                                     </div> 
                                     <div>

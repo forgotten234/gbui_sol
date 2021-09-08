@@ -1,14 +1,23 @@
 import React, { useState, useEffect, useContext } from "react"
 import { Button, ListGroup } from "react-bootstrap"
 import '../../mainComponents/styles.css'
+import { useHistory } from "react-router-dom"
 
 const BuiListAdmin = () => {
     const [buiMap, setBuiMap] = useState([])
     const [buiIsDeletedOrAdded, setBuiIsDeletedOrAdded] = useState(0)
 
+    const history = useHistory()
+
     useEffect(() => {
         getBuis()
     }, [buiIsDeletedOrAdded])
+
+    const navigateToDetailPage = (id) => {
+        history.push({
+            pathname: "/detail/"+id,
+        })
+    }
 
     const getBuis = async () => {
         await fetch('http://141.45.92.192:9004/buis/get-buis')
@@ -19,8 +28,8 @@ const BuiListAdmin = () => {
                         key={element._id}
                     >
                         Name: {element.name} <br />
-                        <Button variant="outline-dark" size="sm" style={{marginRight: "5px"}} onClick={() => deleteBui(element._id)}>Delete</Button>
-                        <Button variant="outline-dark" size="sm" style={{marginRight: "5px"}}>Go to page</Button>
+                        <Button variant="outline-warning" size="sm" style={{marginRight: "5px"}} onClick={() => deleteBui(element._id)}>Delete</Button>
+                        <Button variant="outline-warning" size="sm" style={{marginRight: "5px"}} onClick={() => navigateToDetailPage(element._id)}>Go to page</Button>
                     </ListGroup.Item>    
                 )
             ))

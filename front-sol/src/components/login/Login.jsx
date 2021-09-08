@@ -5,7 +5,6 @@ import { Form, Button, Alert } from 'react-bootstrap'
 import { Link } from "react-router-dom"
 import ProfilePicturePlaceholder from '../../assets/user.png'
 import './styles.css' 
-import Navigationbar from "../main/Navigationbar"
 
 export default function Login({history}){
     const [email, setEmail] = useState()
@@ -66,8 +65,8 @@ export default function Login({history}){
                         </Form.Group>
                         <div className="loginSubmit">
                             <div>
-                                <Button variant="outline-light" type="submit" className="outline-light">
-                                    <div className="logInParagraph">Log in</div>
+                                <Button variant="outline-warning" type="submit" className="outline-warning">
+                                    <div>Log in</div>
                                 </Button>
                             </div> 
                             <div>

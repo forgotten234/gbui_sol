@@ -74,8 +74,8 @@ const EditUser = (props) => {
                     </Table>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button onClick={() => deleteUser()}>Delete User</Button>
-                    <Button onClick={() => props.action()}>Decline</Button>
+                    <Button variant="outline-warning" onClick={() => deleteUser()}>Delete User</Button>
+                    <Button variant="outline-warning" onClick={() => props.action()}>Decline</Button>
                 </Modal.Footer>
             </Modal>
         : <></>

@@ -9,19 +9,52 @@
 }
 
 .settingsContainerHeader {
-    background-color: #788b91;
+    background-color: #4c4c4c;
     text-align: center;
     min-height: 40px
 }
 
 .settingsContainerBody {
-    background-color: #cfd8dc;
+    border-color: #ffc106;
+    border-style: solid;
     height: 85vh
 }
 
-.settingsForm {
-    background-color: #e5e5e8;
-    min-width: 500px
+
+@media only screen and (max-width: 768px) {
+    .settingsFormContainer {
+        background-color: #e5e5e8;
+        position: relative;
+        align-items: center;
+        width: 500px;
+        max-height: 50vh;
+        overflow-y: auto;
+        -ms-overflow-style: none; 
+        scrollbar-width: none;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .settingsFormContainer {
+        background-color: #e5e5e8;
+        position: relative;
+        align-items: center;
+        width: 500px;
+        max-height: 65vh;
+        overflow-y: auto;
+        -ms-overflow-style: none; 
+        scrollbar-width: none;
+    }
+}
+
+
+.settingsFormBody {
+    width: 100%;
+    padding: 15px;
+}
+
+.settingsFormContainer::-webkit-scrollbar {
+    display: none;
 }
 
 .settingsFormInput {
@@ -40,6 +73,12 @@
 .outline-light {
     background-color: transparent;
     border-color: #cfd8dc;
+    width: 100%;
+}
+
+.outline-warning {
+    background-color: transparent;
+    border-color: #ffc106;
     width: 100%;
 }
 
@@ -64,11 +103,22 @@
     font-size: 25px;
 }
 
-.defaultParagraph {
-    margin-top: 300px;
-    font-size: 25px;
-    color: #f4f6f7;
+@media only screen and (min-width: 768px) {
+    .defaultParagraph {
+        margin-top: 300px;
+        font-size: 25px;
+        color: #ffc106;
+    }
 }
+
+@media only screen and (min-width: 360px) {
+    .defaultParagraph {
+        margin-top: 150px;
+        font-size: 25px;
+        color: #ffc106;
+    }
+}
+
 
 .imageSettingsForm {
     width: 40px;
@@ -87,7 +137,7 @@
 .userListAreaContainer {
     position: relative;
     align-items: center;
-    min-width: 500px;
+    width: 500px;
 }
 
 .userListContainer {
@@ -115,7 +165,7 @@
 .buiListAreaContainer {
     position: relative;
     align-items: center;
-    min-width: 500px;
+    width: 500px;
 }
 
 .buiListContainer {

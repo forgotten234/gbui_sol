@@ -19,6 +19,7 @@ const InquiryForm = () => {
         characteristic: {
             applicationField: [],
             observationObject: [],
+            observationConcept: [],
             oberservationLimit: [],
             targetGroup: [],
             integrationLevel: []
@@ -90,7 +91,7 @@ const InquiryForm = () => {
 
     const onFormSubmit = async (e) => {
         e.preventDefault()
-        if(checkForEmptyFields === true){
+        if(checkForEmptyFields() === true){
             setShowAlert(true)
         } else {
             let idForPassing = ""
@@ -161,21 +162,21 @@ const InquiryForm = () => {
                     <Form.Group className="inputFieldsInquiryForArrays">
                         {
                             inquiryDataForm.manufacturer.map(element => 
-                                <Row>
+                                <Row key={() => Math.random().toString(36).substr(2, 9)}>
                                     <Col>
                                         <Form.Control style={{width: '340px', height: '38px'}} type="textarea" placeholder="Hersteller" onChange={setInquiryDataFromForm("manufacturer")} />
                                     </Col>
                                     <Col>
-                                        <Button variant="outline-light" className="outline-light">
-                                            <div className="signUpParagraph" onClick={addMoreManufacturer}>Add more?</div>
+                                        <Button variant="outline-warning">
+                                            <div onClick={addMoreManufacturer}>Add more?</div>
                                         </Button>
                                     </Col>
                                 </Row>
                             )
                         }
                     </Form.Group>
-                    <Button variant="outline-light" className="outline-light">
-                        <div className="signUpParagraph" onClick={() => setShowCharacteristics(prevState => !prevState)}>Add characteristics</div>
+                    <Button variant="outline-warning" className="outline-warning">
+                        <div onClick={() => setShowCharacteristics(prevState => !prevState)}>Add characteristics</div>
                     </Button>
                     {
                         showCharacteristics
@@ -185,8 +186,8 @@ const InquiryForm = () => {
                     <div className="inquirySubmit">
                         <Form.Group>
                             <div>
-                                <Button variant="outline-light" type="submit" className="outline-light">
-                                    <div className="signUpParagraph">Submit Inquiry</div>
+                                <Button variant="outline-warning" type="submit" className="outline-warning">
+                                    <div >Submit Inquiry</div>
                                 </Button>
                             </div>
                             <div style={{marginTop: '5px'}}>

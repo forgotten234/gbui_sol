@@ -1,0 +1,42 @@
+.morphBoxHeader{
+    background-color: #4c4c4c;
+    text-align: center;
+    min-height: 40px
+}
+
+.textHidden{
+    overflow: hidden;
+    width: 500px
+    /*
+    max-height: 100px;
+    width: 650px;
+    float:left;
+    text-overflow: ellipsis;
+    background: linear-gradient(to bottom,#333,#333 70%,#eee);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;*/
+}
+
+
+.textHidden{
+    max-height: 10em;
+    width: 650px;
+    margin-bottom: 0;
+    text-overflow: clip;
+    background: linear-gradient(to bottom,#333,#333 70%,#eee);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;
+
+}
+
+.itemContainer{
+    margin-bottom: 10px;
+    height: 170px;
+    overflow-y: hidden;
+    /*-ms-overflow-style: none;
+    /*scrollbar-width: none;*/
+ }
