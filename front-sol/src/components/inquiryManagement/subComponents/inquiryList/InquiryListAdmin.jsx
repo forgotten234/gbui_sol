@@ -34,7 +34,7 @@ const InquiryListAdmin = () => {
     }
 
     const getInquiries = async () => {
-        await fetch('http://141.45.92.192:9003/inquiries/get-inquiries')
+        await fetch('http://localhost:9003/inquiries/get-inquiries')
             .then(response => response.json())
             .then(data => setInquiryMap(
                 data
