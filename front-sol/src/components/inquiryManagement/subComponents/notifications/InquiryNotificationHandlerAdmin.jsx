@@ -14,7 +14,7 @@ const InquiryNotificationHandlerAdmin = ({children}) => {
     const firstUpdate = useRef(true);
 
 
-    const ws = new WebSocket('ws://141.45.92.192:3030')
+    const ws = new WebSocket('ws://0.0.0.0:3030')
     const reader = new FileReader()
 
     //useEffect for websocket
