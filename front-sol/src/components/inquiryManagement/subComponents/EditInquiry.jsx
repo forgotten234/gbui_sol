@@ -20,7 +20,7 @@ const EditInquiry = (props) => {
     const { setMessageData } = useContext(WebSocketContext)
     const { auth } = useContext(AuthContext)
 
-    const ws = new WebSocket('ws://0.0.0.0:3030')
+    const ws = new WebSocket('ws://141.45.92.192:9003')
 
     useEffect(() => {
         getAllCharacteristics()

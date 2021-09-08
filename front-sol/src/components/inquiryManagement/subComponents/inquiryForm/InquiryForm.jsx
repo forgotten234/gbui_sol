@@ -35,7 +35,7 @@ const InquiryForm = () => {
     })
     const [showAlert, setShowAlert] = useState(false)
     const [showCharacteristics, setShowCharacteristics] = useState(false)
-    const ws = new WebSocket('ws://0.0.0.0:3030')
+    const ws = new WebSocket('ws://141.45.92.192:9003')
 
 
     useEffect(() => {
