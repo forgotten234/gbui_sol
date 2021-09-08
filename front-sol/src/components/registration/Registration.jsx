@@ -154,8 +154,8 @@ export default function Registration(){
                             <div className="registrationSubmit">
                                 <Form.Group>
                                     <div >
-                                        <Button variant="outline-light" type="submit" className="outline-light">
-                                            <div className="signUpParagraph">Sign up</div>
+                                        <Button variant="outline-warning" type="submit" className="outline-warning">
+                                            <div >Sign up</div>
                                         </Button>
                                     </div> 
                                     <div>

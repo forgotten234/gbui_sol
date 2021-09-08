@@ -7,7 +7,8 @@ const CharacteristicsArea = (props) => {
     const [allCharacteristics, setAllCharacteristics] = useState({
         applicationField: [],
         observationObject: [],
-        oberservationLimit: [],
+        observationConcept: [],
+        observationLimit: [],
         targetGroup: [],
         integrationLevel: []
     })
@@ -15,7 +16,8 @@ const CharacteristicsArea = (props) => {
     const [newCharacteristicsSelected, setNewCharacteristicsSelected] = useState({
         applicationField: [],
         observationObject: [],
-        oberservationLimit: [],
+        observationConcept: [],
+        observationLimit: [],
         targetGroup: [],
         integrationLevel: []
     })
@@ -23,7 +25,8 @@ const CharacteristicsArea = (props) => {
     const [newCharacteristicsSelectedText, setNewCharacteristicsSelectedText] = useState({
         applicationField: [],
         observationObject: [],
-        oberservationLimit: [],
+        observationConcept: [],
+        observationLimit: [],
         targetGroup: [],
         integrationLevel: []
     })
@@ -43,7 +46,8 @@ const CharacteristicsArea = (props) => {
         const objForParent = {
             applicationField: newCharacteristicsSelected.applicationField.concat(newCharacteristicsSelectedText.applicationField),
             observationObject: newCharacteristicsSelected.observationObject.concat(newCharacteristicsSelectedText.observationObject),
-            oberservationLimit: newCharacteristicsSelected.oberservationLimit.concat(newCharacteristicsSelectedText.oberservationLimit),
+            observationConcept: newCharacteristicsSelected.observationConcept.concat(newCharacteristicsSelectedText.observationConcept),
+            observationLimit: newCharacteristicsSelected.observationLimit.concat(newCharacteristicsSelectedText.observationLimit),
             targetGroup: newCharacteristicsSelected.targetGroup.concat(newCharacteristicsSelectedText.targetGroup),
             integrationLevel: newCharacteristicsSelected.integrationLevel.concat(newCharacteristicsSelectedText.integrationLevel)
         }
@@ -64,12 +68,18 @@ const CharacteristicsArea = (props) => {
                 newApplArray.push(e.target.selectedOptions[key].value)
             })
             setNewCharacteristicsSelected({...newCharacteristicsSelected, observationObject: newApplArray})
-        } else if (field === "oberservationLimit") {
+        } else if (field === "observationConcept") {
             let newApplArray = []
             Object.keys(e.target.selectedOptions).map((key, index) => {
                 newApplArray.push(e.target.selectedOptions[key].value)
             })
-            setNewCharacteristicsSelected({...newCharacteristicsSelected, oberservationLimit: newApplArray})
+            setNewCharacteristicsSelected({...newCharacteristicsSelected, observationConcept: newApplArray})
+        } else if (field === "observationLimit") {
+            let newApplArray = []
+            Object.keys(e.target.selectedOptions).map((key, index) => {
+                newApplArray.push(e.target.selectedOptions[key].value)
+            })
+            setNewCharacteristicsSelected({...newCharacteristicsSelected, observationLimit: newApplArray})
         } else if (field === "targetGroup") {
             let newApplArray = []
             Object.keys(e.target.selectedOptions).map((key, index) => {
@@ -99,9 +109,13 @@ const CharacteristicsArea = (props) => {
                 newArray = updateLastValue(newCharacteristicsSelectedText.observationObject, index, value)
                 setNewCharacteristicsSelectedText({...newCharacteristicsSelectedText, observationObject: newArray})
                 break
-            case "oberservationLimit":
-                newArray = updateLastValue(newCharacteristicsSelectedText.oberservationLimit, index, value)
-                setNewCharacteristicsSelectedText({...newCharacteristicsSelectedText, oberservationLimit: newArray})
+            case "observationConcept": 
+                newArray = updateLastValue(newCharacteristicsSelectedText.observationConcept, index, value)
+                setNewCharacteristicsSelectedText({...newCharacteristicsSelectedText, observationConcept: newArray})
+                break
+            case "observationLimit":
+                newArray = updateLastValue(newCharacteristicsSelectedText.observationLimit, index, value)
+                setNewCharacteristicsSelectedText({...newCharacteristicsSelectedText, observationLimit: newArray})
                 break
             case "targetGroup": 
                 newArray = updateLastValue(newCharacteristicsSelectedText.targetGroup, index, value)
@@ -132,13 +146,19 @@ const CharacteristicsArea = (props) => {
             updateArrayOnLastPosition("applicationField", e.target.value, index)
         } else if (field === "observationObject") {
             updateArrayOnLastPosition("observationObject", e.target.value, index)
-        } else if (field === "oberservationLimit") {
-            updateArrayOnLastPosition("oberservationLimit", e.target.value, index)
+        } else if (field === "observationConcept") {
+            updateArrayOnLastPosition("observationConcept", e.target.value, index)
+        } else if (field === "observationLimit") {
+            updateArrayOnLastPosition("observationLimit", e.target.value, index)
         } else if (field === "targetGroup") {
             updateArrayOnLastPosition("targetGroup", e.target.value, index)
         } else if (field === "integrationLevel") {
             updateArrayOnLastPosition("integrationLevel", e.target.value, index)
         }
+    }
+
+    const generateKey = () => {
+        return Math.random().toString(36).substr(2, 9)
     }
 
     return(
@@ -149,7 +169,7 @@ const CharacteristicsArea = (props) => {
                         <Form.Control as="select" multiple style={{width: '230px'}} onChange={getSelectedValuesFromSelectArea("applicationField")}>
                             {
                                 allCharacteristics.applicationField.map(element => 
-                                    <option>{element}</option>
+                                    <option key={generateKey()}>{element}</option>
                                 )
                             }
                         </Form.Control>
@@ -167,7 +187,7 @@ const CharacteristicsArea = (props) => {
                         <Form.Control as="select" multiple style={{width: '230px'}} onChange={getSelectedValuesFromSelectArea("observationObject")}>
                             {
                                 allCharacteristics.observationObject.map(element => 
-                                    <option>{element}</option>
+                                    <option key={generateKey()}>{element}</option>
                                 )
                             }
                         </Form.Control>
@@ -182,18 +202,36 @@ const CharacteristicsArea = (props) => {
             <Form.Group className="inputFieldsInquiryForArrays">
                 <Row>
                     <Col>  
-                        <Form.Control as="select" multiple style={{width: '230px'}} onChange={getSelectedValuesFromSelectArea("oberservationLimit")}>
+                        <Form.Control as="select" multiple style={{width: '230px'}} onChange={getSelectedValuesFromSelectArea("observationConcept")}>
                             {
-                                allCharacteristics.oberservationLimit.map(element => 
-                                    <option>{element}</option>
+                                allCharacteristics.observationConcept.map(element => 
+                                    <option key={generateKey()}>{element}</option>
                                 )
                             }
                         </Form.Control>
                     </Col>
                     <Col>
-                        <Form.Control style={{height: '35px'}} type="textarea" placeholder="Neues Betrachtungslimit" onChange={setInquiryDataFromForm("oberservationLimit", 0)}></Form.Control>
-                        <Form.Control style={{height: '35px'}} type="textarea" placeholder="Neues Betrachtungslimit" onChange={setInquiryDataFromForm("oberservationLimit", 1)}></Form.Control>
-                        <Form.Control style={{height: '35px'}} type="textarea" placeholder="Neues Betrachtungslimit" onChange={setInquiryDataFromForm("oberservationLimit", 2)}></Form.Control>
+                        <Form.Control style={{height: '35px'}} type="textarea" placeholder="Neues Betrachtungskonzept" onChange={setInquiryDataFromForm("observationConcept", 0)}></Form.Control>
+                        <Form.Control style={{height: '35px'}} type="textarea" placeholder="Neues Betrachtungskonzept" onChange={setInquiryDataFromForm("observationConcept", 1)}></Form.Control>
+                        <Form.Control style={{height: '35px'}} type="textarea" placeholder="Neues Betrachtungskonzept" onChange={setInquiryDataFromForm("observationConcept", 2)}></Form.Control>
+                    </Col>
+                </Row>
+            </Form.Group>
+            <Form.Group className="inputFieldsInquiryForArrays">
+                <Row>
+                    <Col>  
+                        <Form.Control as="select" multiple style={{width: '230px'}} onChange={getSelectedValuesFromSelectArea("observationLimit")}>
+                            {
+                                allCharacteristics.observationLimit.map(element => 
+                                    <option key={generateKey()}>{element}</option>
+                                )
+                            }
+                        </Form.Control>
+                    </Col>
+                    <Col>
+                        <Form.Control style={{height: '35px'}} type="textarea" placeholder="Neues Betrachtungslimit" onChange={setInquiryDataFromForm("observationLimit", 0)}></Form.Control>
+                        <Form.Control style={{height: '35px'}} type="textarea" placeholder="Neues Betrachtungslimit" onChange={setInquiryDataFromForm("observationLimit", 1)}></Form.Control>
+                        <Form.Control style={{height: '35px'}} type="textarea" placeholder="Neues Betrachtungslimit" onChange={setInquiryDataFromForm("observationLimit", 2)}></Form.Control>
                     </Col>
                 </Row>
             </Form.Group>
@@ -203,7 +241,7 @@ const CharacteristicsArea = (props) => {
                         <Form.Control as="select" multiple style={{width: '230px'}} onChange={getSelectedValuesFromSelectArea("targetGroup")}>
                             {
                                 allCharacteristics.targetGroup.map(element => 
-                                    <option>{element}</option>
+                                    <option key={generateKey()}>{element}</option>
                                 )
                             }
                         </Form.Control>
@@ -221,7 +259,7 @@ const CharacteristicsArea = (props) => {
                         <Form.Control as="select" multiple style={{width: '230px'}} onChange={getSelectedValuesFromSelectArea("integrationLevel")}>
                             {
                                 allCharacteristics.integrationLevel.map(element => 
-                                    <option>{element}</option>
+                                    <option key={generateKey()}>{element}</option>
                                 )
                             }
                         </Form.Control>

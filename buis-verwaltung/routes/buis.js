@@ -4,7 +4,21 @@ const Bui = require("../models/Bui.js")
 
 router.get("/get-characteristics", async (req, res) => {
     try {
-        const bui = await Bui.find({_id: "61153f3e8824b4c941a992f0"})
+        const bui = await Bui.find({_id: "6133a40a1d9da9c8bf234eee"})
+        res.send(bui)
+    } catch {
+        res.status(404)
+        res.send({error: "Something went wrong"})
+    }
+})
+
+router.patch("/update-characteristics", async (req, res) => {
+    try {
+        const bui = await Bui.findOne({_id: "6133a40a1d9da9c8bf234eee"})
+        if(bui.characteristic) {
+            bui.characteristic = req.body.characteristic
+        }
+        await bui.save()
         res.send(bui)
     } catch {
         res.status(404)
@@ -77,6 +91,8 @@ router.post("/create-bui", async (req, res) => {
             logo: req.body.logo,
             characteristic: req.body.characteristic,
             userId: req.body.userId,
+            rating: 0,
+            count: 0
         })
         await bui.save()
         res.send(bui)
@@ -87,3 +103,5 @@ router.post("/create-bui", async (req, res) => {
 })
 
 module.exports = router;
+
+

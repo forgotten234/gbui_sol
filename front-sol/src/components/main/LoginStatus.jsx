@@ -32,14 +32,14 @@ function LoginStatus(){
         return (
             <div>
                <Button 
-                    variant="outline-dark"
+                    variant="outline-warning"
                     onClick={handleClick("/sign-in")}
                     className="buttonRight"
                 >
                     Login
                 </Button>
                 <Button 
-                    variant="outline-dark"
+                    variant="outline-warning"
                     className="buttonRight"
                     onClick={handleClick("/inquiry")}
                 >
@@ -51,14 +51,14 @@ function LoginStatus(){
         return (
             <div>
             <Button 
-                 variant="outline-dark"
+                 variant="outline-warning"
                  onClick={onLogOut}
                  className="buttonRight"
              >
                  Logout
              </Button>
              <Button 
-                 variant="outline-dark"
+                 variant="outline-warning"
                  className="buttonRight"
                  onClick={handleClick("/inquiry")}
              >
@@ -70,14 +70,14 @@ function LoginStatus(){
         return (
             <div>
             <Button 
-                 variant="outline-dark"
+                 variant="outline-warning"
                  onClick={onLogOut}
                  className="buttonRight"
              >
                  Logout
              </Button>
              <Button 
-                 variant="outline-dark"
+                 variant="outline-warning"
                  className="buttonRight"
                  onClick={handleClick("/inquiry")}
              >

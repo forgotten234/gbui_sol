@@ -6,13 +6,14 @@
 }
 
 .registrationHeader {
-    background-color: #788b91;
+    background-color: #4c4c4c;
     text-align: center;
     min-height: 40px;
 }
 
 .registrationBody {
-    background-color: #cfd8dc;
+    border-color: #ffc106;
+    border-style: solid;
     width: 100%;
     max-width: 500px;
     padding: 15px;

@@ -45,12 +45,12 @@ const InquiryAreaUser = () => {
                     <Col className="d-flex justify-content-center">
                         <div className="inquiryButtonArea">
                             <div className="inquiryButton d-grid gap-2 ">
-                                <Button variant="outline-light" onClick={showOnlyInquiryList}>
+                                <Button variant="outline-warning" onClick={showOnlyInquiryList}>
                                     Show inquiries
                                 </Button>
                             </div>
                             <div className="inquiryButton d-grid gap-2">
-                                <Button variant="outline-light" onClick={showOnlyInquiryForm}>
+                                <Button variant="outline-warning" onClick={showOnlyInquiryForm}>
                                     Create inquiry
                                 </Button>
                             </div>

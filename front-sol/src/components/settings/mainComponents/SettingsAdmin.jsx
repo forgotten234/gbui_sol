@@ -59,17 +59,17 @@ const SettingsAdmin = () => {
                     <Col className="d-flex justify-content-center">
                         <div className="settingsButtonArea">
                             <div className="settingsButton d-grid gap-2">
-                                <Button variant="outline-light" onClick={showOnlyBuisList}>
+                                <Button variant="outline-warning" onClick={showOnlyBuisList}>
                                     Maintain buis
                                 </Button>
                             </div>
                             <div className="settingsButton d-grid gap-2">
-                                <Button variant="outline-light" onClick={showOnlyForm}>
+                                <Button variant="outline-warning" onClick={showOnlyForm}>
                                     Change personal data
                                 </Button>
                             </div>
                             <div className="settingsButton d-grid gap-2">
-                                <Button variant="outline-light" onClick={showOnlyUsers}>
+                                <Button variant="outline-warning" onClick={showOnlyUsers}>
                                     Maintain user
                                 </Button>
                             </div>
