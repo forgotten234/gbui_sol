@@ -1,5 +1,5 @@
 import React, {useState, useContext, useEffect} from 'react'
-import { Form, Button, Alert, Row, Col} from 'react-bootstrap'
+import { Form, Button, Alert, Row, Col, Modal} from 'react-bootstrap'
 import { AuthContext } from '../../../contexts/AuthContext'
 import { WebSocketContext } from '../../../contexts/WebSocketContext'
 import CharacteristicsArea from './CharacteristicsArea'
@@ -9,6 +9,7 @@ const InquiryForm = () => {
     const { setMessageData } = useContext(WebSocketContext)
     const {auth} = useContext(AuthContext)
     const [numberCounterForArraysInForm, setNumberCounterForArraysInForm] = useState(0)
+    const [showInquiryIsSend, setShowInquiryIsSend] = useState(false)
     const [inquiryDataForm, setInquiryDataForm] = useState({
         name: "",
         type: "",
@@ -37,6 +38,9 @@ const InquiryForm = () => {
     const [showCharacteristics, setShowCharacteristics] = useState(false)
     const ws = new WebSocket('ws://141.45.92.192:9003')
 
+    const handleClose = () => {
+        setShowInquiryIsSend(false)
+    }
 
     useEffect(() => {
         console.log(inquiryDataForm)
@@ -119,6 +123,7 @@ const InquiryForm = () => {
             .then(data => ws.send(JSON.stringify({data, newMessage: true}))) //sends to admin
             .then(data => setMessageData(data))
             .then(setShowAlert(false))
+            .then(setShowInquiryIsSend(true))
         }
     }
 
@@ -203,6 +208,16 @@ const InquiryForm = () => {
                     </div>
                 </div>
             </Form>
+
+            <Modal show={showInquiryIsSend} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    Anfrage abgeschickt
+                </Modal.Header>
+                <Modal.Body>
+                    Ihre Anfrage wird demnächst bearbeitet!
+                </Modal.Body>
+            </Modal>
+
         </div>
     )
 
