@@ -4,7 +4,7 @@ import { Button, Modal, Table } from 'react-bootstrap'
 const EditUser = (props) => {
 
     const deleteRole = async () => {
-        await fetch('http://127.0.0.1:9000/role/delete-role/' + props.userData.userId, {
+        await fetch('http://141.45.92.192:9000/role/delete-role/' + props.userData.userId, {
             method: 'DELETE',
             body: JSON.stringify({
                 userId: props.userId
@@ -16,7 +16,7 @@ const EditUser = (props) => {
     }
 
     const deleteUser = async () => {
-        await fetch('http://127.0.0.1:9001/users/delete-user/' + props.userData.userId, {
+        await fetch('http://141.45.92.192:9001/users/delete-user/' + props.userData.userId, {
             method: 'DELETE',
             body: JSON.stringify({
                 userId: props.userId

@@ -23,7 +23,7 @@ function Navigationbar(){
     const history = useHistory()
 
     const searchBui = async (searchString) => {
-        await fetch('http://127.0.0.1:9004/buis/search-bui', {
+        await fetch('http://141.45.92.192:9004/buis/search-bui', {
             method: 'POST',
             body: JSON.stringify({
                 searchString: searchString
