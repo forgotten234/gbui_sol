@@ -12,7 +12,7 @@ var roleRouter = require('./routes/role');
 var app = express();
 
 mongoose
-  .connect("mongodb://mongo:27017/gbui", { useUnifiedTopology: true, useNewUrlParser: true })
+  .connect("mongodb://localhost:27017/gbui", { useUnifiedTopology: true, useNewUrlParser: true })
   .then(() => {console.log("DB connected!")});
 
 // view engine setup

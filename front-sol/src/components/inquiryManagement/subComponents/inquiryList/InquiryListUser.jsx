@@ -17,7 +17,7 @@ const InquiryListUser = () => {
 
     const getInquiries = async () => {
         if(auth.data){
-            await fetch('http://141.45.92.192:9003/inquiries/get-inquiries/' + auth.data.userId)
+            await fetch('http://127.0.0.1:9003/inquiries/get-inquiries/' + auth.data.userId)
             .then(response => response.json())
             .then(data => setInquiryMap(
                 data

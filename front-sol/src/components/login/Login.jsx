@@ -17,7 +17,7 @@ export default function Login({history}){
     const onFormSubmit = async e => {
         e.preventDefault()
         let fetchedData
-        await fetch('http://141.45.92.192:9001/login/login', {
+        await fetch('http://127.0.0.1:9001/login/login', {
             method: 'POST',
             body: JSON.stringify({
             email: email,
@@ -42,7 +42,7 @@ export default function Login({history}){
 
     //after login activate the role, means that the systems knows which role is activated right now
     const activateRole = async (id) =>  {
-        await fetch('http://141.45.92.192:9000/role/get-role/' + id)
+        await fetch('http://127.0.0.1:9000/role/get-role/' + id)
             .then(response => response.json())
             .then(data => setRoleData(data))
     }

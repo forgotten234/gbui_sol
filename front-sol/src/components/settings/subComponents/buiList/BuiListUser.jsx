@@ -13,7 +13,7 @@ const BuiListUser = () =>  {
     }, [buiIsDeleted])
 
     const getBuis = async () => {
-        await fetch('http://141.45.92.192:9004/buis/get-bui/' + auth.data.userId)
+        await fetch('http://127.0.0.1:9004/buis/get-bui/' + auth.data.userId)
             .then(response => response.json())
             .then(data => setBuiMap(
                 data.map(element => 
@@ -29,7 +29,7 @@ const BuiListUser = () =>  {
     }
 
     const deleteBui = async (id) => {
-        await fetch("http://141.45.92.192:9004/buis/delete/" + id, {
+        await fetch("http://127.0.0.1:9004/buis/delete/" + id, {
             method: 'DELETE',
             body: JSON.stringify({
                 _id: id

@@ -33,15 +33,14 @@ const EditInquiry = (props) => {
             updateInquiry()
         } else if(inqStatus === "ACCEPTED"){
             checkIfNewCharaIsAvailableAndPushToChara()
-            setTimeout(() => {
-                updateChara()
-            }, 6000)
+            updateChara()
+            updateInquiry()
         }
         props.action()
     } 
 
     const updateInquiry = async () => {
-        await fetch('http://141.45.92.192:9003/inquiries/update-inquiry/' + props.inqData.inquiryId, {
+        await fetch('http://localhost:9003/inquiries/update-inquiry/' + props.inqData.inquiryId, {
             method: "PATCH",
             body: JSON.stringify({
                 inquiryStatus: inqStatus
@@ -51,13 +50,7 @@ const EditInquiry = (props) => {
             }
         })
         .then(response => response.json())
-        .then(data => {
-            try{
-                ws.send(JSON.stringify({data, updatedMessage: true}))
-            } catch (e) {
-                console.log(e.message)
-            }
-        }) //sends to user
+        .then(data => ws.send(JSON.stringify({data, updatedMessage: true}))) //sends to user
         .then(insertBUItoDB())
         .then(setInqstatus("IN_PROGRESS"))
         .then(sendEmailToGuest())
@@ -85,7 +78,7 @@ const EditInquiry = (props) => {
         if(inqStatus === "ACCEPTED"){
             let idForPassing = ""
             if(auth.data) idForPassing = auth.data.userId
-            await fetch('http://141.45.92.192:9004/buis/create-bui', {
+            await fetch('http://127.0.0.1:9004/buis/create-bui', {
                 method: "POST",
                 body: JSON.stringify({
                     userId: idForPassing,
@@ -115,10 +108,17 @@ const EditInquiry = (props) => {
     }
 
     const updateChara = async () => {
-        await fetch('http://141.45.92.192:9004/buis/update-characteristics', {
+        await fetch('http://127.0.0.1:9004/buis/update-characteristics', {
             method: "PATCH",
             body: JSON.stringify({
-                characteristic: allCharacteristics
+                characteristic: {
+                    applicationField: allCharacteristics.applicationField,
+                    observationObject: allCharacteristics.observationObject,
+                    observationConcept: allCharacteristics.observationConcept,
+                    observationLimit: allCharacteristics.observationLimit,
+                    targetGroup: allCharacteristics.targetGroup,
+                    integrationLevel: allCharacteristics.integrationLevel
+                }
             }),
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
@@ -127,7 +127,7 @@ const EditInquiry = (props) => {
     }
 
     const getAllCharacteristics = async () => {
-        await fetch('http://141.45.92.192:9004/buis/get-characteristics')
+        await fetch('http://127.0.0.1:9004/buis/get-characteristics')
             .then(response => response.json())
             .then(data => setAllCharacteristics(data[0].characteristic))
     }
@@ -138,11 +138,12 @@ const EditInquiry = (props) => {
             Object.values(props.inqData.characteristic).forEach((val, index) => {
                 let field = Object.keys(props.inqData.characteristic)[index]
                 for(let i = 0; i<3; i++){
-                    if(val[i]) allCharacteristics[field].push(val[i])
+                    if(val[i] && allCharacteristics[field].includes(val[i]) === false) allCharacteristics[field].push(val[i])
                 }
             })
- 
         }
+        console.log(props.inqData.characteristic)
+        console.log(allCharacteristics)
     }
 
     return(
@@ -244,6 +245,9 @@ const EditInquiry = (props) => {
                     </DropdownButton>
                     <Button variant="outline-warning" onClick={changeStatusOfBui}>
                         Okay
+                    </Button>
+                    <Button variant="outline-warning" onClick={checkIfNewCharaIsAvailableAndPushToChara}>
+                        blaaa
                     </Button>
                 </Modal.Footer>
             </Modal>

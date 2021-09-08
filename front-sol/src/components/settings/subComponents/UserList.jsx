@@ -31,7 +31,7 @@ const UserList = () => {
     }
 
     const getUsers = async () => {
-        await fetch('http://141.45.92.192:9001/users/get-users')
+        await fetch('http://127.0.0.1:9001/users/get-users')
             .then(response => response.json())
             .then(data => setUserMap(
                 data

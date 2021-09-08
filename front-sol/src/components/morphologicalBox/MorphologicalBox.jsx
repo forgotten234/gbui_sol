@@ -3,7 +3,10 @@ import './styles.css'
 import {Row, Col, Button, Container, ListGroup} from 'react-bootstrap'
 import SearchResultItem from './SearchResultItem'
 //The terms needs to be in this order to achieve, that the correct words are in the correct area
-const germanCharacteristics = ["Betrachtungsobjekt", "Anwendungsgebiet", "Betrachtungskonzept", "Betrachtungsgrenzen", "Anwender", "Integrationsgrad"]
+const germanCharacteristics = [
+    "Anwendungsgebiet", "Betrachtungsobjekt", "Betrachtungskonzept", 
+    "Betrachtungsgrenzen", "Anwender", "Integrationsgrad"
+]
 
 const MorphologicalBox = () => {
     const [allCharacteristics, setAllCharacteristics] = useState({
@@ -61,7 +64,8 @@ const MorphologicalBox = () => {
     }
 
     const getAllCharacteristics = async () => {
-        await fetch('http://141.45.92.192:9004/buis/get-characteristics')
+        await fetch('http://127.0.0.1:9004/buis/get-characteristics')
+            .then(console.log(allCharacteristics))
             .then(response => response.json())
             .then(data => setAllCharacteristics(data[0].characteristic))
     }
@@ -80,7 +84,7 @@ const MorphologicalBox = () => {
     }
 
     const getBuis = async () => {
-        await fetch('http://141.45.92.192:9004/buis/get-buis')
+        await fetch('http://127.0.0.1:9004/buis/get-buis')
             .then(response => response.json())
             .then(data => {
                 setBuiList(data)
