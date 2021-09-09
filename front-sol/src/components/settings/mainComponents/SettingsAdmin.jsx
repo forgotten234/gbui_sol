@@ -65,7 +65,7 @@ const SettingsAdmin = () => {
                             </div>
                             <div className="settingsButton d-grid gap-2">
                                 <Button variant="outline-warning" onClick={showOnlyForm}>
-                                    Persöbliche Daten ändern
+                                    Persönliche Daten ändern
                                 </Button>
                             </div>
                             <div className="settingsButton d-grid gap-2">
