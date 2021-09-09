@@ -3,7 +3,7 @@ import './styles.css'
 import {Container, Row, Col, Table, Image, Button, Accordion, Card} from 'react-bootstrap'
 import {PersonFill, TelephoneFill, EnvelopeFill, StarFill} from 'react-bootstrap-icons'
 import BuiDetailCard from './BuiDetailCard'
-import {Transition} from 'react-transition-group'
+import BuiRating from './BuiRating'
 
 
 function BuiDetail(props){
