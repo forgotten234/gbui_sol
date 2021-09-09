@@ -126,10 +126,17 @@ function BuiDetail(props){
                         <hr />
                        <Container>
                            <h4>Bewertung</h4>
-                           <div>
-                                <StarFill className="align-middle"/>
-                                <span className="align-middle mx-2 badge alert-warning p-2">{SelectedBui[0].rating} von 5</span>
-                           </div>
+                           <Row>
+                                <Col>
+                                  <div>
+                                    <StarFill className="align-middle"/>
+                                    <span className="align-middle mx-2 badge alert-warning p-2">{SelectedBui[0].rating} von 5</span>
+                                  </div>
+                                </Col>
+                                <Col>
+                                    <BuiRating id={props.match.params.id}/>
+                                </Col>
+                           </Row>
                        </Container>
                        <hr />
                     </Col>

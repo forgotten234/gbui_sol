@@ -101,6 +101,23 @@ router.post("/create-bui", async (req, res) => {
         res.send({error: "Something went wrong"})
     }
 })
+router.patch("/update-bui/:_id", async (req, res) => {
+    try {
+        const bui = await Bui.findOne({_id: req.params._id})
+        if(req.body.rating) {
+            bui.rating = req.body.rating
+        }
+        if(req.body.count) {
+            bui.count = req.body.count
+        }
+        await bui.save()
+        res.send(bui)
+    } catch {
+        res.status(404)
+        res.send({error: "Something went wrong"})
+    }
+})
+
 
 module.exports = router;
 
