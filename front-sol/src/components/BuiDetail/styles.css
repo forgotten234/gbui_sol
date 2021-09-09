@@ -30,3 +30,11 @@
 .bui-logo{
     max-height: 20em;
 }
+.star-rating{
+    font-size: 2em;
+    margin-right: 0.1em ;
+    cursor: pointer;
+}
+.input-rating{
+    display: none;
+}
