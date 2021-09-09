@@ -150,7 +150,7 @@ const EditInquiry = (props) => {
         props.inqData && props.inqData.contact ?
             <Modal show={props.editInq} onHide={changeStatusOfBui}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Edit BUI: {props.inqData.name}</Modal.Title>
+                    <Modal.Title>Editiere Anfrage: {props.inqData.name}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Table>
@@ -160,31 +160,31 @@ const EditInquiry = (props) => {
                                 <td>{props.inqData.inquiryStatus}</td>
                             </tr>
                             <tr>
-                                <td>Description:</td>
+                                <td>Beschreibung:</td>
                                 <td>{props.inqData.description}</td>
                             </tr>
                             <tr>
-                                <td>Webpage:</td>
+                                <td>Webseite:</td>
                                 <td>{props.inqData.webpage}</td>
                             </tr>
                             <tr>
-                                <td>Cost:</td>
+                                <td>Kosten:</td>
                                 <td>{props.inqData.cost}</td>
                             </tr>
                             <tr>
-                                <td>Name contact person:</td>
+                                <td>Name Kontaktperson:</td>
                                 <td>{props.inqData.contact.ap_name}</td>
                             </tr>
                             <tr>
-                                <td>Surname contact person:</td>
+                                <td>Vorname Kontaktperson:</td>
                                 <td>{props.inqData.contact.ap_surname}</td>
                             </tr>
                             <tr>
-                                <td>Phone number contact person:</td>
+                                <td>Telefonnummer Kontaktperson:</td>
                                 <td>{props.inqData.contact.ap_phoneNumber}</td>
                             </tr>
                             <tr>
-                                <td>E-Mail contact person:</td>
+                                <td>E-Mail Kontaktperson:</td>
                                 <td>{props.inqData.contact.ap_email}</td>
                             </tr>
                             <tr>
@@ -239,9 +239,9 @@ const EditInquiry = (props) => {
                     </Table>
                 </Modal.Body>
                 <Modal.Footer>
-                    <DropdownButton variant="outline-warning" title="Change Status BUI">
-                        <Dropdown.Item onClick={() => setInqstatus("ACCEPTED")}>Accepted</Dropdown.Item>
-                        <Dropdown.Item onClick={() => setInqstatus("DENIED")}>Denied</Dropdown.Item>
+                    <DropdownButton variant="outline-warning" title="Änder Status Anfrage">
+                        <Dropdown.Item onClick={() => setInqstatus("ACCEPTED")}>Akzeptieren</Dropdown.Item>
+                        <Dropdown.Item onClick={() => setInqstatus("DENIED")}>Verweigern</Dropdown.Item>
                     </DropdownButton>
                     <Button variant="outline-warning" onClick={changeStatusOfBui}>
                         Okay
