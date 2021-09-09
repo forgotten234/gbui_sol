@@ -12,6 +12,7 @@ function BuiRating(props){
     const [isRated, setIsRated] = useState(false)
 
     useEffect(()=>{
+        setIsRated(true)
         saveData()
     },[rating])
 
