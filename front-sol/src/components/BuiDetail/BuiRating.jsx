@@ -12,12 +12,13 @@ function BuiRating(props){
     const [isRated, setIsRated] = useState(false)
 
     useEffect(()=>{
-        setIsRated(true)
+        
         saveData()
     },[rating])
 
 
     const handleClick = (e) =>{
+        setIsRated(true)
         setRating(e.target.value)   
     }
 
