@@ -16,7 +16,7 @@ const SettingsForm = () => {
 
     //this and the useeffect needs to be in the main settings page 
     const fetchData = async () => {
-        await fetch('http://141.45.92.192:9001/users/get-user/' + auth.data.userId)
+        await fetch('http://localhost:9001/users/get-user/' + auth.data.userId)
             .then(response => response.json())
             .then(data => {
                 setPassword(data.password)
@@ -28,7 +28,7 @@ const SettingsForm = () => {
     //by submitting the form all typed in data will be updated
     const onFormSubmit = async (e) => {
         e.preventDefault()
-        await fetch('http://141.45.92.192:9001/users/update-user/' + auth.data.userId, {
+        await fetch('http://localhost:9001/users/update-user/' + auth.data.userId, {
             method: 'PATCH',
             body: JSON.stringify({
                 email: email,

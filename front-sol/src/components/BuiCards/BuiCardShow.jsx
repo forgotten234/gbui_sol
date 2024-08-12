@@ -14,7 +14,7 @@ function BuiCardShow(){
     const [LoadCountList, setLoadCountList] = useState(3)
 
     const getItems = async () => {
-        await fetch("http://141.45.92.192:9004/buis/get-buis")
+        await fetch("http://localhost:9004/buis/get-buis")
         .then(response => response.json())
         .then((items) => {
             setBuiList(items)

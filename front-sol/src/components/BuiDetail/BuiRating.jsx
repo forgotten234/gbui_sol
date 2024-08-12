@@ -23,7 +23,7 @@ function BuiRating(props){
     }
 
     const saveData = async()=>{
-        await fetch('http://141.45.92.192:9004/buis/update-bui/'+ props.id, {
+        await fetch('http://localhost:9004/buis/update-bui/'+ props.id, {
                 method: "PATCH",
                 body: JSON.stringify({
                     rating1234: rating
